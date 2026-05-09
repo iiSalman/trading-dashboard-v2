@@ -38,12 +38,14 @@ jobs:
         run: python tools/build_snapshot.py
 
       - name: Commit & push if changed
+        id: push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data/snapshot.json
           if git diff --cached --quiet; then
             echo "No change in snapshot — skipping commit"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "Refresh snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
@@ -52,6 +54,7 @@ jobs:
             git rebase origin/main || { git rebase --abort; exit 1; }
             if git push origin main; then
               echo "pushed on attempt $i"
+              echo "committed=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             echo "push attempt $i failed (likely raced another run); retrying"
@@ -59,3 +62,20 @@ jobs:
           done
           echo "exhausted push retries"
           exit 1
+
+      - name: Purge jsdelivr CDN cache
+        if: steps.push.outputs.committed == 'true'
+        run: |
+          # jsDelivr's free purge API forces an immediate cache invalidation
+          # so browsers see the new snapshot within seconds instead of waiting
+          # for the natural ~10-15 min TTL.
+          for i in 1 2 3; do
+            if curl -fsS --max-time 20 "https://purge.jsdelivr.net/gh/iiSalman/trading-dashboard-v2@main/docs/data/snapshot.json"; then
+              echo ""
+              echo "purged on attempt $i"
+              exit 0
+            fi
+            echo "purge attempt $i failed; retrying"
+            sleep $((2 * i))
+          done
+          echo "purge failed (CDN will still refresh on its own within ~15 min)"
