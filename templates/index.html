@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Trading Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg:        #0b0f1a;
+      --surface:   #111827;
+      --surface2:  #1a2235;
+      --border:    #1f2d42;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --green:     #10b981;
+      --green-dim: #064e3b;
+      --red:       #ef4444;
+      --red-dim:   #7f1d1d;
+      --yellow:    #f59e0b;
+      --yellow-dim:#78350f;
+      --blue:      #3b82f6;
+      --blue-dim:  #1e3a5f;
+      --purple:    #8b5cf6;
+      --gray:      #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+      min-height: 100vh;
+      font-size: 13px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-icon {
+      width: 32px; height: 32px; background: var(--blue);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: #fff;
+    }
+    .logo-text { font-size: 15px; font-weight: 600; letter-spacing: 0.5px; }
+    .logo-sub  { font-size: 11px; color: var(--muted); }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .date-badge {
+      font-size: 11px; color: var(--muted); letter-spacing: 0.4px;
+    }
+    .status-dot {
+      display: inline-block; width: 8px; height: 8px;
+      border-radius: 50%; margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    .status-open  { background: var(--green); }
+    .status-closed{ background: var(--gray); animation: none; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+    .btn-refresh {
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--text); padding: 7px 16px; border-radius: 8px;
+      cursor: pointer; font-family: inherit; font-size: 12px;
+      transition: all .2s; display: flex; align-items: center; gap: 6px;
+    }
+    .btn-refresh:hover { background: var(--blue-dim); border-color: var(--blue); }
+    .btn-refresh svg { transition: transform .4s; }
+    .btn-refresh.loading svg { animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── LAYOUT ── */
+    main { padding: 20px 24px 40px; max-width: 1400px; margin: 0 auto; }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px; margin-top: 28px;
+    }
+    .section-header h2 {
+      font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .section-header hr {
+      flex: 1; border: none; border-top: 1px solid var(--border);
+    }
+
+    /* ── MARKET OVERVIEW CARDS ── */
+    .market-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .market-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .market-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .market-card.up::before   { background: var(--green); }
+    .market-card.down::before { background: var(--red); }
+    .market-card.flat::before { background: var(--yellow); }
+    .market-card.blue::before { background: var(--blue); }
+    .card-ticker { font-size: 11px; color: var(--muted); letter-spacing: 1px; font-weight: 600; }
+    .card-price  { font-size: 26px; font-weight: 700; margin: 6px 0 4px; letter-spacing: -0.5px; }
+    .card-change { font-size: 13px; font-weight: 600; }
+    .card-change.positive { color: var(--green); }
+    .card-change.negative { color: var(--red); }
+    .card-meta   { margin-top: 14px; display: flex; flex-direction: column; gap: 5px; }
+    .card-row    { display: flex; justify-content: space-between; align-items: center; }
+    .card-label  { font-size: 11px; color: var(--muted); }
+    .card-val    { font-size: 12px; font-weight: 600; }
+
+    /* Bias card */
+    .bias-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .bias-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; }
+    .bias-value { font-size: 22px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .bias-desc  { font-size: 11px; color: var(--muted); line-height: 1.5; }
+    .bias-green { color: var(--green); }
+    .bias-red   { color: var(--red); }
+    .bias-yellow{ color: var(--yellow); }
+    .bias-gray  { color: var(--gray); }
+
+    /* ── TOP PICKS ── */
+    .picks-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .pick-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative; overflow: hidden;
+    }
+    .pick-card.bullish { border-color: #064e3b; }
+    .pick-card.bearish { border-color: #7f1d1d; }
+    .pick-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .pick-card.bullish::before { background: var(--green); }
+    .pick-card.bearish::before { background: var(--red); }
+    .pick-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+    .pick-ticker { font-size: 20px; font-weight: 800; }
+    .direction-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .direction-badge.BULLISH { background: var(--green-dim); color: var(--green); }
+    .direction-badge.BEARISH { background: var(--red-dim);   color: var(--red); }
+    .direction-badge.NEUTRAL { background: #1f2937;          color: var(--gray); }
+    .pick-price  { font-size: 24px; font-weight: 700; margin-bottom: 2px; }
+    .pick-change { font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+    .pick-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .metric-box {
+      background: var(--surface2);
+      border-radius: 8px; padding: 10px 12px;
+    }
+    .metric-label { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; margin-bottom: 3px; }
+    .metric-value { font-size: 14px; font-weight: 700; }
+    .score-row { display: flex; align-items: center; gap: 6px; margin-top: 14px; }
+    .score-label { font-size: 10px; color: var(--muted); margin-right: 4px; }
+    .score-pip {
+      width: 22px; height: 8px; border-radius: 3px; background: var(--surface2);
+      transition: background .3s;
+    }
+    .score-pip.filled.BULLISH { background: var(--green); }
+    .score-pip.filled.BEARISH { background: var(--red); }
+    .pick-action {
+      margin-top: 14px; padding: 10px; border-radius: 8px;
+      font-size: 11px; line-height: 1.6; font-weight: 500;
+    }
+    .pick-action.bullish { background: var(--green-dim); color: #6ee7b7; }
+    .pick-action.bearish { background: var(--red-dim);   color: #fca5a5; }
+
+    /* ── WATCHLIST TABLE ── */
+    .table-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead th {
+      background: var(--surface2);
+      padding: 11px 14px;
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    tbody tr {
+      border-top: 1px solid var(--border);
+      transition: background .15s;
+    }
+    tbody tr:hover { background: var(--surface2); }
+    td {
+      padding: 12px 14px;
+      font-size: 13px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .td-ticker { font-weight: 700; font-size: 14px; }
+    .td-price  { font-weight: 600; }
+    .td-change.up   { color: var(--green); }
+    .td-change.down { color: var(--red); }
+    .td-score { text-align: center; }
+    .score-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 8px;
+      font-weight: 800; font-size: 13px;
+    }
+    .score-5 { background: #064e3b; color: #10b981; }
+    .score-4 { background: #065f46; color: #34d399; }
+    .score-3 { background: #1a3a20; color: #6ee7b7; }
+    .score-2 { background: #1c2a35; color: #93c5fd; }
+    .score-1 { background: #1f2937; color: #6b7280; }
+    .score-0 { background: #1f2937; color: #374151; }
+
+    .pcr-cell { font-weight: 600; }
+    .pcr-bull { color: var(--green); }
+    .pcr-bear { color: var(--red); }
+    .pcr-neut { color: var(--yellow); }
+
+    .gex-pill {
+      font-size: 10px; font-weight: 700; padding: 2px 8px;
+      border-radius: 20px; letter-spacing: 0.5px;
+    }
+    .gex-pos { background: #064e3b; color: var(--green); }
+    .gex-neg { background: #7f1d1d; color: var(--red); }
+
+    .unusual-dot {
+      display: inline-block; width: 8px; height: 8px;
+      border-radius: 50%; background: var(--yellow);
+      animation: pulse 1.5s infinite;
+    }
+
+    .action-cell .direction-badge { font-size: 10px; }
+    .td-expiry { color: var(--muted); font-size: 11px; }
+
+    .premium-bar {
+      display: flex; gap: 3px; align-items: center;
+    }
+    .prem-c { color: var(--green); font-size: 11px; font-weight: 600; }
+    .prem-p { color: var(--red);   font-size: 11px; font-weight: 600; }
+    .prem-sep { color: var(--muted); }
+
+    /* ── LOADING OVERLAY ── */
+    #loading-overlay {
+      position: fixed; inset: 0; background: rgba(11,15,26,.85);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; z-index: 999;
+      gap: 16px;
+    }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    .loading-text { font-size: 13px; color: var(--muted); }
+
+    /* ── EMPTY / ERROR STATES ── */
+    .empty-row td {
+      text-align: center; color: var(--muted);
+      padding: 40px; font-size: 12px;
+    }
+    .error-tag { color: var(--red); font-size: 10px; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 32px;
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+      max-width: 1400px;
+      margin-left: auto; margin-right: auto;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── REFRESH TIMER ── */
+    .timer-text { font-size: 10px; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<!-- Loading overlay -->
+<div id="loading-overlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Fetching market data…</div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">Q</div>
+    <div>
+      <div class="logo-text">Quant Dashboard</div>
+      <div class="logo-sub">Daily Trading Analysis</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div>
+      <div class="date-badge" id="hdr-date">—</div>
+      <div class="date-badge" style="margin-top:2px">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="hdr-status">—</span>
+      </div>
+    </div>
+    <div class="timer-text" id="refresh-timer"></div>
+    <button class="btn-refresh" id="btn-refresh" onclick="forceRefresh()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M1 4v6h6M23 20v-6h-6"/>
+        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+      </svg>
+      Refresh
+    </button>
+  </div>
+</header>
+
+<!-- Main -->
+<main>
+
+  <!-- Market Overview -->
+  <div class="section-header">
+    <h2>Market Overview</h2><hr/>
+  </div>
+  <div class="market-row">
+    <div class="market-card" id="spy-card">
+      <div class="card-ticker">SPY</div>
+      <div class="card-price" id="spy-price">—</div>
+      <div class="card-change" id="spy-change">—</div>
+      <div class="card-meta">
+        <div class="card-row">
+          <span class="card-label">GEX Regime</span>
+          <span class="card-val" id="spy-gex">—</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">P/C Ratio</span>
+          <span class="card-val" id="spy-pcr">—</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Nearest Expiry</span>
+          <span class="card-val" id="spy-expiry">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="market-card blue">
+      <div class="card-ticker">MARKET BIAS</div>
+      <div class="bias-value" id="bias-value">—</div>
+      <div class="bias-desc" id="bias-desc">Loading…</div>
+      <div class="card-meta" style="margin-top:16px">
+        <div class="card-row">
+          <span class="card-label">Day Type</span>
+          <span class="card-val" id="day-type">—</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Suggested Approach</span>
+          <span class="card-val" id="day-approach">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="market-card" id="qqq-card" style="display:none">
+      <!-- filled dynamically if QQQ is in watchlist -->
+    </div>
+
+    <div class="market-card" style="background: var(--surface2);">
+      <div class="card-ticker">SCORING KEY</div>
+      <div class="card-meta" style="margin-top:8px; gap: 7px;">
+        <div class="card-row"><span class="card-label">≥ 4 pts</span><span class="card-val" style="color:var(--green)">Strong — trade it</span></div>
+        <div class="card-row"><span class="card-label">3 pts</span><span class="card-val" style="color:var(--yellow)">Good — watch closely</span></div>
+        <div class="card-row"><span class="card-label">1-2 pts</span><span class="card-val" style="color:var(--muted)">Weak — skip</span></div>
+        <div class="card-row"><span class="card-label" style="color:var(--yellow)">● Unusual</span><span class="card-val">Vol/OI spike today</span></div>
+        <div class="card-row"><span class="card-label">PCR &lt; 0.7</span><span class="card-val" style="color:var(--green)">Strong calls</span></div>
+        <div class="card-row"><span class="card-label">PCR &gt; 1.5</span><span class="card-val" style="color:var(--red)">Strong puts</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Picks -->
+  <div class="section-header" id="picks-section-header">
+    <h2>Top Picks for Today</h2><hr/>
+  </div>
+  <div class="picks-row" id="picks-row">
+    <div style="color:var(--muted); font-size:12px; padding:20px 0">Loading picks…</div>
+  </div>
+
+  <!-- Full Watchlist -->
+  <div class="section-header">
+    <h2>Full Watchlist</h2><hr/>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Price</th>
+          <th>Change</th>
+          <th>Score</th>
+          <th>Direction</th>
+          <th>P/C (Vol)</th>
+          <th>GEX</th>
+          <th>Call $M</th>
+          <th>Put $M</th>
+          <th>Unusual</th>
+          <th>Nearest Expiry</th>
+          <th>DTE</th>
+        </tr>
+      </thead>
+      <tbody id="watchlist-body">
+        <tr class="empty-row"><td colspan="12">Loading…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Premium chart -->
+  <div class="section-header">
+    <h2>Premium Flow — Call vs Put ($M)</h2><hr/>
+  </div>
+  <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px;">
+    <canvas id="premChart" height="80"></canvas>
+  </div>
+
+</main>
+
+<footer>
+  Data sourced from Yahoo Finance via yfinance. GEX approximated using Black-Scholes gamma × OI × 100 × Spot.
+  P/C ratio = put volume / call volume for nearest expiry.
+  Unusual activity = (today vol / open interest) &gt; 0.4.
+  For institutional-grade flow (sweeps, dark pool, net drift), visit
+  <a href="https://v3.quantdata.us" target="_blank">v3.quantdata.us</a>.
+  This dashboard refreshes every 5 minutes. Not financial advice.
+</footer>
+
+<script>
+  let premChart = null;
+  let refreshCountdown = 300;
+  let countdownInterval = null;
+
+  async function fetchData(force = false) {
+    const btn = document.getElementById('btn-refresh');
+    btn.classList.add('loading');
+    document.getElementById('loading-overlay').style.display = 'flex';
+    try {
+      const url = force ? '/api/refresh' : '/api/data';
+      const res = await fetch(url);
+      const data = await res.json();
+      render(data);
+      refreshCountdown = 300;
+    } catch (e) {
+      console.error(e);
+    } finally {
+      btn.classList.remove('loading');
+      document.getElementById('loading-overlay').style.display = 'none';
+    }
+  }
+
+  function forceRefresh() {
+    fetchData(true);
+  }
+
+  function render(data) {
+    // Header
+    document.getElementById('hdr-date').textContent = data.date || '—';
+    const statusEl  = document.getElementById('hdr-status');
+    const statusDot = document.getElementById('status-dot');
+    statusEl.textContent = data.market_status;
+    statusDot.className = 'status-dot ' + (data.market_status === 'OPEN' ? 'status-open' : 'status-closed');
+
+    // SPY card
+    const spy = data.spy || {};
+    renderMarketCard('spy-card', spy, spy.change >= 0 ? 'up' : 'down');
+    setEl('spy-price', spy.price ? '$' + fmt(spy.price) : '—');
+    setEl('spy-change', spy.change !== undefined ? (spy.change >= 0 ? '+' : '') + spy.change + '%' : '—',
+          spy.change >= 0 ? 'card-change positive' : 'card-change negative');
+    setEl('spy-gex', spy.gex_regime || '—', spy.gex_regime === 'POSITIVE' ? 'card-val' : 'card-val');
+    const spyGexEl = document.getElementById('spy-gex');
+    if (spyGexEl) spyGexEl.style.color = spy.gex_regime === 'POSITIVE' ? 'var(--green)' : 'var(--red)';
+    setEl('spy-pcr', spy.pcr_vol !== undefined ? spy.pcr_vol : '—');
+    setEl('spy-expiry', spy.expiry ? spy.expiry + (spy.dte !== null ? ` (${spy.dte}d)` : '') : '—');
+
+    // Market Bias
+    const biasMap = {
+      TREND_UP:   { label: 'TREND UP ↑',   cls: 'bias-green' },
+      TREND_DOWN: { label: 'TREND DOWN ↓', cls: 'bias-red'   },
+      BULLISH:    { label: 'BULLISH ↑',    cls: 'bias-green' },
+      BEARISH:    { label: 'BEARISH ↓',    cls: 'bias-red'   },
+      RANGE:      { label: 'RANGE DAY ↔',  cls: 'bias-yellow'},
+      NEUTRAL:    { label: 'NEUTRAL —',    cls: 'bias-gray'  },
+    };
+    const biasInfo = biasMap[data.market_bias] || biasMap.NEUTRAL;
+    const biasEl = document.getElementById('bias-value');
+    biasEl.textContent = biasInfo.label;
+    biasEl.className = 'bias-value ' + biasInfo.cls;
+    setEl('bias-desc', data.bias_desc || '—');
+
+    const dayTypeMap = {
+      TREND_UP:   ['Momentum / Trend',  'Follow breakouts, add on pullbacks'],
+      TREND_DOWN: ['Momentum / Trend',  'Follow breakdowns, sell rips'],
+      BULLISH:    ['Mild Upside Bias',  'Favor calls, reduce put exposure'],
+      BEARISH:    ['Mild Downside Bias','Favor puts, reduce call exposure'],
+      RANGE:      ['Mean Reversion',    'Fade extremes, trade the range'],
+      NEUTRAL:    ['Low Conviction',    'Reduce size, wait for clarity'],
+    };
+    const [dayType, approach] = dayTypeMap[data.market_bias] || dayTypeMap.NEUTRAL;
+    setEl('day-type', dayType);
+    setEl('day-approach', approach);
+
+    // Top Picks
+    renderPicks(data.top_picks || [], data.market_bias);
+
+    // Watchlist table
+    renderTable(data.tickers || []);
+
+    // Chart
+    renderChart(data.tickers || []);
+  }
+
+  function renderMarketCard(id, d, cls) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.className = 'market-card ' + cls;
+  }
+
+  function renderPicks(picks, bias) {
+    const container = document.getElementById('picks-row');
+    if (!picks.length) {
+      container.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:20px 0">No strong picks today (score &lt; 3). Consider sitting out or waiting for clarity.</div>';
+      return;
+    }
+    container.innerHTML = picks.map((p, i) => {
+      const dir = p.direction || 'NEUTRAL';
+      const dirLow = dir.toLowerCase();
+      const instrument = dir === 'BULLISH'
+        ? `ATM Call — ${p.expiry || '?'} expiry`
+        : dir === 'BEARISH'
+        ? `ATM Put — ${p.expiry || '?'} expiry`
+        : 'Wait for clearer signal';
+      const entryHint = bias === 'RANGE'
+        ? 'Entry near GEX pin on pullback'
+        : 'Entry on break of key level';
+      return `
+        <div class="pick-card ${dirLow}">
+          <div class="pick-header">
+            <div class="pick-ticker">${p.ticker}</div>
+            <span class="direction-badge ${dir}">${dir}</span>
+          </div>
+          <div class="pick-price">$${fmt(p.price)}</div>
+          <div class="pick-change ${p.change >= 0 ? 'positive' : 'negative'} card-change" style="margin-bottom:14px">
+            ${p.change >= 0 ? '+' : ''}${p.change}% today
+          </div>
+          <div class="pick-metrics">
+            <div class="metric-box">
+              <div class="metric-label">P/C RATIO</div>
+              <div class="metric-value ${pcrClass(p.pcr_vol)}">${p.pcr_vol ?? '—'}</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">GEX REGIME</div>
+              <div class="metric-value" style="color:${p.gex_regime==='POSITIVE'?'var(--green)':'var(--red)'}">
+                ${p.gex_regime || '—'}
+              </div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">CALL PREM</div>
+              <div class="metric-value" style="color:var(--green)">$${p.call_premium ?? 0}M</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">PUT PREM</div>
+              <div class="metric-value" style="color:var(--red)">$${p.put_premium ?? 0}M</div>
+            </div>
+          </div>
+          <div class="score-row">
+            <span class="score-label">SCORE</span>
+            ${[1,2,3,4,5].map(n => `<div class="score-pip ${n <= p.score ? 'filled ' + dir : ''}"></div>`).join('')}
+            <span style="font-size:12px;font-weight:700;margin-left:4px">${p.score}/5</span>
+          </div>
+          <div class="pick-action ${dirLow}">
+            <strong>Suggested:</strong> ${instrument}<br/>
+            <strong>Nearest expiry:</strong> ${p.expiry || '—'} (${p.dte ?? '?'} DTE)<br/>
+            <strong>Entry hint:</strong> ${entryHint}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderTable(tickers) {
+    const tbody = document.getElementById('watchlist-body');
+    if (!tickers.length) {
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="12">No data available</td></tr>';
+      return;
+    }
+    tbody.innerHTML = tickers.map(t => {
+      if (t.error && !t.price) {
+        return `<tr>
+          <td class="td-ticker">${t.ticker}</td>
+          <td colspan="11" class="error-tag">Error: ${t.error}</td>
+        </tr>`;
+      }
+      const dir = t.direction || 'NEUTRAL';
+      const sc  = t.score || 0;
+      const chgCls = t.change >= 0 ? 'up' : 'down';
+      const pcrVal = t.pcr_vol;
+      return `<tr>
+        <td class="td-ticker">${t.ticker}</td>
+        <td class="td-price">$${fmt(t.price)}</td>
+        <td class="td-change ${chgCls}">${t.change >= 0 ? '+' : ''}${t.change}%</td>
+        <td class="td-score"><span class="score-badge score-${sc}">${sc}</span></td>
+        <td><span class="direction-badge ${dir}">${dir}</span></td>
+        <td class="pcr-cell ${pcrClass(pcrVal)}">${pcrVal ?? '—'}</td>
+        <td><span class="gex-pill ${t.gex_regime === 'POSITIVE' ? 'gex-pos' : 'gex-neg'}">${t.gex_regime || '—'}</span></td>
+        <td class="prem-c">$${t.call_premium ?? 0}M</td>
+        <td class="prem-p">$${t.put_premium ?? 0}M</td>
+        <td style="text-align:center">${t.unusual ? '<span class="unusual-dot" title="Unusual options activity"></span>' : '<span style="color:var(--muted)">—</span>'}</td>
+        <td class="td-expiry">${t.expiry || '—'}</td>
+        <td class="td-expiry">${t.dte !== undefined && t.dte !== null ? t.dte + 'd' : '—'}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderChart(tickers) {
+    const labels = tickers.map(t => t.ticker);
+    const callData = tickers.map(t => t.call_premium || 0);
+    const putData  = tickers.map(t => -(t.put_premium || 0));
+
+    const ctx = document.getElementById('premChart').getContext('2d');
+    if (premChart) premChart.destroy();
+
+    premChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Call Premium ($M)',
+            data: callData,
+            backgroundColor: 'rgba(16,185,129,0.7)',
+            borderColor: 'rgba(16,185,129,1)',
+            borderWidth: 1,
+            borderRadius: 4,
+          },
+          {
+            label: 'Put Premium ($M)',
+            data: putData,
+            backgroundColor: 'rgba(239,68,68,0.7)',
+            borderColor: 'rgba(239,68,68,1)',
+            borderWidth: 1,
+            borderRadius: 4,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: '#94a3b8', font: { family: 'SF Mono, monospace', size: 11 } }
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => `${ctx.dataset.label}: $${Math.abs(ctx.raw).toFixed(2)}M`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid:  { color: '#1f2d42' },
+            ticks: { color: '#94a3b8', font: { family: 'SF Mono, monospace', size: 11 } },
+          },
+          y: {
+            grid:  { color: '#1f2d42' },
+            ticks: {
+              color: '#94a3b8',
+              font: { family: 'SF Mono, monospace', size: 11 },
+              callback: v => '$' + Math.abs(v).toFixed(1) + 'M',
+            },
+          },
+        },
+      },
+    });
+  }
+
+  // ── Helpers ──
+  function setEl(id, text, cls) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = text;
+    if (cls) el.className = cls;
+  }
+
+  function fmt(n) {
+    if (n === undefined || n === null) return '—';
+    return parseFloat(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function pcrClass(pcr) {
+    if (pcr === undefined || pcr === null) return '';
+    if (pcr < 0.85)  return 'pcr-bull';
+    if (pcr > 1.2)   return 'pcr-bear';
+    return 'pcr-neut';
+  }
+
+  // ── Countdown timer ──
+  function startCountdown() {
+    if (countdownInterval) clearInterval(countdownInterval);
+    countdownInterval = setInterval(() => {
+      refreshCountdown--;
+      const min = Math.floor(refreshCountdown / 60);
+      const sec = refreshCountdown % 60;
+      document.getElementById('refresh-timer').textContent =
+        `Auto-refresh in ${min}:${String(sec).padStart(2,'0')}`;
+      if (refreshCountdown <= 0) {
+        refreshCountdown = 300;
+        fetchData(false);
+      }
+    }, 1000);
+  }
+
+  // Boot
+  fetchData(false).then(() => startCountdown());
+</script>
+</body>
+</html>
