@@ -86,6 +86,96 @@ def _i(x, default=0):
         return default
 
 
+def _score_chain(spot, pct_change, dte, chain):
+    """Compute PCR / GEX / premium / unusual / score / direction for a single
+    option chain. Same scoring logic the dashboard has always used — just
+    factored out so it can run against multiple expiries per ticker."""
+    T = max(dte / 365.0, 1 / 365.0)
+    calls = [o for o in chain if o.get('option_type') == 'call']
+    puts = [o for o in chain if o.get('option_type') == 'put']
+
+    def row_gex(opt):
+        greeks = opt.get('greeks') or {}
+        g = _f(greeks.get('gamma'))
+        if g == 0.0:
+            K = _f(opt.get('strike'))
+            iv = _f(greeks.get('mid_iv') or greeks.get('smv_vol') or 0.3, 0.3)
+            g = calculate_gamma(spot, K, T, iv)
+        oi = _i(opt.get('open_interest'))
+        return g * oi * 100 * spot
+
+    call_gex = sum(row_gex(o) for o in calls)
+    put_gex = sum(row_gex(o) for o in puts)
+    net_gex = call_gex - put_gex
+
+    call_vol = sum(_i(o.get('volume')) for o in calls)
+    put_vol = sum(_i(o.get('volume')) for o in puts)
+    call_oi = sum(_i(o.get('open_interest')) for o in calls)
+    put_oi = sum(_i(o.get('open_interest')) for o in puts)
+
+    pcr_vol = round(put_vol / call_vol, 2) if call_vol > 0 else 1.0
+    pcr_oi = round(put_oi / call_oi, 2) if call_oi > 0 else 1.0
+
+    call_premium = sum(_f(o.get('last')) * _i(o.get('volume')) * 100 for o in calls)
+    put_premium = sum(_f(o.get('last')) * _i(o.get('volume')) * 100 for o in puts)
+
+    total_vol = call_vol + put_vol
+    total_oi = call_oi + put_oi
+    unusual = (total_oi > 0) and ((total_vol / total_oi) > 0.4)
+
+    score = 0
+    direction = 'NEUTRAL'
+
+    if pcr_vol <= 0.6:
+        score += 2; direction = 'BULLISH'
+    elif pcr_vol <= 0.85:
+        score += 1; direction = 'BULLISH'
+    elif pcr_vol >= 1.6:
+        score += 2; direction = 'BEARISH'
+    elif pcr_vol >= 1.2:
+        score += 1; direction = 'BEARISH'
+
+    if call_premium > 0 and put_premium > 0:
+        ratio = call_premium / put_premium
+        if ratio >= 2.0:
+            score += 1
+            if direction != 'BEARISH':
+                direction = 'BULLISH'
+        elif ratio <= 0.5:
+            score += 1
+            if direction != 'BULLISH':
+                direction = 'BEARISH'
+
+    if unusual:
+        score += 1
+
+    if net_gex > 0 and direction == 'BULLISH':
+        score += 1
+    elif net_gex < 0 and direction == 'BEARISH':
+        score += 1
+
+    if pct_change > 1.5 and direction == 'BULLISH':
+        score += 1
+    elif pct_change < -1.5 and direction == 'BEARISH':
+        score += 1
+
+    score = min(score, 5)
+
+    return {
+        'pcr_vol': pcr_vol,
+        'pcr_oi': pcr_oi,
+        'gex': round(net_gex / 1e6, 2),
+        'gex_regime': 'POSITIVE' if net_gex > 0 else 'NEGATIVE',
+        'call_premium': round(call_premium / 1e6, 2),
+        'put_premium': round(put_premium / 1e6, 2),
+        'unusual': unusual,
+        'score': score,
+        'direction': direction,
+        'call_vol': call_vol,
+        'put_vol': put_vol,
+    }
+
+
 def analyze_ticker(ticker):
     try:
         quote = get_quote(ticker)
@@ -107,91 +197,43 @@ def analyze_ticker(ticker):
                 'volume': volume, 'score': 0, 'direction': 'NEUTRAL',
                 'expiry': None, 'dte': None, 'gex': 0, 'gex_regime': 'N/A',
                 'pcr_vol': 1.0, 'pcr_oi': 1.0, 'call_premium': 0, 'put_premium': 0,
-                'unusual': False, 'error': 'No options listed',
+                'unusual': False,
+                'score_next_week': None, 'direction_next_week': None,
+                'expiry_next_week': None, 'dte_next_week': None,
+                'error': 'No options listed',
             }
 
         today = date.today()
-        nearest_expiry = next(
-            (e for e in expirations if datetime.strptime(e, '%Y-%m-%d').date() >= today),
-            None,
+        future_exps = sorted(
+            e for e in expirations
+            if datetime.strptime(e, '%Y-%m-%d').date() >= today
         )
-        if not nearest_expiry:
+        if not future_exps:
             return {'ticker': ticker, 'error': 'No future expiry', 'score': 0, 'direction': 'NEUTRAL'}
 
-        exp_date = datetime.strptime(nearest_expiry, '%Y-%m-%d').date()
-        dte = (exp_date - today).days
-        T = max(dte / 365.0, 1 / 365.0)
+        nearest_expiry = future_exps[0]
+        nearest_dte = (datetime.strptime(nearest_expiry, '%Y-%m-%d').date() - today).days
 
-        chain = get_chain(ticker, nearest_expiry)
-        calls = [o for o in chain if o.get('option_type') == 'call']
-        puts = [o for o in chain if o.get('option_type') == 'put']
+        # "Next week" = first expiry strictly after the nearest AND >= 7 days
+        # from today. Gives "one more week of theta" regardless of weekday.
+        next_week_expiry = next(
+            (e for e in future_exps
+             if e != nearest_expiry
+             and (datetime.strptime(e, '%Y-%m-%d').date() - today).days >= 7),
+            None,
+        )
 
-        def row_gex(opt):
-            greeks = opt.get('greeks') or {}
-            g = _f(greeks.get('gamma'))
-            if g == 0.0:
-                K = _f(opt.get('strike'))
-                iv = _f(greeks.get('mid_iv') or greeks.get('smv_vol') or 0.3, 0.3)
-                g = calculate_gamma(spot, K, T, iv)
-            oi = _i(opt.get('open_interest'))
-            return g * oi * 100 * spot
+        primary = _score_chain(spot, pct_change, nearest_dte, get_chain(ticker, nearest_expiry))
 
-        call_gex = sum(row_gex(o) for o in calls)
-        put_gex = sum(row_gex(o) for o in puts)
-        net_gex = call_gex - put_gex
-
-        call_vol = sum(_i(o.get('volume')) for o in calls)
-        put_vol = sum(_i(o.get('volume')) for o in puts)
-        call_oi = sum(_i(o.get('open_interest')) for o in calls)
-        put_oi = sum(_i(o.get('open_interest')) for o in puts)
-
-        pcr_vol = round(put_vol / call_vol, 2) if call_vol > 0 else 1.0
-        pcr_oi = round(put_oi / call_oi, 2) if call_oi > 0 else 1.0
-
-        call_premium = sum(_f(o.get('last')) * _i(o.get('volume')) * 100 for o in calls)
-        put_premium = sum(_f(o.get('last')) * _i(o.get('volume')) * 100 for o in puts)
-
-        total_vol = call_vol + put_vol
-        total_oi = call_oi + put_oi
-        unusual = (total_oi > 0) and ((total_vol / total_oi) > 0.4)
-
-        score = 0
-        direction = 'NEUTRAL'
-
-        if pcr_vol <= 0.6:
-            score += 2; direction = 'BULLISH'
-        elif pcr_vol <= 0.85:
-            score += 1; direction = 'BULLISH'
-        elif pcr_vol >= 1.6:
-            score += 2; direction = 'BEARISH'
-        elif pcr_vol >= 1.2:
-            score += 1; direction = 'BEARISH'
-
-        if call_premium > 0 and put_premium > 0:
-            ratio = call_premium / put_premium
-            if ratio >= 2.0:
-                score += 1
-                if direction != 'BEARISH':
-                    direction = 'BULLISH'
-            elif ratio <= 0.5:
-                score += 1
-                if direction != 'BULLISH':
-                    direction = 'BEARISH'
-
-        if unusual:
-            score += 1
-
-        if net_gex > 0 and direction == 'BULLISH':
-            score += 1
-        elif net_gex < 0 and direction == 'BEARISH':
-            score += 1
-
-        if pct_change > 1.5 and direction == 'BULLISH':
-            score += 1
-        elif pct_change < -1.5 and direction == 'BEARISH':
-            score += 1
-
-        score = min(score, 5)
+        nw_score = nw_direction = nw_dte = None
+        if next_week_expiry:
+            nw_dte = (datetime.strptime(next_week_expiry, '%Y-%m-%d').date() - today).days
+            try:
+                nw = _score_chain(spot, pct_change, nw_dte, get_chain(ticker, next_week_expiry))
+                nw_score = nw['score']
+                nw_direction = nw['direction']
+            except Exception:
+                pass
 
         return {
             'ticker': ticker,
@@ -199,18 +241,12 @@ def analyze_ticker(ticker):
             'change': pct_change,
             'volume': volume,
             'expiry': nearest_expiry,
-            'dte': dte,
-            'gex': round(net_gex / 1e6, 2),
-            'gex_regime': 'POSITIVE' if net_gex > 0 else 'NEGATIVE',
-            'pcr_vol': pcr_vol,
-            'pcr_oi': pcr_oi,
-            'call_premium': round(call_premium / 1e6, 2),
-            'put_premium': round(put_premium / 1e6, 2),
-            'unusual': unusual,
-            'score': score,
-            'direction': direction,
-            'call_vol': call_vol,
-            'put_vol': put_vol,
+            'dte': nearest_dte,
+            **primary,
+            'expiry_next_week': next_week_expiry,
+            'dte_next_week': nw_dte,
+            'score_next_week': nw_score,
+            'direction_next_week': nw_direction,
         }
 
     except Exception as e:

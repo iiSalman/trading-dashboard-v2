@@ -455,6 +455,7 @@
           <th>Price</th>
           <th>Change</th>
           <th>Score</th>
+          <th title="Same scoring logic applied to the next available weekly expiry (≥7 days from today)">Next Wk</th>
           <th>Direction</th>
           <th>P/C (Vol)</th>
           <th>GEX</th>
@@ -466,7 +467,7 @@
         </tr>
       </thead>
       <tbody id="watchlist-body">
-        <tr class="empty-row"><td colspan="12">Loading…</td></tr>
+        <tr class="empty-row"><td colspan="13">Loading…</td></tr>
       </tbody>
     </table>
   </div>
@@ -680,18 +681,27 @@
   function renderTable(tickers) {
     const tbody = document.getElementById('watchlist-body');
     if (!tickers.length) {
-      tbody.innerHTML = '<tr class="empty-row"><td colspan="12">No data available</td></tr>';
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="13">No data available</td></tr>';
       return;
     }
     tbody.innerHTML = tickers.map(t => {
       if (t.error && !t.price) {
         return `<tr>
           <td class="td-ticker">${t.ticker}</td>
-          <td colspan="11" class="error-tag">Error: ${t.error}</td>
+          <td colspan="12" class="error-tag">Error: ${t.error}</td>
         </tr>`;
       }
       const dir = t.direction || 'NEUTRAL';
       const sc  = t.score || 0;
+      const scNw = t.score_next_week;
+      const nwExp = t.expiry_next_week;
+      const nwDte = t.dte_next_week;
+      const nwTitle = (nwExp != null && nwDte != null)
+        ? `Next-week expiry ${nwExp} (${nwDte}d) · same scoring logic`
+        : 'No next-week expiry available';
+      const nwCell = (scNw === null || scNw === undefined)
+        ? '<span style="color:var(--muted)">—</span>'
+        : `<span class="score-badge score-${scNw}" title="${nwTitle}">${scNw}</span>`;
       const chgCls = t.change >= 0 ? 'up' : 'down';
       const pcrVal = t.pcr_vol;
       return `<tr>
@@ -699,6 +709,7 @@
         <td class="td-price">$${fmt(t.price)}</td>
         <td class="td-change ${chgCls}">${t.change >= 0 ? '+' : ''}${t.change}%</td>
         <td class="td-score"><span class="score-badge score-${sc}">${sc}</span></td>
+        <td class="td-score">${nwCell}</td>
         <td><span class="direction-badge ${dir}">${dir}</span></td>
         <td class="pcr-cell ${pcrClass(pcrVal)}">${pcrVal ?? '—'}</td>
         <td><span class="gex-pill ${t.gex_regime === 'POSITIVE' ? 'gex-pos' : 'gex-neg'}">${t.gex_regime || '—'}</span></td>
