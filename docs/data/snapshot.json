@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-09T22:36:47.486648+00:00",
+  "timestamp": "2026-05-09T23:26:20.125178+00:00",
   "date": "Saturday, May 09 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -49,6 +49,29 @@
       "put_vol": 117914,
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 9,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH"
+    },
+    {
+      "ticker": "RKLB",
+      "price": 105.47,
+      "change": 34.22,
+      "volume": 79519300,
+      "expiry": "2026-05-15",
+      "dte": 6,
+      "pcr_vol": 0.31,
+      "pcr_oi": 0.75,
+      "gex": 8.19,
+      "gex_regime": "POSITIVE",
+      "call_premium": 100.15,
+      "put_premium": 2.42,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 118753,
+      "put_vol": 37092,
+      "expiry_next_week": "2026-05-22",
+      "dte_next_week": 13,
       "score_next_week": 5,
       "direction_next_week": "BULLISH"
     },
@@ -398,12 +421,6 @@
       "direction_next_week": "BULLISH"
     },
     {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
       "ticker": "CRWV",
       "price": 114.15,
       "change": -11.4,
@@ -452,6 +469,29 @@
       "direction_next_week": "BULLISH"
     },
     {
+      "ticker": "RKLB",
+      "price": 105.47,
+      "change": 34.22,
+      "volume": 79519300,
+      "expiry": "2026-05-15",
+      "dte": 6,
+      "pcr_vol": 0.31,
+      "pcr_oi": 0.75,
+      "gex": 8.19,
+      "gex_regime": "POSITIVE",
+      "call_premium": 100.15,
+      "put_premium": 2.42,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 118753,
+      "put_vol": 37092,
+      "expiry_next_week": "2026-05-22",
+      "dte_next_week": 13,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH"
+    },
+    {
       "ticker": "MSTR",
       "price": 187.59,
       "change": 4.31,
@@ -472,29 +512,6 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 13,
       "score_next_week": 3,
-      "direction_next_week": "BULLISH"
-    },
-    {
-      "ticker": "TSLA",
-      "price": 428.35,
-      "change": 4.02,
-      "volume": 64880800,
-      "expiry": "2026-05-11",
-      "dte": 2,
-      "pcr_vol": 0.5,
-      "pcr_oi": 0.66,
-      "gex": 33.62,
-      "gex_regime": "POSITIVE",
-      "call_premium": 271.57,
-      "put_premium": 62.11,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 389228,
-      "put_vol": 193130,
-      "expiry_next_week": "2026-05-18",
-      "dte_next_week": 9,
-      "score_next_week": 5,
       "direction_next_week": "BULLISH"
     }
   ]
