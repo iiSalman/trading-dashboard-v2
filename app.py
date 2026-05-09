@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import numpy as np
 import yfinance as yf
+from curl_cffi import requests as curl_requests
 from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
@@ -17,9 +18,15 @@ _cache = {}
 _cache_lock = threading.Lock()
 CACHE_TTL = 900
 
+_yf_session = curl_requests.Session(impersonate="chrome")
+
+
+def _yf(ticker):
+    return yf.Ticker(ticker, session=_yf_session)
+
 
 def get_quote(ticker):
-    hist = yf.Ticker(ticker).history(period='5d', auto_adjust=False)
+    hist = _yf(ticker).history(period='5d', auto_adjust=False)
     if hist.empty:
         return {}
     last = hist.iloc[-1]
@@ -32,11 +39,11 @@ def get_quote(ticker):
 
 
 def get_expirations(ticker):
-    return list(yf.Ticker(ticker).options or [])
+    return list(_yf(ticker).options or [])
 
 
 def get_chain(ticker, expiration):
-    chain = yf.Ticker(ticker).option_chain(expiration)
+    chain = _yf(ticker).option_chain(expiration)
     rows = []
     for df, kind in [(chain.calls, 'call'), (chain.puts, 'put')]:
         for _, r in df.iterrows():
