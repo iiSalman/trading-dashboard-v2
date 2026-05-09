@@ -549,9 +549,13 @@
                '\nThe GitHub Actions cron regenerates this every 5 min.';
   }
 
-  // Opens GitHub's workflow_dispatch UI in a new tab, then aggressively
-  // polls the static snapshot here. As soon as you click "Run workflow"
-  // on GitHub, this side detects the new commit and re-renders.
+  // 1-click force refresh:
+  //   1. POST to a tiny Render proxy that holds a GitHub PAT
+  //   2. Proxy calls GitHub workflow_dispatch
+  //   3. Poll the static snapshot every 5s until its timestamp advances
+  // Render free-tier may cold-start (~30s); we allow up to 60s for the
+  // initial POST and keep polling regardless.
+  const PROXY_URL = 'https://trading-dashboard-v2.onrender.com/refresh';
   const WORKFLOW_URL =
     'https://github.com/iiSalman/trading-dashboard-v2/actions/workflows/refresh.yml';
   let pollAbort = null;
@@ -566,24 +570,52 @@
     pollAbort = { aborted: false };
     const myAbort = pollAbort;
 
-    const popup = window.open(WORKFLOW_URL, '_blank', 'noopener');
     btn.classList.add('loading');
     btn.disabled = true;
-    if (popup) {
-      setStatus('on GitHub: click "Run workflow" → polling…');
-    } else {
-      // Popup blocked — give the user a fallback they can click manually.
-      setStatus('popup blocked · click here to open GitHub →');
-      const link = document.createElement('a');
-      link.href = WORKFLOW_URL;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = 'Open GitHub Actions';
-      link.style.cssText = 'color:var(--blue);text-decoration:underline;font-size:11px;margin-left:6px';
-      status.appendChild(link);
+    setStatus('triggering rebuild…');
+
+    let dispatched = false;
+    try {
+      const ctrl = new AbortController();
+      const wakeTimer = setTimeout(() => ctrl.abort(), 60_000);
+      let r;
+      try {
+        r = await fetch(PROXY_URL, {
+          method: 'POST',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          signal: ctrl.signal,
+        });
+      } finally {
+        clearTimeout(wakeTimer);
+      }
+
+      if (r.status === 429) {
+        const j = await r.json().catch(() => ({}));
+        setStatus(`rate limited — wait ${j.retry_in_seconds || 30}s`);
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        return;
+      }
+      if (!r.ok) {
+        const detail = await r.text().catch(() => '');
+        console.warn('proxy error', r.status, detail);
+        setStatus('proxy error · opening GitHub fallback');
+        window.open(WORKFLOW_URL, '_blank', 'noopener');
+      } else {
+        dispatched = true;
+        setStatus('build dispatched · waiting for fresh data…');
+      }
+    } catch (e) {
+      console.warn('proxy unreachable', e);
+      setStatus('proxy unreachable · opening GitHub fallback');
+      window.open(WORKFLOW_URL, '_blank', 'noopener');
     }
 
-    const deadline = Date.now() + 180_000; // 3-min cap
+    // Poll the static snapshot until its timestamp advances past the one
+    // we last loaded. Works whether the dispatch came from the proxy or
+    // the manual GitHub fallback.
+    const deadline = Date.now() + 180_000;
     let pollCount = 0;
     try {
       while (!myAbort.aborted && Date.now() < deadline) {
@@ -606,9 +638,10 @@
           }
         } catch (_) { /* keep polling */ }
         const elapsed = pollCount * 5;
-        setStatus(`waiting for fresh data… ${elapsed}s (click "Run workflow" if you haven't)`);
+        const hint = dispatched ? '' : ' (click "Run workflow" on GitHub if you haven\'t)';
+        setStatus(`waiting for fresh data… ${elapsed}s${hint}`);
       }
-      if (!myAbort.aborted) setStatus('still waiting — workflow may not have fired yet');
+      if (!myAbort.aborted) setStatus('still waiting — try again in a bit');
     } finally {
       if (!myAbort.aborted) {
         btn.classList.remove('loading');

@@ -63,3 +63,12 @@ jobs:
           echo "exhausted push retries"
           exit 1
 
+      - name: Keep refresh proxy warm
+        if: always()
+        continue-on-error: true
+        run: |
+          # Render free tier sleeps after 15 min idle. Pinging /health on
+          # every cron run (every 5 min) keeps the Force Refresh button
+          # responsive without cold-start lag.
+          curl -fsS --max-time 10 https://trading-dashboard-v2.onrender.com/health || echo "(proxy ping failed — non-fatal)"
+
