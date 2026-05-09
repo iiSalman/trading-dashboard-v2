@@ -566,10 +566,22 @@
     pollAbort = { aborted: false };
     const myAbort = pollAbort;
 
-    window.open(WORKFLOW_URL, '_blank', 'noopener');
+    const popup = window.open(WORKFLOW_URL, '_blank', 'noopener');
     btn.classList.add('loading');
     btn.disabled = true;
-    setStatus('on GitHub: click "Run workflow" → polling…');
+    if (popup) {
+      setStatus('on GitHub: click "Run workflow" → polling…');
+    } else {
+      // Popup blocked — give the user a fallback they can click manually.
+      setStatus('popup blocked · click here to open GitHub →');
+      const link = document.createElement('a');
+      link.href = WORKFLOW_URL;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'Open GitHub Actions';
+      link.style.cssText = 'color:var(--blue);text-decoration:underline;font-size:11px;margin-left:6px';
+      status.appendChild(link);
+    }
 
     const deadline = Date.now() + 180_000; // 3-min cap
     let pollCount = 0;
