@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-09T21:04:12.428955+00:00",
+  "timestamp": "2026-05-09T21:17:01.217091+00:00",
   "date": "Saturday, May 09 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -74,13 +74,13 @@
       "gex_regime": "POSITIVE",
       "pcr_vol": 0.34,
       "pcr_oi": 0.85,
-      "call_premium": 120.0,
-      "put_premium": 50.84,
+      "call_premium": 120.02,
+      "put_premium": 50.93,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 224487,
-      "put_vol": 76420
+      "call_vol": 224488,
+      "put_vol": 76423
     },
     {
       "ticker": "TSLA",
@@ -227,12 +227,12 @@
       "pcr_vol": 0.78,
       "pcr_oi": 1.04,
       "call_premium": 10.78,
-      "put_premium": 2.72,
+      "put_premium": 2.55,
       "unusual": true,
       "score": 4,
       "direction": "BULLISH",
       "call_vol": 30112,
-      "put_vol": 23465
+      "put_vol": 23446
     },
     {
       "ticker": "META",
@@ -300,15 +300,15 @@
       "dte": 6,
       "gex": 32.47,
       "gex_regime": "POSITIVE",
-      "pcr_vol": 0.57,
+      "pcr_vol": 0.56,
       "pcr_oi": 0.67,
       "call_premium": 30.88,
-      "put_premium": 19.38,
+      "put_premium": 17.44,
       "unusual": false,
       "score": 3,
       "direction": "BULLISH",
       "call_vol": 129453,
-      "put_vol": 73184
+      "put_vol": 73039
     },
     {
       "ticker": "MSFT",
@@ -341,12 +341,12 @@
       "pcr_vol": 0.72,
       "pcr_oi": 0.74,
       "call_premium": 3.27,
-      "put_premium": 8.07,
+      "put_premium": 8.08,
       "unusual": false,
       "score": 2,
       "direction": "BULLISH",
       "call_vol": 12911,
-      "put_vol": 9260
+      "put_vol": 9261
     },
     {
       "ticker": "CRWV",
@@ -418,13 +418,13 @@
       "gex_regime": "POSITIVE",
       "pcr_vol": 0.34,
       "pcr_oi": 0.85,
-      "call_premium": 120.0,
-      "put_premium": 50.84,
+      "call_premium": 120.02,
+      "put_premium": 50.93,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 224487,
-      "put_vol": 76420
+      "call_vol": 224488,
+      "put_vol": 76423
     }
   ]
 }
