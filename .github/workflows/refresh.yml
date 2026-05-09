@@ -17,7 +17,7 @@ permissions:
 
 concurrency:
   group: refresh-snapshot
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   refresh:
@@ -44,7 +44,18 @@ jobs:
           git add docs/data/snapshot.json
           if git diff --cached --quiet; then
             echo "No change in snapshot — skipping commit"
-          else
-            git commit -m "Refresh snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "Refresh snapshot $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; exit 1; }
+            if git push origin main; then
+              echo "pushed on attempt $i"
+              exit 0
+            fi
+            echo "push attempt $i failed (likely raced another run); retrying"
+            sleep $((3 * i))
+          done
+          echo "exhausted push retries"
+          exit 1
