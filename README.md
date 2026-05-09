@@ -1,32 +1,34 @@
 # Quant Dashboard
 
-A small Flask dashboard that scores a watchlist of tickers using live data from Yahoo Finance (yfinance). No API key required.
+Static dashboard that scores a watchlist of tickers using live data from Yahoo Finance.
 
-## Quick start
+**Live:** https://iisalman.github.io/trading-dashboard-v2/
 
-```bash
-pip install -r requirements.txt
-python3 app.py
-```
+## How it works
 
-Then open http://localhost:5050.
+1. A GitHub Actions cron (`*/15 * * * *`, see `.github/workflows/refresh.yml`) runs `python tools/build_snapshot.py`.
+2. That script calls yfinance, computes PCR / GEX / scores / market-bias via `analyzer.py`, and writes `docs/data/snapshot.json`.
+3. The action commits the updated JSON.
+4. GitHub Pages serves `docs/` so the dashboard at `index.html` reads the freshly committed snapshot.
+
+No server, no API key, no laptop dependency. Yahoo rate-limits cloud-host IP ranges (Render, Heroku, etc.); GitHub-hosted runners aren't blocked, which is why this architecture works where a Flask-on-Render setup didn't.
 
 ## Stack
 
-- Flask
-- numpy (Black-Scholes gamma)
-- yfinance (quotes + options chain)
-- Chart.js (frontend, via CDN)
+- Python (numpy, yfinance, curl_cffi) — data pipeline
+- GitHub Actions — scheduler
+- GitHub Pages — hosting
+- Chart.js (CDN) — frontend chart
+- Vanilla HTML/CSS/JS — UI
+
+## Local dev
+
+```bash
+pip install -r requirements.txt
+python tools/build_snapshot.py        # writes docs/data/snapshot.json
+python -m http.server -d docs 8000    # serves the dashboard at localhost:8000
+```
 
 ## Configuration
 
-- `WATCHLIST` and `RISK_FREE_RATE`: edit constants at the top of `app.py`.
-- `PORT`: set the `PORT` env var to override the default 5050.
-
-## Deploy
-
-`render.yaml` is preconfigured for Render. Push this folder to a GitHub repo, connect the repo on Render, and it deploys with no env vars needed. The public URL Render assigns is your shareable link.
-
-## Notes
-
-Yahoo Finance applies per-IP rate limits. The app caches results for 15 minutes (`CACHE_TTL`) and warms the cache on startup. If you grow the watchlist beyond ~20 tickers on a hosted IP you may need a longer TTL or a request-cache layer.
+Edit `WATCHLIST` and `RISK_FREE_RATE` at the top of `analyzer.py`.

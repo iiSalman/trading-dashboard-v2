@@ -1,4 +1,3 @@
-import os
 import time
 import threading
 from datetime import datetime, date
@@ -7,9 +6,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import numpy as np
 import yfinance as yf
 from curl_cffi import requests as curl_requests
-from flask import Flask, render_template, jsonify
-
-app = Flask(__name__)
 
 WATCHLIST = ['NVDA', 'RKLB', 'MSTR', 'TSLA', 'AAPL', 'AMZN', 'PLTR', 'META']
 RISK_FREE_RATE = 0.053
@@ -281,48 +277,3 @@ def get_all_data():
         'tickers': watchlist_results,
         'top_picks': top_picks,
     }
-
-
-def cached_get_all_data():
-    with _cache_lock:
-        if 'main' in _cache:
-            data, ts = _cache['main']
-            if time.time() - ts < CACHE_TTL:
-                return data
-    result = get_all_data()
-    with _cache_lock:
-        _cache['main'] = (result, time.time())
-    return result
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/api/data')
-def api_data():
-    return jsonify(cached_get_all_data())
-
-
-@app.route('/api/refresh')
-def api_refresh():
-    with _cache_lock:
-        _cache.clear()
-    return jsonify(cached_get_all_data())
-
-
-def _warm_cache():
-    try:
-        cached_get_all_data()
-    except Exception as e:
-        print(f"  Cache warm-up failed (will retry on first request): {e}")
-
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5050))
-    print(f"\n  Trading Dashboard running at http://localhost:{port}\n")
-    threading.Thread(target=_warm_cache, daemon=True).start()
-    app.run(debug=False, host='0.0.0.0', port=port)
-else:
-    threading.Thread(target=_warm_cache, daemon=True).start()

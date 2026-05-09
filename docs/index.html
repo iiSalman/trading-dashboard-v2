@@ -462,7 +462,7 @@
   Unusual activity = (today vol / open interest) &gt; 0.4.
   For institutional-grade flow (sweeps, dark pool, net drift), visit
   <a href="https://v3.quantdata.us" target="_blank">v3.quantdata.us</a>.
-  This dashboard refreshes every 5 minutes. Not financial advice.
+  Snapshot regenerated every 15 minutes by a GitHub Actions cron. Not financial advice.
 </footer>
 
 <script>
@@ -475,13 +475,16 @@
     btn.classList.add('loading');
     document.getElementById('loading-overlay').style.display = 'flex';
     try {
-      const url = force ? '/api/refresh' : '/api/data';
-      const res = await fetch(url);
+      const url = './data/snapshot.json?t=' + Date.now();
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
       render(data);
       refreshCountdown = 300;
     } catch (e) {
       console.error(e);
+      const row = document.getElementById('picks-row');
+      if (row) row.innerHTML = '<div style="color:var(--red);font-size:12px;padding:20px 0">Snapshot not available yet — the data pipeline runs every 15 min and the first build may still be in progress.</div>';
     } finally {
       btn.classList.remove('loading');
       document.getElementById('loading-overlay').style.display = 'none';
