@@ -1,6 +1,6 @@
 import time
 import threading
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import numpy as np
@@ -269,7 +269,7 @@ def get_all_data():
     market_status = 'OPEN' if (not is_weekend and market_open <= now <= market_close) else 'CLOSED'
 
     return {
-        'timestamp': now.isoformat(),
+        'timestamp': datetime.now(timezone.utc).isoformat(),
         'date': date.today().strftime('%A, %B %d %Y'),
         'market_status': market_status,
         'market_bias': market_bias,
