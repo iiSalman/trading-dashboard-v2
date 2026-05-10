@@ -379,8 +379,8 @@
       .td-price { font-size: 13px; }
       .score-badge { width: 24px; height: 24px; line-height: 24px; font-size: 12px; }
 
-      /* Chart panel */
-      canvas#premChart { max-height: 260px; }
+      /* Chart panel — uses horizontal layout on mobile (set in JS), so let
+         the canvas grow tall enough for all tickers to label cleanly */
     }
 
     /* ── EXTRA-SMALL: ≤ 380px (iPhone SE etc) ── */
@@ -908,7 +908,21 @@
     const callData = tickers.map(t => t.call_premium || 0);
     const putData  = tickers.map(t => -(t.put_premium || 0));
 
-    const ctx = document.getElementById('premChart').getContext('2d');
+    const isMobile = window.innerWidth <= 720;
+    const canvas = document.getElementById('premChart');
+
+    // On mobile, switch to horizontal bars (tickers down the Y-axis,
+    // dollars on X) and grow the canvas tall enough that every label has
+    // breathing room. On desktop, default vertical bars.
+    if (isMobile) {
+      canvas.style.height = (tickers.length * 26 + 70) + 'px';
+    } else {
+      canvas.style.height = '';
+    }
+
+    const dollarFmt = v => '$' + Math.abs(v).toFixed(isMobile ? 0 : 1) + 'M';
+
+    const ctx = canvas.getContext('2d');
     if (premChart) premChart.destroy();
 
     premChart = new Chart(ctx, {
@@ -935,7 +949,9 @@
         ],
       },
       options: {
+        indexAxis: isMobile ? 'y' : 'x',
         responsive: true,
+        maintainAspectRatio: !isMobile,
         plugins: {
           legend: {
             labels: { color: '#94a3b8', font: { family: 'SF Mono, monospace', size: 11 } }
@@ -946,23 +962,39 @@
             }
           }
         },
-        scales: {
+        scales: isMobile ? {
+          x: {
+            grid:  { color: '#1f2d42' },
+            ticks: { color: '#94a3b8', font: { family: 'SF Mono, monospace', size: 10 }, callback: dollarFmt },
+          },
+          y: {
+            grid:  { color: '#1f2d42' },
+            ticks: { color: '#94a3b8', font: { family: 'SF Mono, monospace', size: 11 }, autoSkip: false },
+          },
+        } : {
           x: {
             grid:  { color: '#1f2d42' },
             ticks: { color: '#94a3b8', font: { family: 'SF Mono, monospace', size: 11 } },
           },
           y: {
             grid:  { color: '#1f2d42' },
-            ticks: {
-              color: '#94a3b8',
-              font: { family: 'SF Mono, monospace', size: 11 },
-              callback: v => '$' + Math.abs(v).toFixed(1) + 'M',
-            },
+            ticks: { color: '#94a3b8', font: { family: 'SF Mono, monospace', size: 11 }, callback: dollarFmt },
           },
         },
       },
     });
   }
+
+  // Re-render chart on resize (debounced) so rotation switches axis
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      // Find current tickers from the rendered DOM via a cached snapshot
+      // would be nicer, but easiest: re-fetch the snapshot.
+      fetchData(false);
+    }, 350);
+  });
 
   // ── Helpers ──
   function setEl(id, text, cls) {
