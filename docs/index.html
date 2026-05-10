@@ -727,9 +727,14 @@
         : dir === 'BEARISH'
         ? `ATM Put — ${p.expiry || '?'} expiry`
         : 'Wait for clearer signal';
-      const entryHint = bias === 'RANGE'
-        ? 'Entry near GEX pin on pullback'
-        : 'Entry on break of key level';
+      // 1-min RSI(14) recovery zone: where this ticker's pullbacks have
+      // actually bounced from over the last 5 trading days. If we have it,
+      // show the modal bin; otherwise fall back to a static heuristic.
+      const rrz = p.recovery_rsi;
+      const entryHint = rrz
+        ? `wait for RSI(14) on 1-min to dip into ${rrz.low}–${rrz.high} (${rrz.samples} pullbacks past 5d, median ${rrz.median})`
+        : (bias === 'RANGE' ? 'no RSI signal · fallback: enter near GEX pin on pullback'
+                            : 'no RSI signal · fallback: enter on break of key level');
       return `
         <div class="pick-card ${dirLow}">
           <div class="pick-header">
@@ -768,7 +773,7 @@
           <div class="pick-action ${dirLow}">
             <strong>Suggested:</strong> ${instrument}<br/>
             <strong>Nearest expiry:</strong> ${p.expiry || '—'} (${p.dte ?? '?'} DTE)<br/>
-            <strong>Entry hint:</strong> ${entryHint}
+            <strong>Entry trigger:</strong> ${entryHint}
           </div>
         </div>
       `;

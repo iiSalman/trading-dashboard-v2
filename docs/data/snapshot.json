@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "timestamp": "2026-05-10T05:19:20.410570+00:00",
+=======
+  "timestamp": "2026-05-10T05:29:13.013864+00:00",
+>>>>>>> Stashed changes
   "date": "Sunday, May 10 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -26,7 +30,8 @@
     "expiry_next_week": "2026-05-18",
     "dte_next_week": 8,
     "score_next_week": 1,
-    "direction_next_week": "NEUTRAL"
+    "direction_next_week": "NEUTRAL",
+    "recovery_rsi": null
   },
   "tickers": [
     {
@@ -50,7 +55,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 54,
+        "median": 36.7
+      }
     },
     {
       "ticker": "RKLB",
@@ -73,7 +84,13 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 59,
+        "median": 37.9
+      }
     },
     {
       "ticker": "MSTR",
@@ -86,17 +103,23 @@
       "pcr_oi": 0.85,
       "gex": 33.35,
       "gex_regime": "POSITIVE",
-      "call_premium": 120.02,
-      "put_premium": 50.93,
+      "call_premium": 120.0,
+      "put_premium": 50.84,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 224488,
-      "put_vol": 76423,
+      "call_vol": 224487,
+      "put_vol": 76420,
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 3,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 58,
+        "median": 36.0
+      }
     },
     {
       "ticker": "TSLA",
@@ -119,7 +142,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 57,
+        "median": 35.7
+      }
     },
     {
       "ticker": "AAPL",
@@ -142,7 +171,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 61,
+        "median": 38.4
+      }
     },
     {
       "ticker": "IREN",
@@ -165,7 +200,13 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 61,
+        "median": 36.7
+      }
     },
     {
       "ticker": "AMD",
@@ -188,7 +229,13 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 59,
+        "median": 37.4
+      }
     },
     {
       "ticker": "AMZN",
@@ -211,7 +258,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 52,
+        "median": 35.3
+      }
     },
     {
       "ticker": "HIMS",
@@ -234,7 +287,13 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 73,
+        "median": 37.9
+      }
     },
     {
       "ticker": "ARM",
@@ -257,7 +316,13 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 4,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 65,
+        "median": 36.4
+      }
     },
     {
       "ticker": "OKLO",
@@ -271,16 +336,22 @@
       "gex": 3.02,
       "gex_regime": "POSITIVE",
       "call_premium": 10.78,
-      "put_premium": 2.55,
+      "put_premium": 2.72,
       "unusual": true,
       "score": 4,
       "direction": "BULLISH",
       "call_vol": 30112,
-      "put_vol": 23446,
+      "put_vol": 23465,
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 4,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 58,
+        "median": 36.1
+      }
     },
     {
       "ticker": "META",
@@ -303,7 +374,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 1,
-      "direction_next_week": "NEUTRAL"
+      "direction_next_week": "NEUTRAL",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 55,
+        "median": 36.1
+      }
     },
     {
       "ticker": "GOOGL",
@@ -326,7 +403,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 4,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 57,
+        "median": 37.1
+      }
     },
     {
       "ticker": "QQQ",
@@ -349,7 +432,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 2,
-      "direction_next_week": "BEARISH"
+      "direction_next_week": "BEARISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 56,
+        "median": 37.9
+      }
     },
     {
       "ticker": "PLTR",
@@ -358,21 +447,31 @@
       "volume": 41598700,
       "expiry": "2026-05-15",
       "dte": 5,
+<<<<<<< Updated upstream
       "pcr_vol": 0.56,
+=======
+      "pcr_vol": 0.57,
+>>>>>>> Stashed changes
       "pcr_oi": 0.67,
       "gex": 33.24,
       "gex_regime": "POSITIVE",
       "call_premium": 30.88,
-      "put_premium": 17.44,
+      "put_premium": 19.38,
       "unusual": false,
       "score": 3,
       "direction": "BULLISH",
       "call_vol": 129453,
-      "put_vol": 73039,
+      "put_vol": 73184,
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 1,
-      "direction_next_week": "NEUTRAL"
+      "direction_next_week": "NEUTRAL",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 55,
+        "median": 35.0
+      }
     },
     {
       "ticker": "MSFT",
@@ -395,7 +494,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 4,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 58,
+        "median": 35.2
+      }
     },
     {
       "ticker": "CRM",
@@ -409,16 +514,17 @@
       "gex": -3.65,
       "gex_regime": "NEGATIVE",
       "call_premium": 3.27,
-      "put_premium": 8.08,
+      "put_premium": 8.07,
       "unusual": false,
       "score": 2,
       "direction": "BULLISH",
       "call_vol": 12911,
-      "put_vol": 9261,
+      "put_vol": 9260,
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 4,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
     },
     {
       "ticker": "CRWV",
@@ -441,7 +547,8 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 3,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
     }
   ],
   "top_picks": [
@@ -466,7 +573,13 @@
       "expiry_next_week": "2026-05-18",
       "dte_next_week": 8,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 54,
+        "median": 36.7
+      }
     },
     {
       "ticker": "RKLB",
@@ -489,7 +602,13 @@
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 5,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 59,
+        "median": 37.9
+      }
     },
     {
       "ticker": "MSTR",
@@ -502,17 +621,23 @@
       "pcr_oi": 0.85,
       "gex": 33.35,
       "gex_regime": "POSITIVE",
-      "call_premium": 120.02,
-      "put_premium": 50.93,
+      "call_premium": 120.0,
+      "put_premium": 50.84,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 224488,
-      "put_vol": 76423,
+      "call_vol": 224487,
+      "put_vol": 76420,
       "expiry_next_week": "2026-05-22",
       "dte_next_week": 12,
       "score_next_week": 3,
-      "direction_next_week": "BULLISH"
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 58,
+        "median": 36.0
+      }
     }
   ]
 }

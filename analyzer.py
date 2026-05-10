@@ -86,6 +86,77 @@ def _i(x, default=0):
         return default
 
 
+def _compute_rsi(closes, period=14):
+    """Wilder's RSI on a 1-D array of close prices."""
+    closes = np.asarray(closes, dtype=float)
+    n = len(closes)
+    rsi = np.full(n, np.nan)
+    if n < period + 1:
+        return rsi
+    deltas = np.diff(closes)
+    gains = np.where(deltas > 0, deltas, 0.0)
+    losses = np.where(deltas < 0, -deltas, 0.0)
+    avg_g = gains[:period].mean()
+    avg_l = losses[:period].mean()
+    rsi[period] = 100 if avg_l == 0 else 100 - 100 / (1 + avg_g / avg_l)
+    for i in range(period + 1, n):
+        avg_g = (avg_g * (period - 1) + gains[i - 1]) / period
+        avg_l = (avg_l * (period - 1) + losses[i - 1]) / period
+        rsi[i] = 100 if avg_l == 0 else 100 - 100 / (1 + avg_g / avg_l)
+    return rsi
+
+
+def recovery_rsi_zone(ticker, lookback_days=5, rsi_period=14, swing_window=10):
+    """Find the modal RSI(14) bucket at which 1-min pullbacks bottomed
+    over the last `lookback_days` days. Returns None if there's not enough
+    signal (too few swing-lows or no oversold-ish modal bin)."""
+    try:
+        hist = _yf(ticker).history(
+            period=f'{lookback_days}d',
+            interval='1m',
+            auto_adjust=False,
+            prepost=False,
+        )
+    except Exception:
+        return None
+    if hist is None or hist.empty or len(hist) < (rsi_period + swing_window) * 3:
+        return None
+
+    closes = hist['Close'].values.astype(float)
+    rsi = _compute_rsi(closes, rsi_period)
+
+    # Swing-low: closes[i] is the minimum within ±swing_window bars.
+    rsi_at_lows = []
+    for i in range(swing_window, len(closes) - swing_window):
+        window = closes[i - swing_window: i + swing_window + 1]
+        if closes[i] <= window.min() + 1e-9:
+            r = rsi[i]
+            if not np.isnan(r) and r < 50:
+                rsi_at_lows.append(float(r))
+
+    if len(rsi_at_lows) < 4:
+        return None
+
+    bins = list(range(20, 55, 5))  # 20-25, 25-30, ..., 45-50
+    counts = [0] * (len(bins) - 1)
+    for r in rsi_at_lows:
+        for k in range(len(bins) - 1):
+            if bins[k] <= r < bins[k + 1]:
+                counts[k] += 1
+                break
+
+    if max(counts) == 0:
+        return None
+
+    modal = counts.index(max(counts))
+    return {
+        'low': bins[modal],
+        'high': bins[modal + 1],
+        'samples': len(rsi_at_lows),
+        'median': round(float(sum(rsi_at_lows) / len(rsi_at_lows)), 1),
+    }
+
+
 def _score_chain(spot, pct_change, dte, chain):
     """Compute PCR / GEX / premium / unusual / score / direction for a single
     option chain. Same scoring logic the dashboard has always used — just
@@ -235,6 +306,13 @@ def analyze_ticker(ticker):
             except Exception:
                 pass
 
+        # Only compute the 1-min RSI recovery zone for plausible picks —
+        # it's an extra yfinance call per ticker, so we save bandwidth by
+        # skipping low-score names that won't be displayed as top picks.
+        rsi_zone = None
+        if primary['score'] >= 3:
+            rsi_zone = recovery_rsi_zone(ticker)
+
         return {
             'ticker': ticker,
             'price': round(spot, 2),
@@ -247,6 +325,7 @@ def analyze_ticker(ticker):
             'dte_next_week': nw_dte,
             'score_next_week': nw_score,
             'direction_next_week': nw_direction,
+            'recovery_rsi': rsi_zone,
         }
 
     except Exception as e:
