@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-05-13T07:29:51.698059+00:00",
+  "timestamp": "2026-05-13T10:05:55.609078+00:00",
   "date": "Wednesday, May 13 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "TREND_DOWN",
   "bias_desc": "Negative GEX + bearish flow \u2014 follow momentum shorts",
   "bias_color": "red",
