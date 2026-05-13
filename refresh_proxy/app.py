@@ -27,6 +27,12 @@ _recent = deque(maxlen=20)
 _lock = threading.Lock()
 RATE_WINDOW = 30  # seconds between dispatches per origin
 
+# /tick (external pinger) bookkeeping — separate from per-origin rate limit
+# because the pinger is unauthenticated and doesn't send Origin.
+_last_tick_dispatch = 0.0
+_tick_lock = threading.Lock()
+TICK_MIN_GAP_S = 240  # at most one dispatch every 4 min from /tick
+
 
 def _cors_headers(origin):
     if origin in ALLOWED_ORIGINS:
@@ -94,6 +100,51 @@ def refresh():
     )
 
 
+@app.route('/tick', methods=['GET', 'HEAD'])
+def tick():
+    """External pinger (UptimeRobot / cron-job.org) hits this every 5 min.
+    Replaces GitHub Actions' unreliable cron schedule, and keeps the Render
+    dyno warm so the user-facing Force Refresh button never cold-starts."""
+    if request.method == 'HEAD':
+        return ('', 200)
+    if not GH_TOKEN:
+        return jsonify({'error': 'GH_TOKEN not configured'}), 500
+
+    global _last_tick_dispatch
+    now = time.time()
+    with _tick_lock:
+        gap = now - _last_tick_dispatch
+        if gap < TICK_MIN_GAP_S:
+            return jsonify({
+                'dispatched': False,
+                'reason': 'rate_limited',
+                'next_in_seconds': int(TICK_MIN_GAP_S - gap),
+            })
+        _last_tick_dispatch = now
+
+    r = requests.post(
+        f'https://api.github.com/repos/{GH_REPO}/actions/workflows/{GH_WORKFLOW}/dispatches',
+        headers={
+            'Authorization': f'Bearer {GH_TOKEN}',
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28',
+            'User-Agent': 'trading-dashboard-tick',
+        },
+        json={'ref': GH_BRANCH},
+        timeout=15,
+    )
+    if r.status_code == 204:
+        return jsonify({'dispatched': True, 'workflow': GH_WORKFLOW})
+    # On failure, reset the gap so the next ping can retry immediately.
+    with _tick_lock:
+        _last_tick_dispatch = 0.0
+    return jsonify({
+        'dispatched': False,
+        'error': f'GitHub returned {r.status_code}',
+        'detail': r.text[:300],
+    }), 502
+
+
 @app.route('/health')
 def health():
     return jsonify({
@@ -109,7 +160,7 @@ def health():
 def root():
     return jsonify({
         'service': 'trading-dashboard refresh proxy',
-        'endpoints': ['POST /refresh', 'GET /health'],
+        'endpoints': ['POST /refresh', 'GET /tick', 'GET /health'],
     })
 
 

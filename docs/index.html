@@ -629,12 +629,13 @@
   }
 
   // 1-click force refresh:
-  //   1. POST to a tiny Render proxy that holds a GitHub PAT
-  //   2. Proxy calls GitHub workflow_dispatch
+  //   1. Pre-warm Render proxy with GET /health (free-tier cold start 40-90s)
+  //   2. POST /refresh — proxy holds GH_TOKEN, calls workflow_dispatch
   //   3. Poll the static snapshot every 5s until its timestamp advances
-  // Render free-tier may cold-start (~30s); we allow up to 60s for the
-  // initial POST and keep polling regardless.
+  // Heartbeat ticks elapsed seconds in the status so the spinner never
+  // *looks* frozen even when waking a cold dyno.
   const PROXY_URL = 'https://trading-dashboard-v2.onrender.com/refresh';
+  const HEALTH_URL = 'https://trading-dashboard-v2.onrender.com/health';
   const WORKFLOW_URL =
     'https://github.com/iiSalman/trading-dashboard-v2/actions/workflows/refresh.yml';
   let pollAbort = null;
@@ -643,7 +644,6 @@
     const btn = document.getElementById('btn-refresh');
     const status = document.getElementById('refresh-timer');
     const beforeTs = lastSnapshotTs;
-    function setStatus(msg) { if (status) status.textContent = msg; }
 
     if (pollAbort) { pollAbort.aborted = true; }
     pollAbort = { aborted: false };
@@ -651,56 +651,64 @@
 
     btn.classList.add('loading');
     btn.disabled = true;
-    setStatus('triggering rebuild…');
 
-    let dispatched = false;
+    let phase = '';
+    let phaseStart = Date.now();
+    function setPhase(p) { phase = p; phaseStart = Date.now(); paint(); }
+    function paint() {
+      if (!status) return;
+      const sec = Math.floor((Date.now() - phaseStart) / 1000);
+      status.textContent = `${phase}… ${sec}s`;
+    }
+    function setFinal(msg, html = false) {
+      if (!status) return;
+      if (html) status.innerHTML = msg; else status.textContent = msg;
+    }
+    setPhase('waking refresh service');
+    const heartbeat = setInterval(paint, 1000);
+
     try {
-      const ctrl = new AbortController();
-      const wakeTimer = setTimeout(() => ctrl.abort(), 60_000);
+      // 1. Pre-warm proxy. Free-tier cold start can take 40-90s; this
+      // primes it before the POST so the dispatch returns instantly.
+      try {
+        await fetch(HEALTH_URL, {
+          method: 'GET',
+          cache: 'no-store',
+          signal: AbortSignal.timeout(90_000),
+        });
+      } catch (_) { /* fall through; POST will surface real error */ }
+      if (myAbort.aborted) return;
+
+      // 2. Dispatch.
+      setPhase('triggering rebuild');
       let r;
       try {
         r = await fetch(PROXY_URL, {
           method: 'POST',
           mode: 'cors',
           headers: { 'Content-Type': 'application/json' },
-          signal: ctrl.signal,
+          signal: AbortSignal.timeout(60_000),
         });
-      } finally {
-        clearTimeout(wakeTimer);
+      } catch (e) {
+        setFinal(`proxy unreachable — <a href="${WORKFLOW_URL}" target="_blank" rel="noopener" style="color:var(--blue)">run on GitHub</a>`, true);
+        return;
       }
-
       if (r.status === 429) {
         const j = await r.json().catch(() => ({}));
-        setStatus(`rate limited — wait ${j.retry_in_seconds || 30}s`);
-        btn.classList.remove('loading');
-        btn.disabled = false;
+        setFinal(`rate limited — wait ${j.retry_in_seconds || 30}s`);
         return;
       }
       if (!r.ok) {
-        const detail = await r.text().catch(() => '');
-        console.warn('proxy error', r.status, detail);
-        setStatus('proxy error · opening GitHub fallback');
-        window.open(WORKFLOW_URL, '_blank', 'noopener');
-      } else {
-        dispatched = true;
-        setStatus('build dispatched · waiting for fresh data…');
+        setFinal(`proxy error ${r.status} — <a href="${WORKFLOW_URL}" target="_blank" rel="noopener" style="color:var(--blue)">run on GitHub</a>`, true);
+        return;
       }
-    } catch (e) {
-      console.warn('proxy unreachable', e);
-      setStatus('proxy unreachable · opening GitHub fallback');
-      window.open(WORKFLOW_URL, '_blank', 'noopener');
-    }
 
-    // Poll the static snapshot until its timestamp advances past the one
-    // we last loaded. Works whether the dispatch came from the proxy or
-    // the manual GitHub fallback.
-    const deadline = Date.now() + 180_000;
-    let pollCount = 0;
-    try {
+      // 3. Poll snapshot until its timestamp advances.
+      setPhase('workflow running');
+      const deadline = Date.now() + 180_000;
       while (!myAbort.aborted && Date.now() < deadline) {
         await new Promise(res => setTimeout(res, 5000));
         if (myAbort.aborted) return;
-        pollCount++;
         try {
           const res = await fetch('./data/snapshot.json?t=' + Date.now(), { cache: 'no-store' });
           if (res.ok) {
@@ -711,17 +719,15 @@
               render(data);
               updateAgeBadge();
               refreshCountdown = REFRESH_INTERVAL;
-              setStatus('updated · auto-refresh resumed');
+              setFinal('updated · auto-refresh resumed');
               return;
             }
           }
         } catch (_) { /* keep polling */ }
-        const elapsed = pollCount * 5;
-        const hint = dispatched ? '' : ' (click "Run workflow" on GitHub if you haven\'t)';
-        setStatus(`waiting for fresh data… ${elapsed}s${hint}`);
       }
-      if (!myAbort.aborted) setStatus('still waiting — try again in a bit');
+      if (!myAbort.aborted) setFinal('still waiting — try again in a bit');
     } finally {
+      clearInterval(heartbeat);
       if (!myAbort.aborted) {
         btn.classList.remove('loading');
         btn.disabled = false;
