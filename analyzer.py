@@ -9,7 +9,8 @@ from curl_cffi import requests as curl_requests
 
 WATCHLIST = ['NVDA', 'RKLB', 'MSTR', 'TSLA', 'AAPL', 'IREN', 'AMD', 'AMZN',
              'HIMS', 'ARM', 'OKLO', 'META', 'QQQ', 'PLTR', 'CRM', 'CRWV',
-             'MSFT', 'GOOGL']
+             'MSFT', 'GOOGL', 'BABA', 'PANW', 'INTC', 'AVGO', 'BA', 'MU',
+             'SNDK']
 RISK_FREE_RATE = 0.053
 
 _cache = {}
