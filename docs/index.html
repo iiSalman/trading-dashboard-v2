@@ -577,6 +577,13 @@
   let countdownInterval = null;
   let lastSnapshotTs = null;
   let ageInterval = null;
+  // Force-refresh owns the #refresh-timer element while in flight; the
+  // auto-refresh countdown must pause its display so it doesn't stomp the
+  // 'workflow running… Ns' heartbeat. After forceRefresh sets its final
+  // status (e.g. 'updated · auto-refresh resumed'), hold it for 10s
+  // before the countdown is allowed to repaint.
+  let forceRefreshInFlight = false;
+  let stickyStatusUntil = 0;
 
   async function fetchData(force = false) {
     const btn = document.getElementById('btn-refresh');
@@ -651,6 +658,7 @@
 
     btn.classList.add('loading');
     btn.disabled = true;
+    forceRefreshInFlight = true;
 
     let phase = '';
     let phaseStart = Date.now();
@@ -663,6 +671,7 @@
     function setFinal(msg, html = false) {
       if (!status) return;
       if (html) status.innerHTML = msg; else status.textContent = msg;
+      stickyStatusUntil = Date.now() + 10_000;
     }
     setPhase('waking refresh service');
     const heartbeat = setInterval(paint, 1000);
@@ -671,8 +680,11 @@
       // 1. Pre-warm proxy. Free-tier cold start can take 40-90s; this
       // primes it before the POST so the dispatch returns instantly.
       try {
+        // no-cors: /health doesn't send Access-Control-Allow-Origin, and
+        // we only need to wake the dyno — we never read the response.
         await fetch(HEALTH_URL, {
           method: 'GET',
+          mode: 'no-cors',
           cache: 'no-store',
           signal: AbortSignal.timeout(90_000),
         });
@@ -728,6 +740,7 @@
       if (!myAbort.aborted) setFinal('still waiting — try again in a bit');
     } finally {
       clearInterval(heartbeat);
+      forceRefreshInFlight = false;
       if (!myAbort.aborted) {
         btn.classList.remove('loading');
         btn.disabled = false;
@@ -1026,6 +1039,12 @@
   function startCountdown() {
     if (countdownInterval) clearInterval(countdownInterval);
     countdownInterval = setInterval(() => {
+      // While a Force Refresh is running it owns #refresh-timer for the
+      // 'workflow running… Ns' heartbeat. Keep the auto-refresh logic
+      // running internally but don't repaint the status text. Also
+      // respect a 10s sticky window after the final status is set so
+      // the user actually sees 'updated · auto-refresh resumed'.
+      if (forceRefreshInFlight || Date.now() < stickyStatusUntil) return;
       refreshCountdown--;
       const min = Math.floor(refreshCountdown / 60);
       const sec = refreshCountdown % 60;
