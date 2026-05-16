@@ -29,6 +29,14 @@ GH_REPO      = os.environ.get('GH_REPO', 'iiSalman/trading-dashboard-v2')
 GH_WORKFLOW  = os.environ.get('GH_WORKFLOW', 'refresh.yml')
 GH_BRANCH    = os.environ.get('GH_BRANCH', 'main')
 
+# Tradier Sandbox API — free, no IP-blocking, returns options chains with
+# Greeks. Sign up at developer.tradier.com (no credit card) and set
+# TRADIER_TOKEN as a Render env var. Used by /tradier/options/<T>.
+TRADIER_TOKEN = os.environ.get('TRADIER_TOKEN', '').strip()
+TRADIER_BASE  = os.environ.get('TRADIER_BASE', 'https://sandbox.tradier.com').strip()
+_TRADIER_LAST_HTTP = None
+_TRADIER_LAST_ERR  = None
+
 ALLOWED_ORIGINS = {
     'https://iisalman.github.io',
     'http://localhost:8000',
@@ -273,7 +281,11 @@ def health_data():
         'crumb_cached':        bool(_crumb_cache['crumb']),
         'last_yahoo_http':     _YF_LAST_HTTP,
         'last_yahoo_error':    _YF_LAST_ERR,
-        'cache_keys':          list(_data_cache.keys()),
+        'tradier_configured':  bool(TRADIER_TOKEN),
+        'tradier_base':        TRADIER_BASE,
+        'last_tradier_http':   _TRADIER_LAST_HTTP,
+        'last_tradier_error':  _TRADIER_LAST_ERR,
+        'cache_keys':          [str(k) for k in _data_cache.keys()],
     })
 
 
@@ -307,6 +319,127 @@ def _to_int(x):
         return int(f)
     except (TypeError, ValueError):
         return 0
+
+
+@app.route('/tradier/options/<ticker>', methods=['GET', 'OPTIONS'])
+def tradier_options(ticker):
+    """Fetch up to 3 nearest expiries from Tradier Sandbox API. Same JSON
+    shape as /yahoo/options so callers can swap without rewriting parsers.
+    Tradier is a regulated US broker; sandbox tier is free, no credit card,
+    not subject to IP-reputation blocking like Yahoo. 15-min delayed."""
+    global _TRADIER_LAST_HTTP, _TRADIER_LAST_ERR
+    origin = request.headers.get('Origin', '')
+    headers = _data_cors(origin)
+    if request.method == 'OPTIONS':
+        return ('', 204, headers)
+
+    t = _safe_ticker(ticker)
+    if not t:
+        return (jsonify({'error': 'invalid ticker'}), 400, headers)
+    if not TRADIER_TOKEN:
+        return (jsonify({'error': 'TRADIER_TOKEN not configured on server'}), 503, headers)
+
+    cached = _cache_get(('tradier_opts', t))
+    if cached is not None:
+        return (jsonify(cached), 200, headers)
+
+    auth = {'Authorization': f'Bearer {TRADIER_TOKEN}', 'Accept': 'application/json'}
+
+    # 1) Get the list of expirations + the current quote (for spot)
+    try:
+        r_exp = requests.get(
+            f'{TRADIER_BASE}/v1/markets/options/expirations',
+            params={'symbol': t, 'includeAllRoots': 'true'},
+            headers=auth, timeout=8,
+        )
+        _TRADIER_LAST_HTTP = r_exp.status_code
+        if r_exp.status_code != 200:
+            _TRADIER_LAST_ERR = f'expirations HTTP {r_exp.status_code}: {r_exp.text[:120]}'
+            return (jsonify({'error': f'tradier HTTP {r_exp.status_code}'}), 502, headers)
+        exp_node = (r_exp.json() or {}).get('expirations') or {}
+        all_exps = exp_node.get('date') or []
+        if isinstance(all_exps, str):  # single-expiry quirk
+            all_exps = [all_exps]
+        if not all_exps:
+            return (jsonify({'error': 'no options chain for this ticker'}), 404, headers)
+    except requests.RequestException as e:
+        _TRADIER_LAST_ERR = f'expirations fetch: {e}'
+        return (jsonify({'error': 'tradier fetch failed', 'detail': str(e)[:200]}), 502, headers)
+
+    # 2) Spot price
+    spot = None
+    try:
+        r_q = requests.get(
+            f'{TRADIER_BASE}/v1/markets/quotes',
+            params={'symbols': t}, headers=auth, timeout=5,
+        )
+        if r_q.status_code == 200:
+            q = ((r_q.json() or {}).get('quotes') or {}).get('quote') or {}
+            if isinstance(q, list):
+                q = q[0] if q else {}
+            spot = _to_float(q.get('last') or q.get('close'))
+    except requests.RequestException:
+        pass  # spot is best-effort
+
+    # 3) Fetch chains for the 3 nearest expiries
+    today_d = int(time.time() // 86400)
+    expiries_out = []
+    for date_str in all_exps[:3]:
+        try:
+            r_c = requests.get(
+                f'{TRADIER_BASE}/v1/markets/options/chains',
+                params={'symbol': t, 'expiration': date_str, 'greeks': 'true'},
+                headers=auth, timeout=8,
+            )
+            _TRADIER_LAST_HTTP = r_c.status_code
+            if r_c.status_code != 200:
+                _TRADIER_LAST_ERR = f'chain HTTP {r_c.status_code}: {r_c.text[:120]}'
+                continue
+            opts = ((r_c.json() or {}).get('options') or {}).get('option') or []
+            if isinstance(opts, dict):
+                opts = [opts]
+            calls = {}
+            puts = {}
+            for o in opts:
+                K = _to_float(o.get('strike'))
+                if K is None:
+                    continue
+                t_type = (o.get('option_type') or '').lower()
+                if t_type == 'call':
+                    calls[K] = o
+                elif t_type == 'put':
+                    puts[K] = o
+            strikes_out = []
+            for K in sorted(set(calls) | set(puts)):
+                c = calls.get(K) or {}
+                p = puts.get(K)  or {}
+                strikes_out.append({
+                    'K': K,
+                    'call_vol':  _to_int(c.get('volume')),
+                    'call_oi':   _to_int(c.get('open_interest')),
+                    'call_last': _to_float(c.get('last')) or 0.0,
+                    'put_vol':   _to_int(p.get('volume')),
+                    'put_oi':    _to_int(p.get('open_interest')),
+                    'put_last':  _to_float(p.get('last')) or 0.0,
+                })
+            try:
+                exp_unix = int(time.mktime(time.strptime(date_str, '%Y-%m-%d')))
+                dte = max(0, int(exp_unix // 86400) - today_d)
+            except Exception:
+                dte = None
+            expiries_out.append({'date': date_str, 'dte': dte, 'strikes': strikes_out})
+        except requests.RequestException as e:
+            _TRADIER_LAST_ERR = f'chain fetch {date_str}: {e}'
+            continue
+
+    payload = {
+        'ticker': t,
+        'spot': spot,
+        'source': 'Tradier Sandbox',
+        'expiries': expiries_out,
+    }
+    _cache_set(('tradier_opts', t), payload)
+    return (jsonify(payload), 200, headers)
 
 
 @app.route('/yahoo/options/<ticker>', methods=['GET', 'OPTIONS'])
@@ -545,8 +678,10 @@ def root():
     return jsonify({
         'service': 'trading-dashboard refresh proxy + data',
         'endpoints': [
-            'POST /refresh', 'GET /tick', 'GET /health',
-            'GET /yahoo/options/<T>',
+            'POST /refresh', 'GET /tick',
+            'GET /health', 'GET /health/data',
+            'GET /tradier/options/<T>   (preferred — Tradier Sandbox)',
+            'GET /yahoo/options/<T>     (fallback)',
             'GET /yahoo/chart/<T>?range=1d|5d|1mo|3mo|1y',
             'GET /finra/darkpool/<T>?days=1..10',
         ],
