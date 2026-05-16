@@ -10,6 +10,16 @@ import requests
 import yfinance as yf
 from flask import Flask, jsonify, request
 
+# Yahoo's edge aggressively rate-limits raw requests from shared hosting IPs
+# (Render's pool included). curl_cffi impersonates a real Chrome TLS
+# fingerprint (JA3) which bypasses the JA3-based bot detection. yfinance
+# accepts a `session=` parameter that gets used for all upstream calls.
+try:
+    from curl_cffi import requests as _cffi_requests
+    _yf_session = _cffi_requests.Session(impersonate='chrome')
+except Exception:  # fall back to plain requests if curl_cffi missing
+    _yf_session = None
+
 app = Flask(__name__)
 
 GH_TOKEN     = os.environ.get('GH_TOKEN', '').strip()
@@ -252,7 +262,7 @@ def yahoo_options(ticker):
         return (jsonify(cached), 200, headers)
 
     try:
-        tk = yf.Ticker(t)
+        tk = yf.Ticker(t, session=_yf_session) if _yf_session else yf.Ticker(t)
         exps = list(tk.options or [])[:3]
         if not exps:
             return (jsonify({'error': 'no options chain'}), 404, headers)
@@ -350,7 +360,7 @@ def yahoo_chart(ticker):
         return (jsonify(cached), 200, headers)
 
     try:
-        tk = yf.Ticker(t)
+        tk = yf.Ticker(t, session=_yf_session) if _yf_session else yf.Ticker(t)
         df = tk.history(period=rng, interval=interval, auto_adjust=False, prepost=False)
         if df is None or df.empty:
             return (jsonify({'error': 'no chart data'}), 404, headers)

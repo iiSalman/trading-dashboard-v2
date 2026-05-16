@@ -2,3 +2,4 @@ flask>=3.0
 gunicorn>=21.2
 requests>=2.31
 yfinance>=0.2.40
+curl_cffi>=0.7
