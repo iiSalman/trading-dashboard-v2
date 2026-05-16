@@ -123,8 +123,9 @@ def write_per_ticker_snapshots():
     os.makedirs(TICKERS_DIR, exist_ok=True)
     written = 0
     skipped = 0
+    targets = list(WATCHLIST) + ['SPY']  # SPY = market reference, top-card in v3 strip
     with ThreadPoolExecutor(max_workers=4) as ex:
-        futures = {ex.submit(_build_ticker_snapshot, t): t for t in WATCHLIST}
+        futures = {ex.submit(_build_ticker_snapshot, t): t for t in targets}
         for future in as_completed(futures):
             t = futures[future]
             try:
