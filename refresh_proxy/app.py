@@ -7,18 +7,20 @@ import threading
 from collections import deque
 
 import requests
-import yfinance as yf
 from flask import Flask, jsonify, request
 
-# Yahoo's edge aggressively rate-limits raw requests from shared hosting IPs
-# (Render's pool included). curl_cffi impersonates a real Chrome TLS
-# fingerprint (JA3) which bypasses the JA3-based bot detection. yfinance
-# accepts a `session=` parameter that gets used for all upstream calls.
+# Yahoo's edge aggressively rate-limits any TLS handshake that doesn't look
+# like a real browser (JA3 fingerprinting). curl_cffi impersonates Chrome's
+# TLS handshake exactly, which gets us past Render-shared-IP rate limiting.
+# We use it directly (bypassing yfinance) because yfinance's `session=` has
+# known leakage where the cookie-bootstrap call uses raw requests anyway.
+_YF_LAST_ERR = None
 try:
     from curl_cffi import requests as _cffi_requests
     _yf_session = _cffi_requests.Session(impersonate='chrome')
-except Exception:  # fall back to plain requests if curl_cffi missing
+except Exception as _e:
     _yf_session = None
+    _YF_LAST_ERR = f'curl_cffi import: {_e}'
 
 app = Flask(__name__)
 
@@ -98,6 +100,51 @@ YAHOO_HEADERS = {
     ),
     'Accept': 'application/json,text/plain,*/*',
 }
+
+
+# Yahoo cookie / crumb (cached 1h). Some endpoints don't require a crumb,
+# but we always carry the session cookie since it lowers 429 risk.
+_crumb_cache = {'crumb': None, 'expires': 0}
+_crumb_lock = threading.Lock()
+_YF_LAST_HTTP = None  # for /health/data observability
+
+def _yahoo_bootstrap():
+    """Hit fc.yahoo.com to drop a session cookie; fetch a fresh crumb."""
+    global _YF_LAST_HTTP, _YF_LAST_ERR
+    if not _yf_session:
+        return None
+    with _crumb_lock:
+        if _crumb_cache['crumb'] and time.time() < _crumb_cache['expires']:
+            return _crumb_cache['crumb']
+        try:
+            _yf_session.get('https://fc.yahoo.com', timeout=8, allow_redirects=True)
+            r = _yf_session.get('https://query1.finance.yahoo.com/v1/test/getcrumb', timeout=8)
+            _YF_LAST_HTTP = r.status_code
+            if r.status_code == 200 and r.text and 'Too Many' not in r.text and len(r.text) < 64:
+                _crumb_cache['crumb'] = r.text.strip()
+                _crumb_cache['expires'] = time.time() + 3600
+                return _crumb_cache['crumb']
+            _YF_LAST_ERR = f'crumb HTTP {r.status_code}: {r.text[:80]}'
+        except Exception as e:
+            _YF_LAST_ERR = f'crumb fetch: {e}'
+        return None
+
+def _yahoo_get(url, params=None, with_crumb=False):
+    """GET a Yahoo JSON endpoint via curl_cffi. Returns parsed JSON or raises."""
+    global _YF_LAST_HTTP, _YF_LAST_ERR
+    if not _yf_session:
+        raise RuntimeError('curl_cffi session unavailable')
+    p = dict(params or {})
+    if with_crumb:
+        c = _yahoo_bootstrap()
+        if c:
+            p['crumb'] = c
+    r = _yf_session.get(url, params=p, timeout=10)
+    _YF_LAST_HTTP = r.status_code
+    if r.status_code != 200:
+        _YF_LAST_ERR = f'{url.rsplit("/",2)[-2]}/{url.rsplit("/",1)[-1]} HTTP {r.status_code}: {r.text[:120]}'
+        raise RuntimeError(f'yahoo HTTP {r.status_code}')
+    return r.json()
 
 
 def _rate_limited(origin):
@@ -211,6 +258,25 @@ def health():
     })
 
 
+@app.route('/health/data')
+def health_data():
+    """Visibility into the Yahoo data layer (for debugging 429s)."""
+    cffi_ver = None
+    try:
+        import curl_cffi as _cc
+        cffi_ver = getattr(_cc, '__version__', 'unknown')
+    except Exception:
+        pass
+    return jsonify({
+        'curl_cffi_loaded':    _yf_session is not None,
+        'curl_cffi_version':   cffi_ver,
+        'crumb_cached':        bool(_crumb_cache['crumb']),
+        'last_yahoo_http':     _YF_LAST_HTTP,
+        'last_yahoo_error':    _YF_LAST_ERR,
+        'cache_keys':          list(_data_cache.keys()),
+    })
+
+
 def _safe_ticker(t):
     """Validate a user-supplied ticker symbol."""
     t = (t or '').strip().upper()
@@ -261,73 +327,60 @@ def yahoo_options(ticker):
     if cached is not None:
         return (jsonify(cached), 200, headers)
 
+    def _strike_row_from_chain(opt_block):
+        calls = {c.get('strike'): c for c in (opt_block.get('calls') or [])}
+        puts  = {p.get('strike'): p for p in (opt_block.get('puts')  or [])}
+        out = []
+        for K in sorted(set(calls) | set(puts)):
+            c = calls.get(K) or {}
+            p = puts.get(K)  or {}
+            out.append({
+                'K': K,
+                'call_vol':  _to_int  (c.get('volume')),
+                'call_oi':   _to_int  (c.get('openInterest')),
+                'call_last': _to_float(c.get('lastPrice')) or 0.0,
+                'put_vol':   _to_int  (p.get('volume')),
+                'put_oi':    _to_int  (p.get('openInterest')),
+                'put_last':  _to_float(p.get('lastPrice')) or 0.0,
+            })
+        return out
+
+    url = f'https://query2.finance.yahoo.com/v7/finance/options/{t}'
     try:
-        tk = yf.Ticker(t, session=_yf_session) if _yf_session else yf.Ticker(t)
-        exps = list(tk.options or [])[:3]
-        if not exps:
+        data = _yahoo_get(url, with_crumb=True)
+        root = (data or {}).get('optionChain', {}).get('result', [])
+        if not root:
             return (jsonify({'error': 'no options chain'}), 404, headers)
+        node = root[0]
+        spot = _to_float((node.get('quote') or {}).get('regularMarketPrice'))
+        exp_dates = node.get('expirationDates') or []
 
-        spot = None
-        try:
-            fi = getattr(tk, 'fast_info', None)
-            if fi:
-                spot = _to_float(fi.get('last_price') if hasattr(fi, 'get') else fi.last_price)
-        except Exception:
-            spot = None
-
-        today = time.gmtime()
-        today_epoch_d = int(time.mktime((today.tm_year, today.tm_mon, today.tm_mday, 0,0,0,0,0,0)) // 86400)
-
+        today_d = int(time.time() // 86400)
         expiries = []
-        for date_str in exps:
+        # The first expiry comes inline with the initial response
+        first_opt = (node.get('options') or [{}])[0]
+        first_unix = first_opt.get('expirationDate') or (exp_dates[0] if exp_dates else None)
+        if first_unix:
+            expiries.append({
+                'date': time.strftime('%Y-%m-%d', time.gmtime(first_unix)),
+                'dte':  max(0, int(first_unix // 86400) - today_d),
+                'strikes': _strike_row_from_chain(first_opt),
+            })
+        # Pull up to 2 more expiries via ?date=<unix>
+        for extra_unix in exp_dates[1:3]:
             try:
-                chain = tk.option_chain(date_str)
-                calls_df = chain.calls
-                puts_df  = chain.puts
+                d2 = _yahoo_get(url, params={'date': extra_unix}, with_crumb=True)
+                r2 = (d2 or {}).get('optionChain', {}).get('result', [])
+                if not r2:
+                    continue
+                opt = (r2[0].get('options') or [{}])[0]
+                expiries.append({
+                    'date': time.strftime('%Y-%m-%d', time.gmtime(extra_unix)),
+                    'dte':  max(0, int(extra_unix // 86400) - today_d),
+                    'strikes': _strike_row_from_chain(opt),
+                })
             except Exception:
                 continue
-            strikes_map = {}
-            for _, row in calls_df.iterrows():
-                K = _to_float(row.get('strike'))
-                if K is None:
-                    continue
-                strikes_map.setdefault(K, {})['call'] = row
-            for _, row in puts_df.iterrows():
-                K = _to_float(row.get('strike'))
-                if K is None:
-                    continue
-                strikes_map.setdefault(K, {})['put'] = row
-            def _g(series, field):
-                """Safe get from a pandas Series, returning None if absent."""
-                if series is None:
-                    return None
-                try:
-                    if field in series:
-                        return series[field]
-                except Exception:
-                    pass
-                return None
-
-            strikes_out = []
-            for K in sorted(strikes_map.keys()):
-                c = strikes_map[K].get('call')
-                p = strikes_map[K].get('put')
-                strikes_out.append({
-                    'K': K,
-                    'call_vol':  _to_int(_g(c, 'volume')),
-                    'call_oi':   _to_int(_g(c, 'openInterest')),
-                    'call_last': _to_float(_g(c, 'lastPrice')) or 0.0,
-                    'put_vol':   _to_int(_g(p, 'volume')),
-                    'put_oi':    _to_int(_g(p, 'openInterest')),
-                    'put_last':  _to_float(_g(p, 'lastPrice')) or 0.0,
-                })
-            try:
-                exp_tuple = time.strptime(date_str, '%Y-%m-%d')
-                exp_epoch_d = int(time.mktime(exp_tuple) // 86400)
-                dte = max(0, exp_epoch_d - today_epoch_d)
-            except Exception:
-                dte = None
-            expiries.append({'date': date_str, 'dte': dte, 'strikes': strikes_out})
 
         payload = {'ticker': t, 'spot': spot, 'expiries': expiries}
         _cache_set(('opts', t), payload)
@@ -360,44 +413,41 @@ def yahoo_chart(ticker):
         return (jsonify(cached), 200, headers)
 
     try:
-        tk = yf.Ticker(t, session=_yf_session) if _yf_session else yf.Ticker(t)
-        df = tk.history(period=rng, interval=interval, auto_adjust=False, prepost=False)
-        if df is None or df.empty:
+        data = _yahoo_get(
+            f'https://query1.finance.yahoo.com/v8/finance/chart/{t}',
+            params={'range': rng, 'interval': interval},
+        )
+        root = (data or {}).get('chart', {}).get('result', [])
+        if not root:
             return (jsonify({'error': 'no chart data'}), 404, headers)
+        node = root[0]
+        ts = node.get('timestamp') or []
+        ind = (node.get('indicators') or {}).get('quote', [{}])[0]
+        meta = node.get('meta') or {}
+        opens  = ind.get('open')   or []
+        highs  = ind.get('high')   or []
+        lows   = ind.get('low')    or []
+        closes = ind.get('close')  or []
+        vols   = ind.get('volume') or []
         candles = []
-        for ts, row in df.iterrows():
-            try:
-                t_unix = int(ts.timestamp())
-            except Exception:
-                continue
-            c = _to_float(row.get('Close'))
+        for i, t_unix in enumerate(ts):
+            c = closes[i] if i < len(closes) else None
             if c is None:
                 continue
             candles.append({
-                't': t_unix,
-                'o': _to_float(row.get('Open')),
-                'h': _to_float(row.get('High')),
-                'l': _to_float(row.get('Low')),
-                'c': c,
-                'v': _to_int(row.get('Volume')),
+                't': int(t_unix),
+                'o': _to_float(opens[i] if i < len(opens) else None),
+                'h': _to_float(highs[i] if i < len(highs) else None),
+                'l': _to_float(lows[i]  if i < len(lows)  else None),
+                'c': _to_float(c),
+                'v': _to_int  (vols[i]  if i < len(vols)  else None),
             })
-
-        spot = candles[-1]['c'] if candles else None
-        prev = None
-        try:
-            fi = getattr(tk, 'fast_info', None)
-            if fi:
-                spot = _to_float(fi.get('last_price') if hasattr(fi, 'get') else fi.last_price) or spot
-                prev = _to_float(fi.get('previous_close') if hasattr(fi, 'get') else fi.previous_close)
-        except Exception:
-            pass
-
         payload = {
             'ticker': t,
             'range': rng,
             'interval': interval,
-            'spot': spot,
-            'previous_close': prev,
+            'spot':           _to_float(meta.get('regularMarketPrice')),
+            'previous_close': _to_float(meta.get('chartPreviousClose') or meta.get('previousClose')),
             'candles': candles,
         }
         _cache_set(('chart', t, rng), payload)
