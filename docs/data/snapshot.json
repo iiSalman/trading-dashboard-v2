@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-17T16:15:56.608019+00:00",
+  "timestamp": "2026-05-17T17:18:41.185738+00:00",
   "date": "Sunday, May 17 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -35,35 +35,6 @@
     }
   },
   "tickers": [
-    {
-      "ticker": "RKLB",
-      "price": 124.77,
-      "change": -5.87,
-      "volume": 22357400,
-      "expiry": "2026-05-22",
-      "dte": 5,
-      "pcr_vol": 0.55,
-      "pcr_oi": 0.84,
-      "gex": 3.47,
-      "gex_regime": "POSITIVE",
-      "call_premium": 11.8,
-      "put_premium": 2.95,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 20997,
-      "put_vol": 11516,
-      "expiry_next_week": "2026-05-29",
-      "dte_next_week": 12,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 60,
-        "median": 38.1
-      }
-    },
     {
       "ticker": "MSTR",
       "price": 177.42,
@@ -352,6 +323,35 @@
         "high": 45,
         "samples": 50,
         "median": 37.8
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "price": 225.32,
+      "change": -4.42,
+      "volume": 179993300,
+      "expiry": "2026-05-18",
+      "dte": 1,
+      "pcr_vol": 0.5,
+      "pcr_oi": 0.65,
+      "gex": 14.47,
+      "gex_regime": "POSITIVE",
+      "call_premium": 62.54,
+      "put_premium": 61.36,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 526185,
+      "put_vol": 262298,
+      "expiry_next_week": "2026-05-26",
+      "dte_next_week": 9,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 56,
+        "median": 37.3
       }
     },
     {
@@ -722,42 +722,13 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "NVDA",
+      "ticker": "RKLB",
       "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
-    {
-      "ticker": "RKLB",
-      "price": 124.77,
-      "change": -5.87,
-      "volume": 22357400,
-      "expiry": "2026-05-22",
-      "dte": 5,
-      "pcr_vol": 0.55,
-      "pcr_oi": 0.84,
-      "gex": 3.47,
-      "gex_regime": "POSITIVE",
-      "call_premium": 11.8,
-      "put_premium": 2.95,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 20997,
-      "put_vol": 11516,
-      "expiry_next_week": "2026-05-29",
-      "dte_next_week": 12,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 60,
-        "median": 38.1
-      }
-    },
     {
       "ticker": "MSTR",
       "price": 177.42,
@@ -814,6 +785,35 @@
         "high": 40,
         "samples": 57,
         "median": 35.2
+      }
+    },
+    {
+      "ticker": "META",
+      "price": 614.23,
+      "change": -0.68,
+      "volume": 13208700,
+      "expiry": "2026-05-18",
+      "dte": 1,
+      "pcr_vol": 0.33,
+      "pcr_oi": 0.54,
+      "gex": 5.33,
+      "gex_regime": "POSITIVE",
+      "call_premium": 17.18,
+      "put_premium": 6.5,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 48150,
+      "put_vol": 16043,
+      "expiry_next_week": "2026-05-26",
+      "dte_next_week": 9,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 60,
+        "median": 36.4
       }
     }
   ]
