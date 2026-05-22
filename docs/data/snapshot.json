@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-22T22:39:04.244931+00:00",
+  "timestamp": "2026-05-22T23:45:23.305290+00:00",
   "date": "Friday, May 22 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -89,8 +89,8 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 61,
-        "median": 36.2
+        "samples": 60,
+        "median": 36.1
       }
     },
     {
@@ -363,7 +363,7 @@
       "dte": 0,
       "pcr_vol": 0.45,
       "pcr_oi": 0.56,
-      "gex": 3.53,
+      "gex": 4.77,
       "gex_regime": "POSITIVE",
       "call_premium": 82.31,
       "put_premium": 91.29,
@@ -806,8 +806,8 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 61,
-        "median": 36.2
+        "samples": 60,
+        "median": 36.1
       }
     },
     {
