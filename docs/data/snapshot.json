@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-24T18:47:37.303618+00:00",
+  "timestamp": "2026-05-24T19:55:29.504445+00:00",
   "date": "Sunday, May 24 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -30,35 +30,6 @@
     "recovery_rsi": null
   },
   "tickers": [
-    {
-      "ticker": "RKLB",
-      "price": 135.76,
-      "change": 8.22,
-      "volume": 32862100,
-      "expiry": "2026-05-29",
-      "dte": 5,
-      "pcr_vol": 0.64,
-      "pcr_oi": 1.0,
-      "gex": 3.14,
-      "gex_regime": "POSITIVE",
-      "call_premium": 27.45,
-      "put_premium": 7.44,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 41002,
-      "put_vol": 26117,
-      "expiry_next_week": "2026-06-05",
-      "dte_next_week": 12,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 63,
-        "median": 37.3
-      }
-    },
     {
       "ticker": "MSTR",
       "price": 159.89,
@@ -113,8 +84,8 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 61,
-        "median": 36.2
+        "samples": 60,
+        "median": 36.1
       }
     },
     {
@@ -739,38 +710,15 @@
       "score_next_week": 5,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
-    {
-      "ticker": "RKLB",
-      "price": 135.76,
-      "change": 8.22,
-      "volume": 32862100,
-      "expiry": "2026-05-29",
-      "dte": 5,
-      "pcr_vol": 0.64,
-      "pcr_oi": 1.0,
-      "gex": 3.14,
-      "gex_regime": "POSITIVE",
-      "call_premium": 27.45,
-      "put_premium": 7.44,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 41002,
-      "put_vol": 26117,
-      "expiry_next_week": "2026-06-05",
-      "dte_next_week": 12,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 63,
-        "median": 37.3
-      }
-    },
     {
       "ticker": "MSTR",
       "price": 159.89,
@@ -825,8 +773,37 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 61,
-        "median": 36.2
+        "samples": 60,
+        "median": 36.1
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "price": 308.82,
+      "change": 1.26,
+      "volume": 43627900,
+      "expiry": "2026-05-26",
+      "dte": 2,
+      "pcr_vol": 0.57,
+      "pcr_oi": 0.69,
+      "gex": 23.22,
+      "gex_regime": "POSITIVE",
+      "call_premium": 12.87,
+      "put_premium": 5.89,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 96149,
+      "put_vol": 54743,
+      "expiry_next_week": "2026-06-01",
+      "dte_next_week": 8,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 64,
+        "median": 38.2
       }
     }
   ]
