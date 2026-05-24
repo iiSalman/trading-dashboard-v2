@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-24T20:51:31.043902+00:00",
+  "timestamp": "2026-05-24T21:42:02.028894+00:00",
   "date": "Sunday, May 24 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -113,8 +113,8 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 60,
-        "median": 36.1
+        "samples": 61,
+        "median": 36.2
       }
     },
     {
@@ -825,8 +825,8 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 60,
-        "median": 36.1
+        "samples": 61,
+        "median": 36.2
       }
     }
   ]
