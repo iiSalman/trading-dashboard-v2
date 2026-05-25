@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-05-25T13:55:26.561007+00:00",
+  "timestamp": "2026-05-25T16:21:02.657650+00:00",
   "date": "Monday, May 25 2026",
-  "market_status": "OPEN",
+  "market_status": "CLOSED",
   "market_bias": "RANGE",
   "bias_desc": "Positive GEX + low drift \u2014 fade moves, trade the range",
   "bias_color": "yellow",
