@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-26T22:08:43.104660+00:00",
+  "timestamp": "2026-05-26T23:22:03.224787+00:00",
   "date": "Tuesday, May 26 2026",
   "market_status": "CLOSED",
   "market_bias": "BULLISH",
@@ -60,8 +60,8 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 62,
-        "median": 37.0
+        "samples": 61,
+        "median": 36.9
       }
     },
     {
@@ -782,8 +782,8 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 62,
-        "median": 37.0
+        "samples": 61,
+        "median": 36.9
       }
     },
     {
