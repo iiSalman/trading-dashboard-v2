@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-27T22:27:11.579584+00:00",
+  "timestamp": "2026-05-27T23:45:11.607914+00:00",
   "date": "Wednesday, May 27 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -152,6 +152,64 @@
       }
     },
     {
+      "ticker": "AMZN",
+      "price": 271.85,
+      "change": 2.47,
+      "volume": 39653628,
+      "expiry": "2026-05-27",
+      "dte": 0,
+      "pcr_vol": 0.33,
+      "pcr_oi": 0.4,
+      "gex": 53.55,
+      "gex_regime": "POSITIVE",
+      "call_premium": 35.9,
+      "put_premium": 0.94,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 242621,
+      "put_vol": 79852,
+      "expiry_next_week": "2026-06-03",
+      "dte_next_week": 7,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 54,
+        "median": 37.2
+      }
+    },
+    {
+      "ticker": "HIMS",
+      "price": 25.2,
+      "change": 5.66,
+      "volume": 22480617,
+      "expiry": "2026-05-29",
+      "dte": 2,
+      "pcr_vol": 0.24,
+      "pcr_oi": 0.52,
+      "gex": 12.65,
+      "gex_regime": "POSITIVE",
+      "call_premium": 2.25,
+      "put_premium": 0.43,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 38494,
+      "put_vol": 9098,
+      "expiry_next_week": "2026-06-05",
+      "dte_next_week": 9,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 59,
+        "median": 37.1
+      }
+    },
+    {
       "ticker": "ARM",
       "price": 302.71,
       "change": -5.76,
@@ -294,35 +352,6 @@
         "high": 40,
         "samples": 54,
         "median": 37.8
-      }
-    },
-    {
-      "ticker": "NVDA",
-      "price": 212.6,
-      "change": -1.05,
-      "volume": 161326568,
-      "expiry": "2026-05-27",
-      "dte": 0,
-      "pcr_vol": 0.57,
-      "pcr_oi": 0.46,
-      "gex": -52.14,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 63.63,
-      "put_premium": 10.82,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 849062,
-      "put_vol": 484340,
-      "expiry_next_week": "2026-06-03",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 63,
-        "median": 35.3
       }
     },
     {
@@ -693,14 +722,8 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "AMZN",
-      "error": "Too Many Requests. Rate limited. Try after a while.",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "HIMS",
-      "error": "Too Many Requests. Rate limited. Try after a while.",
+      "ticker": "NVDA",
+      "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
     }
