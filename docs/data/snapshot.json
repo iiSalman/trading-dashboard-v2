@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-28T12:53:32.102319+00:00",
+  "timestamp": "2026-05-28T13:19:16.512159+00:00",
   "date": "Thursday, May 28 2026",
   "market_status": "OPEN",
   "market_bias": "RANGE",
@@ -35,6 +35,35 @@
     }
   },
   "tickers": [
+    {
+      "ticker": "RKLB",
+      "price": 150.23,
+      "change": 4.91,
+      "volume": 29045900,
+      "expiry": "2026-05-29",
+      "dte": 1,
+      "pcr_vol": 0.53,
+      "pcr_oi": 1.51,
+      "gex": -0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 26.89,
+      "put_premium": 2.25,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 40480,
+      "put_vol": 21411,
+      "expiry_next_week": "2026-06-05",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 58,
+        "median": 38.1
+      }
+    },
     {
       "ticker": "TSLA",
       "price": 440.36,
@@ -149,6 +178,35 @@
         "high": 45,
         "samples": 54,
         "median": 37.2
+      }
+    },
+    {
+      "ticker": "HIMS",
+      "price": 25.2,
+      "change": 5.66,
+      "volume": 22660400,
+      "expiry": "2026-05-29",
+      "dte": 1,
+      "pcr_vol": 0.24,
+      "pcr_oi": 0.46,
+      "gex": 0.06,
+      "gex_regime": "POSITIVE",
+      "call_premium": 2.25,
+      "put_premium": 0.43,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 38494,
+      "put_vol": 9098,
+      "expiry_next_week": "2026-06-05",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 59,
+        "median": 37.1
       }
     },
     {
@@ -676,21 +734,38 @@
       "score_next_week": 4,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "HIMS",
-      "error": "No quote data",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "RKLB",
+      "price": 150.23,
+      "change": 4.91,
+      "volume": 29045900,
+      "expiry": "2026-05-29",
+      "dte": 1,
+      "pcr_vol": 0.53,
+      "pcr_oi": 1.51,
+      "gex": -0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 26.89,
+      "put_premium": 2.25,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 40480,
+      "put_vol": 21411,
+      "expiry_next_week": "2026-06-05",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 58,
+        "median": 38.1
+      }
+    },
     {
       "ticker": "TSLA",
       "price": 440.36,
@@ -747,35 +822,6 @@
         "high": 40,
         "samples": 65,
         "median": 36.7
-      }
-    },
-    {
-      "ticker": "IREN",
-      "price": 67.84,
-      "change": 13.48,
-      "volume": 84983300,
-      "expiry": "2026-05-29",
-      "dte": 1,
-      "pcr_vol": 0.47,
-      "pcr_oi": 1.69,
-      "gex": 3.39,
-      "gex_regime": "POSITIVE",
-      "call_premium": 86.58,
-      "put_premium": 3.35,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 228753,
-      "put_vol": 106875,
-      "expiry_next_week": "2026-06-05",
-      "dte_next_week": 8,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 54,
-        "median": 39.4
       }
     }
   ]
