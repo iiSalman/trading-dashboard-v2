@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-28T21:32:53.993194+00:00",
+  "timestamp": "2026-05-28T22:57:37.422492+00:00",
   "date": "Thursday, May 28 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -62,35 +62,6 @@
         "high": 40,
         "samples": 62,
         "median": 35.9
-      }
-    },
-    {
-      "ticker": "RKLB",
-      "price": 148.03,
-      "change": -1.46,
-      "volume": 20304067,
-      "expiry": "2026-05-29",
-      "dte": 1,
-      "pcr_vol": 0.4,
-      "pcr_oi": 1.51,
-      "gex": 9.44,
-      "gex_regime": "POSITIVE",
-      "call_premium": 16.66,
-      "put_premium": 1.05,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 37739,
-      "put_vol": 15032,
-      "expiry_next_week": "2026-06-05",
-      "dte_next_week": 8,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 58,
-        "median": 38.3
       }
     },
     {
@@ -759,6 +730,12 @@
         "samples": 54,
         "median": 37.3
       }
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -792,35 +769,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 148.03,
-      "change": -1.46,
-      "volume": 20304067,
-      "expiry": "2026-05-29",
-      "dte": 1,
-      "pcr_vol": 0.4,
-      "pcr_oi": 1.51,
-      "gex": 9.44,
-      "gex_regime": "POSITIVE",
-      "call_premium": 16.66,
-      "put_premium": 1.05,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 37739,
-      "put_vol": 15032,
-      "expiry_next_week": "2026-06-05",
-      "dte_next_week": 8,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 58,
-        "median": 38.3
-      }
-    },
-    {
       "ticker": "TSLA",
       "price": 442.1,
       "change": 0.4,
@@ -847,6 +795,35 @@
         "high": 35,
         "samples": 59,
         "median": 36.0
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "price": 312.51,
+      "change": 0.53,
+      "volume": 44630908,
+      "expiry": "2026-05-29",
+      "dte": 1,
+      "pcr_vol": 0.36,
+      "pcr_oi": 0.52,
+      "gex": 185.45,
+      "gex_regime": "POSITIVE",
+      "call_premium": 52.19,
+      "put_premium": 6.87,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 300621,
+      "put_vol": 107523,
+      "expiry_next_week": "2026-06-05",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 61,
+        "median": 35.7
       }
     }
   ]
