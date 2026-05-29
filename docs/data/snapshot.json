@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-29T11:51:44.337859+00:00",
+  "timestamp": "2026-05-29T12:14:56.236417+00:00",
   "date": "Friday, May 29 2026",
   "market_status": "OPEN",
   "market_bias": "NEUTRAL",
@@ -13,7 +13,7 @@
     "expiry": "2026-05-29",
     "dte": 0,
     "pcr_vol": 1.15,
-    "pcr_oi": 1.39,
+    "pcr_oi": 2.31,
     "gex": 1095.84,
     "gex_regime": "POSITIVE",
     "call_premium": 225.21,
@@ -25,7 +25,7 @@
     "put_vol": 686726,
     "expiry_next_week": "2026-06-05",
     "dte_next_week": 7,
-    "score_next_week": 4,
+    "score_next_week": 3,
     "direction_next_week": "BEARISH",
     "recovery_rsi": {
       "low": 35,
@@ -62,6 +62,35 @@
         "high": 35,
         "samples": 59,
         "median": 36.0
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "price": 312.51,
+      "change": 0.53,
+      "volume": 48157800,
+      "expiry": "2026-05-29",
+      "dte": 0,
+      "pcr_vol": 0.36,
+      "pcr_oi": 0.51,
+      "gex": 0.07,
+      "gex_regime": "POSITIVE",
+      "call_premium": 52.19,
+      "put_premium": 6.87,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 300621,
+      "put_vol": 107523,
+      "expiry_next_week": "2026-06-05",
+      "dte_next_week": 7,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 61,
+        "median": 35.7
       }
     },
     {
@@ -200,7 +229,7 @@
       "put_vol": 25605,
       "expiry_next_week": "2026-06-05",
       "dte_next_week": 7,
-      "score_next_week": 4,
+      "score_next_week": 3,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 30,
@@ -333,8 +362,8 @@
       "expiry": "2026-05-29",
       "dte": 0,
       "pcr_vol": 0.28,
-      "pcr_oi": 0.14,
-      "gex": 0.53,
+      "pcr_oi": 0.89,
+      "gex": 0.28,
       "gex_regime": "POSITIVE",
       "call_premium": 23.57,
       "put_premium": 34.65,
@@ -352,35 +381,6 @@
         "high": 40,
         "samples": 58,
         "median": 34.6
-      }
-    },
-    {
-      "ticker": "AAPL",
-      "price": 312.51,
-      "change": 0.53,
-      "volume": 48157800,
-      "expiry": "2026-05-29",
-      "dte": 0,
-      "pcr_vol": 0.36,
-      "pcr_oi": 0.72,
-      "gex": -0.05,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 52.19,
-      "put_premium": 6.87,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 300621,
-      "put_vol": 107523,
-      "expiry_next_week": "2026-06-05",
-      "dte_next_week": 7,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 61,
-        "median": 35.7
       }
     },
     {
@@ -478,7 +478,7 @@
       "expiry": "2026-05-29",
       "dte": 0,
       "pcr_vol": 0.26,
-      "pcr_oi": 0.44,
+      "pcr_oi": 0.43,
       "gex": -2.38,
       "gex_regime": "NEGATIVE",
       "call_premium": 75.54,
@@ -792,6 +792,35 @@
       }
     },
     {
+      "ticker": "AAPL",
+      "price": 312.51,
+      "change": 0.53,
+      "volume": 48157800,
+      "expiry": "2026-05-29",
+      "dte": 0,
+      "pcr_vol": 0.36,
+      "pcr_oi": 0.51,
+      "gex": 0.07,
+      "gex_regime": "POSITIVE",
+      "call_premium": 52.19,
+      "put_premium": 6.87,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 300621,
+      "put_vol": 107523,
+      "expiry_next_week": "2026-06-05",
+      "dte_next_week": 7,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 61,
+        "median": 35.7
+      }
+    },
+    {
       "ticker": "AMZN",
       "price": 274.0,
       "change": 0.79,
@@ -817,35 +846,6 @@
         "low": 40,
         "high": 45,
         "samples": 55,
-        "median": 37.0
-      }
-    },
-    {
-      "ticker": "ARM",
-      "price": 335.27,
-      "change": 10.76,
-      "volume": 14309500,
-      "expiry": "2026-05-29",
-      "dte": 0,
-      "pcr_vol": 0.55,
-      "pcr_oi": 1.59,
-      "gex": 0.01,
-      "gex_regime": "POSITIVE",
-      "call_premium": 35.61,
-      "put_premium": 5.42,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 35423,
-      "put_vol": 19356,
-      "expiry_next_week": "2026-06-05",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 51,
         "median": 37.0
       }
     }
