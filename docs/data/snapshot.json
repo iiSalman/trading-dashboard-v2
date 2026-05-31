@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-31T22:10:17.787421+00:00",
+  "timestamp": "2026-05-31T23:17:14.976510+00:00",
   "date": "Sunday, May 31 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -30,35 +30,6 @@
     "recovery_rsi": null
   },
   "tickers": [
-    {
-      "ticker": "RKLB",
-      "price": 143.48,
-      "change": -3.07,
-      "volume": 34820100,
-      "expiry": "2026-06-05",
-      "dte": 5,
-      "pcr_vol": 0.56,
-      "pcr_oi": 1.54,
-      "gex": 1.19,
-      "gex_regime": "POSITIVE",
-      "call_premium": 29.66,
-      "put_premium": 4.45,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 44017,
-      "put_vol": 24459,
-      "expiry_next_week": "2026-06-12",
-      "dte_next_week": 12,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 59,
-        "median": 38.2
-      }
-    },
     {
       "ticker": "MSTR",
       "price": 159.09,
@@ -744,38 +715,15 @@
       "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
-    {
-      "ticker": "RKLB",
-      "price": 143.48,
-      "change": -3.07,
-      "volume": 34820100,
-      "expiry": "2026-06-05",
-      "dte": 5,
-      "pcr_vol": 0.56,
-      "pcr_oi": 1.54,
-      "gex": 1.19,
-      "gex_regime": "POSITIVE",
-      "call_premium": 29.66,
-      "put_premium": 4.45,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 44017,
-      "put_vol": 24459,
-      "expiry_next_week": "2026-06-12",
-      "dte_next_week": 12,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 59,
-        "median": 38.2
-      }
-    },
     {
       "ticker": "MSTR",
       "price": 159.09,
@@ -832,6 +780,35 @@
         "high": 35,
         "samples": 59,
         "median": 35.8
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "price": 312.06,
+      "change": -0.14,
+      "volume": 69982800,
+      "expiry": "2026-06-01",
+      "dte": 1,
+      "pcr_vol": 0.3,
+      "pcr_oi": 0.41,
+      "gex": 56.9,
+      "gex_regime": "POSITIVE",
+      "call_premium": 13.93,
+      "put_premium": 3.27,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 114266,
+      "put_vol": 34619,
+      "expiry_next_week": "2026-06-08",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 25,
+        "high": 30,
+        "samples": 60,
+        "median": 35.5
       }
     }
   ]
