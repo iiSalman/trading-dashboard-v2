@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-02T04:57:31.673444+00:00",
+  "timestamp": "2026-06-02T09:08:37.129894+00:00",
   "date": "Tuesday, June 02 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -12,16 +12,16 @@
     "volume": 43528500,
     "expiry": "2026-06-02",
     "dte": 0,
-    "pcr_vol": 1.07,
+    "pcr_vol": 1.08,
     "pcr_oi": 1.0,
     "gex": 0.0,
     "gex_regime": "NEGATIVE",
-    "call_premium": 94.15,
+    "call_premium": 94.06,
     "put_premium": 44.79,
     "unusual": false,
     "score": 1,
     "direction": "BULLISH",
-    "call_vol": 502674,
+    "call_vol": 502003,
     "put_vol": 539887,
     "expiry_next_week": "2026-06-09",
     "dte_next_week": 7,
@@ -316,8 +316,8 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 58,
-        "median": 35.6
+        "samples": 59,
+        "median": 35.8
       }
     },
     {
