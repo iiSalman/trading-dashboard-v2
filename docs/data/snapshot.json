@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-03T05:19:30.309508+00:00",
+  "timestamp": "2026-06-03T10:13:32.033624+00:00",
   "date": "Wednesday, June 03 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "NEUTRAL",
   "bias_desc": "Mixed signals \u2014 wait for clarity, reduce size",
   "bias_color": "gray",
@@ -142,8 +142,8 @@
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 59,
-        "median": 35.8
+        "samples": 60,
+        "median": 36.0
       }
     },
     {
