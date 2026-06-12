@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-12T06:17:47.385654+00:00",
+  "timestamp": "2026-06-12T10:43:18.402631+00:00",
   "date": "Friday, June 12 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "TREND_UP",
   "bias_desc": "Negative GEX + bullish flow \u2014 follow momentum longs",
   "bias_color": "green",
@@ -413,30 +413,6 @@
       }
     },
     {
-      "ticker": "NVDA",
-      "price": 204.87,
-      "change": 2.22,
-      "volume": 157872000,
-      "expiry": "2026-06-12",
-      "dte": 0,
-      "pcr_vol": 0.7,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 207.08,
-      "put_premium": 112.43,
-      "unusual": false,
-      "score": 2,
-      "direction": "BULLISH",
-      "call_vol": 949354,
-      "put_vol": 660641,
-      "expiry_next_week": "2026-06-22",
-      "dte_next_week": 10,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": null
-    },
-    {
       "ticker": "AAPL",
       "price": 295.63,
       "change": 1.39,
@@ -675,6 +651,12 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     },
     {
       "ticker": "AVGO",
