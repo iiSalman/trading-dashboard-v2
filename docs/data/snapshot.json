@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-18T21:07:16.131773+00:00",
+  "timestamp": "2026-06-18T23:02:35.858568+00:00",
   "date": "Thursday, June 18 2026",
   "market_status": "CLOSED",
   "market_bias": "BEARISH",
@@ -35,6 +35,35 @@
     }
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 210.69,
+      "change": 2.95,
+      "volume": 238264530,
+      "expiry": "2026-06-18",
+      "dte": 0,
+      "pcr_vol": 0.6,
+      "pcr_oi": 0.95,
+      "gex": 118.41,
+      "gex_regime": "POSITIVE",
+      "call_premium": 411.61,
+      "put_premium": 48.07,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 1304107,
+      "put_vol": 787393,
+      "expiry_next_week": "2026-06-26",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 61,
+        "median": 35.8
+      }
+    },
     {
       "ticker": "AAPL",
       "price": 298.01,
@@ -730,15 +759,38 @@
         "samples": 53,
         "median": 36.0
       }
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 210.69,
+      "change": 2.95,
+      "volume": 238264530,
+      "expiry": "2026-06-18",
+      "dte": 0,
+      "pcr_vol": 0.6,
+      "pcr_oi": 0.95,
+      "gex": 118.41,
+      "gex_regime": "POSITIVE",
+      "call_premium": 411.61,
+      "put_premium": 48.07,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 1304107,
+      "put_vol": 787393,
+      "expiry_next_week": "2026-06-26",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 61,
+        "median": 35.8
+      }
+    },
     {
       "ticker": "AAPL",
       "price": 298.01,
@@ -795,35 +847,6 @@
         "high": 40,
         "samples": 57,
         "median": 35.3
-      }
-    },
-    {
-      "ticker": "AMZN",
-      "price": 244.39,
-      "change": 2.9,
-      "volume": 66532506,
-      "expiry": "2026-06-18",
-      "dte": 0,
-      "pcr_vol": 0.42,
-      "pcr_oi": 0.52,
-      "gex": 159.5,
-      "gex_regime": "POSITIVE",
-      "call_premium": 103.4,
-      "put_premium": 3.99,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 399417,
-      "put_vol": 169020,
-      "expiry_next_week": "2026-06-26",
-      "dte_next_week": 8,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 65,
-        "median": 36.0
       }
     }
   ]
