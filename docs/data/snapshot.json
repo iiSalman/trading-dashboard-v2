@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-20T15:13:31.740989+00:00",
+  "timestamp": "2026-06-20T16:52:20.451423+00:00",
   "date": "Saturday, June 20 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -30,35 +30,6 @@
     "recovery_rsi": null
   },
   "tickers": [
-    {
-      "ticker": "NVDA",
-      "price": 210.69,
-      "change": 2.95,
-      "volume": 241272000,
-      "expiry": "2026-06-22",
-      "dte": 2,
-      "pcr_vol": 0.7,
-      "pcr_oi": 0.98,
-      "gex": 35.91,
-      "gex_regime": "POSITIVE",
-      "call_premium": 54.49,
-      "put_premium": 21.02,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 227303,
-      "put_vol": 158905,
-      "expiry_next_week": "2026-06-29",
-      "dte_next_week": 9,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 61,
-        "median": 35.8
-      }
-    },
     {
       "ticker": "AMD",
       "price": 537.37,
@@ -744,38 +715,15 @@
       "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
-    {
-      "ticker": "NVDA",
-      "price": 210.69,
-      "change": 2.95,
-      "volume": 241272000,
-      "expiry": "2026-06-22",
-      "dte": 2,
-      "pcr_vol": 0.7,
-      "pcr_oi": 0.98,
-      "gex": 35.91,
-      "gex_regime": "POSITIVE",
-      "call_premium": 54.49,
-      "put_premium": 21.02,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 227303,
-      "put_vol": 158905,
-      "expiry_next_week": "2026-06-29",
-      "dte_next_week": 9,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 61,
-        "median": 35.8
-      }
-    },
     {
       "ticker": "AMD",
       "price": 537.37,
@@ -832,6 +780,35 @@
         "high": 40,
         "samples": 65,
         "median": 36.0
+      }
+    },
+    {
+      "ticker": "HIMS",
+      "price": 35.47,
+      "change": 11.23,
+      "volume": 31903500,
+      "expiry": "2026-06-26",
+      "dte": 6,
+      "pcr_vol": 0.37,
+      "pcr_oi": 0.77,
+      "gex": 7.14,
+      "gex_regime": "POSITIVE",
+      "call_premium": 7.73,
+      "put_premium": 0.96,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 38381,
+      "put_vol": 14295,
+      "expiry_next_week": "2026-07-02",
+      "dte_next_week": 12,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 55,
+        "median": 37.9
       }
     }
   ]
