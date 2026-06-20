@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-20T18:03:35.850723+00:00",
+  "timestamp": "2026-06-20T19:51:05.918702+00:00",
   "date": "Saturday, June 20 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -627,7 +627,7 @@
       "score": 3,
       "direction": "BEARISH",
       "call_vol": 323513,
-      "put_vol": 492410,
+      "put_vol": 492390,
       "expiry_next_week": "2026-06-29",
       "dte_next_week": 9,
       "score_next_week": 1,
