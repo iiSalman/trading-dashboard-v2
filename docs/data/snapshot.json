@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-29T22:35:17.413193+00:00",
+  "timestamp": "2026-06-29T23:38:36.536557+00:00",
   "date": "Monday, June 29 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -35,35 +35,6 @@
     }
   },
   "tickers": [
-    {
-      "ticker": "RKLB",
-      "price": 98.01,
-      "change": 15.93,
-      "volume": 41915040,
-      "expiry": "2026-07-02",
-      "dte": 3,
-      "pcr_vol": 0.39,
-      "pcr_oi": 1.01,
-      "gex": 1.58,
-      "gex_regime": "POSITIVE",
-      "call_premium": 24.64,
-      "put_premium": 3.87,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 66210,
-      "put_vol": 25667,
-      "expiry_next_week": "2026-07-10",
-      "dte_next_week": 11,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 59,
-        "median": 36.2
-      }
-    },
     {
       "ticker": "TSLA",
       "price": 411.84,
@@ -754,38 +725,15 @@
       "score_next_week": 3,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
-    {
-      "ticker": "RKLB",
-      "price": 98.01,
-      "change": 15.93,
-      "volume": 41915040,
-      "expiry": "2026-07-02",
-      "dte": 3,
-      "pcr_vol": 0.39,
-      "pcr_oi": 1.01,
-      "gex": 1.58,
-      "gex_regime": "POSITIVE",
-      "call_premium": 24.64,
-      "put_premium": 3.87,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 66210,
-      "put_vol": 25667,
-      "expiry_next_week": "2026-07-10",
-      "dte_next_week": 11,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 59,
-        "median": 36.2
-      }
-    },
     {
       "ticker": "TSLA",
       "price": 411.84,
@@ -842,6 +790,35 @@
         "high": 35,
         "samples": 63,
         "median": 36.7
+      }
+    },
+    {
+      "ticker": "META",
+      "price": 562.6,
+      "change": 2.24,
+      "volume": 14265970,
+      "expiry": "2026-06-29",
+      "dte": 0,
+      "pcr_vol": 0.51,
+      "pcr_oi": 0.78,
+      "gex": 16.31,
+      "gex_regime": "POSITIVE",
+      "call_premium": 38.51,
+      "put_premium": 13.17,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 125031,
+      "put_vol": 64359,
+      "expiry_next_week": "2026-07-06",
+      "dte_next_week": 7,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 57,
+        "median": 35.3
       }
     }
   ]
