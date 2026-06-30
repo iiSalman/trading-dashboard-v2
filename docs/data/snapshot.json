@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-30T11:36:49.434663+00:00",
+  "timestamp": "2026-06-30T13:28:03.422189+00:00",
   "date": "Tuesday, June 30 2026",
   "market_status": "OPEN",
   "market_bias": "BEARISH",
@@ -62,6 +62,35 @@
         "high": 35,
         "samples": 59,
         "median": 36.2
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "price": 411.84,
+      "change": 8.46,
+      "volume": 57399800,
+      "expiry": "2026-07-01",
+      "dte": 1,
+      "pcr_vol": 0.71,
+      "pcr_oi": 0.93,
+      "gex": 0.28,
+      "gex_regime": "POSITIVE",
+      "call_premium": 308.64,
+      "put_premium": 43.91,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 264029,
+      "put_vol": 187812,
+      "expiry_next_week": "2026-07-08",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 57,
+        "median": 36.8
       }
     },
     {
@@ -130,7 +159,7 @@
       "expiry": "2026-07-01",
       "dte": 1,
       "pcr_vol": 0.41,
-      "pcr_oi": 2.42,
+      "pcr_oi": 0.65,
       "gex": 0.0,
       "gex_regime": "POSITIVE",
       "call_premium": 8.11,
@@ -189,7 +218,7 @@
       "dte": 2,
       "pcr_vol": 0.56,
       "pcr_oi": 0.96,
-      "gex": 0.4,
+      "gex": 0.01,
       "gex_regime": "POSITIVE",
       "call_premium": 10.68,
       "put_premium": 2.05,
@@ -236,35 +265,6 @@
         "high": 40,
         "samples": 58,
         "median": 35.8
-      }
-    },
-    {
-      "ticker": "TSLA",
-      "price": 411.84,
-      "change": 8.46,
-      "volume": 57399800,
-      "expiry": "2026-07-01",
-      "dte": 1,
-      "pcr_vol": 0.71,
-      "pcr_oi": 2.87,
-      "gex": -0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 308.64,
-      "put_premium": 43.91,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 264029,
-      "put_vol": 187812,
-      "expiry_next_week": "2026-07-08",
-      "dte_next_week": 8,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 57,
-        "median": 36.8
       }
     },
     {
@@ -410,6 +410,35 @@
         "high": 40,
         "samples": 67,
         "median": 33.3
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "price": 372.45,
+      "change": 2.04,
+      "volume": 24253100,
+      "expiry": "2026-07-01",
+      "dte": 1,
+      "pcr_vol": 0.8,
+      "pcr_oi": 1.05,
+      "gex": 303.6,
+      "gex_regime": "POSITIVE",
+      "call_premium": 2.98,
+      "put_premium": 4.99,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 13676,
+      "put_vol": 10956,
+      "expiry_next_week": "2026-07-08",
+      "dte_next_week": 8,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 60,
+        "median": 36.4
       }
     },
     {
@@ -616,35 +645,6 @@
       }
     },
     {
-      "ticker": "AVGO",
-      "price": 372.45,
-      "change": 2.04,
-      "volume": 24253100,
-      "expiry": "2026-07-01",
-      "dte": 1,
-      "pcr_vol": 0.8,
-      "pcr_oi": 1.6,
-      "gex": -0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 2.98,
-      "put_premium": 4.99,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 13676,
-      "put_vol": 10956,
-      "expiry_next_week": "2026-07-08",
-      "dte_next_week": 8,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 60,
-        "median": 36.4
-      }
-    },
-    {
       "ticker": "MU",
       "price": 1145.28,
       "change": 1.14,
@@ -723,9 +723,27 @@
     },
     {
       "ticker": "MSTR",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
+      "price": 92.68,
+      "change": 12.6,
+      "volume": 44762500,
+      "expiry": "2026-07-02",
+      "dte": 2,
+      "pcr_vol": 1.08,
+      "pcr_oi": 0.62,
+      "gex": 6.93,
+      "gex_regime": "POSITIVE",
+      "call_premium": 42.02,
+      "put_premium": 26.67,
+      "unusual": true,
+      "score": 1,
+      "direction": "NEUTRAL",
+      "call_vol": 137119,
+      "put_vol": 147484,
+      "expiry_next_week": "2026-07-10",
+      "dte_next_week": 10,
+      "score_next_week": 2,
+      "direction_next_week": "BEARISH",
+      "recovery_rsi": null
     }
   ],
   "top_picks": [
@@ -759,6 +777,35 @@
       }
     },
     {
+      "ticker": "TSLA",
+      "price": 411.84,
+      "change": 8.46,
+      "volume": 57399800,
+      "expiry": "2026-07-01",
+      "dte": 1,
+      "pcr_vol": 0.71,
+      "pcr_oi": 0.93,
+      "gex": 0.28,
+      "gex_regime": "POSITIVE",
+      "call_premium": 308.64,
+      "put_premium": 43.91,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 264029,
+      "put_vol": 187812,
+      "expiry_next_week": "2026-07-08",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 57,
+        "median": 36.8
+      }
+    },
+    {
       "ticker": "AMZN",
       "price": 240.14,
       "change": 3.2,
@@ -785,35 +832,6 @@
         "high": 45,
         "samples": 64,
         "median": 35.1
-      }
-    },
-    {
-      "ticker": "HIMS",
-      "price": 33.39,
-      "change": -1.62,
-      "volume": 14042300,
-      "expiry": "2026-07-02",
-      "dte": 2,
-      "pcr_vol": 0.46,
-      "pcr_oi": 0.88,
-      "gex": 2.48,
-      "gex_regime": "POSITIVE",
-      "call_premium": 2.61,
-      "put_premium": 1.04,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 25809,
-      "put_vol": 11912,
-      "expiry_next_week": "2026-07-10",
-      "dte_next_week": 10,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 63,
-        "median": 36.7
       }
     }
   ]
