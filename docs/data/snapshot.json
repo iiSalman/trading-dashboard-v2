@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-02T22:06:03.832009+00:00",
+  "timestamp": "2026-07-02T23:20:23.357782+00:00",
   "date": "Thursday, July 02 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -387,7 +387,7 @@
       "dte": 0,
       "pcr_vol": 0.5,
       "pcr_oi": 0.61,
-      "gex": 411.75,
+      "gex": 411.52,
       "gex_regime": "POSITIVE",
       "call_premium": 68.08,
       "put_premium": 42.38,
