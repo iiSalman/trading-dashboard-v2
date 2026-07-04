@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-04T09:52:23.890610+00:00",
+  "timestamp": "2026-07-04T11:15:05.503447+00:00",
   "date": "Saturday, July 04 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -408,6 +408,35 @@
       }
     },
     {
+      "ticker": "NVDA",
+      "price": 194.83,
+      "change": -1.39,
+      "volume": 142385500,
+      "expiry": "2026-07-06",
+      "dte": 2,
+      "pcr_vol": 0.54,
+      "pcr_oi": 0.76,
+      "gex": -1.81,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 42.07,
+      "put_premium": 54.18,
+      "unusual": true,
+      "score": 3,
+      "direction": "BULLISH",
+      "call_vol": 308164,
+      "put_vol": 165891,
+      "expiry_next_week": "2026-07-17",
+      "dte_next_week": 13,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 62,
+        "median": 37.0
+      }
+    },
+    {
       "ticker": "TSLA",
       "price": 393.45,
       "change": -7.49,
@@ -685,12 +714,6 @@
       "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
