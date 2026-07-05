@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-05T15:20:59.112638+00:00",
+  "timestamp": "2026-07-05T16:30:48.707665+00:00",
   "date": "Sunday, July 05 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -408,35 +408,6 @@
       }
     },
     {
-      "ticker": "NVDA",
-      "price": 194.83,
-      "change": -1.39,
-      "volume": 142068700,
-      "expiry": "2026-07-06",
-      "dte": 1,
-      "pcr_vol": 0.54,
-      "pcr_oi": 0.76,
-      "gex": -5.14,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 42.07,
-      "put_premium": 54.18,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 308164,
-      "put_vol": 165891,
-      "expiry_next_week": "2026-07-17",
-      "dte_next_week": 12,
-      "score_next_week": 2,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 62,
-        "median": 37.0
-      }
-    },
-    {
       "ticker": "TSLA",
       "price": 393.45,
       "change": -7.49,
@@ -620,6 +591,30 @@
       "recovery_rsi": null
     },
     {
+      "ticker": "RKLB",
+      "price": 100.46,
+      "change": 0.39,
+      "volume": 22180300,
+      "expiry": "2026-07-10",
+      "dte": 5,
+      "pcr_vol": 0.97,
+      "pcr_oi": 0.49,
+      "gex": 2.36,
+      "gex_regime": "POSITIVE",
+      "call_premium": 4.66,
+      "put_premium": 2.47,
+      "unusual": true,
+      "score": 1,
+      "direction": "NEUTRAL",
+      "call_vol": 15963,
+      "put_vol": 15476,
+      "expiry_next_week": "2026-07-17",
+      "dte_next_week": 12,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "AMD",
       "price": 517.82,
       "change": -4.26,
@@ -692,8 +687,8 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "RKLB",
-      "error": "database is locked",
+      "ticker": "NVDA",
+      "error": "Too Many Requests. Rate limited. Try after a while.",
       "score": 0,
       "direction": "NEUTRAL"
     }
