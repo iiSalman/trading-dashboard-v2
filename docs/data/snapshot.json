@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-10T21:30:13.368878+00:00",
+  "timestamp": "2026-07-10T22:34:11.284594+00:00",
   "date": "Friday, July 10 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -35,6 +35,35 @@
     }
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 210.96,
+      "change": 4.03,
+      "volume": 147203662,
+      "expiry": "2026-07-10",
+      "dte": 0,
+      "pcr_vol": 0.35,
+      "pcr_oi": 0.61,
+      "gex": 513.29,
+      "gex_regime": "POSITIVE",
+      "call_premium": 619.26,
+      "put_premium": 4.81,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 2286991,
+      "put_vol": 810350,
+      "expiry_next_week": "2026-07-17",
+      "dte_next_week": 7,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 57,
+        "median": 38.2
+      }
+    },
     {
       "ticker": "MSTR",
       "price": 94.64,
@@ -700,15 +729,38 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 210.96,
+      "change": 4.03,
+      "volume": 147203662,
+      "expiry": "2026-07-10",
+      "dte": 0,
+      "pcr_vol": 0.35,
+      "pcr_oi": 0.61,
+      "gex": 513.29,
+      "gex_regime": "POSITIVE",
+      "call_premium": 619.26,
+      "put_premium": 4.81,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 2286991,
+      "put_vol": 810350,
+      "expiry_next_week": "2026-07-17",
+      "dte_next_week": 7,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 57,
+        "median": 38.2
+      }
+    },
     {
       "ticker": "MSTR",
       "price": 94.64,
@@ -765,35 +817,6 @@
         "high": 40,
         "samples": 53,
         "median": 35.7
-      }
-    },
-    {
-      "ticker": "AMD",
-      "price": 557.89,
-      "change": 2.04,
-      "volume": 20605362,
-      "expiry": "2026-07-10",
-      "dte": 0,
-      "pcr_vol": 0.6,
-      "pcr_oi": 1.11,
-      "gex": 41.36,
-      "gex_regime": "POSITIVE",
-      "call_premium": 115.15,
-      "put_premium": 4.42,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 157180,
-      "put_vol": 93731,
-      "expiry_next_week": "2026-07-17",
-      "dte_next_week": 7,
-      "score_next_week": 2,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 59,
-        "median": 35.9
       }
     }
   ]
