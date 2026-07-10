@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-10T07:53:00.519387+00:00",
+  "timestamp": "2026-07-10T10:43:39.444005+00:00",
   "date": "Friday, July 10 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "NEUTRAL",
   "bias_desc": "Mixed signals \u2014 wait for clarity, reduce size",
   "bias_color": "gray",
@@ -166,7 +166,7 @@
       "put_vol": 21808,
       "expiry_next_week": "2026-07-17",
       "dte_next_week": 7,
-      "score_next_week": 5,
+      "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 40,
