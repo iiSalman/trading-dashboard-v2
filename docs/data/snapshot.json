@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-13T06:47:28.258590+00:00",
+  "timestamp": "2026-07-13T10:01:24.792517+00:00",
   "date": "Monday, July 13 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "NEUTRAL",
   "bias_desc": "Mixed signals \u2014 wait for clarity, reduce size",
   "bias_color": "gray",
@@ -30,6 +30,35 @@
     "recovery_rsi": null
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 210.96,
+      "change": 4.03,
+      "volume": 148124000,
+      "expiry": "2026-07-13",
+      "dte": 0,
+      "pcr_vol": 0.47,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 128.49,
+      "put_premium": 13.41,
+      "unusual": false,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 425620,
+      "put_vol": 201468,
+      "expiry_next_week": "2026-07-20",
+      "dte_next_week": 7,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 57,
+        "median": 38.2
+      }
+    },
     {
       "ticker": "MSTR",
       "price": 94.64,
@@ -292,35 +321,6 @@
       }
     },
     {
-      "ticker": "BABA",
-      "price": 112.33,
-      "change": 1.07,
-      "volume": 16137200,
-      "expiry": "2026-07-17",
-      "dte": 4,
-      "pcr_vol": 0.4,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 8.49,
-      "put_premium": 13.69,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 37927,
-      "put_vol": 15241,
-      "expiry_next_week": "2026-07-24",
-      "dte_next_week": 11,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 63,
-        "median": 37.2
-      }
-    },
-    {
       "ticker": "AVGO",
       "price": 399.97,
       "change": -0.28,
@@ -523,6 +523,30 @@
       "recovery_rsi": null
     },
     {
+      "ticker": "BABA",
+      "price": 112.33,
+      "change": 1.07,
+      "volume": 16137200,
+      "expiry": "2026-07-17",
+      "dte": 4,
+      "pcr_vol": 0.4,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 8.49,
+      "put_premium": 13.69,
+      "unusual": false,
+      "score": 2,
+      "direction": "BULLISH",
+      "call_vol": 37927,
+      "put_vol": 15241,
+      "expiry_next_week": "2026-07-24",
+      "dte_next_week": 11,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "BA",
       "price": 222.28,
       "change": -0.37,
@@ -619,12 +643,6 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
       "ticker": "QQQ",
       "price": 725.51,
       "change": 0.31,
@@ -674,6 +692,35 @@
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 210.96,
+      "change": 4.03,
+      "volume": 148124000,
+      "expiry": "2026-07-13",
+      "dte": 0,
+      "pcr_vol": 0.47,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 128.49,
+      "put_premium": 13.41,
+      "unusual": false,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 425620,
+      "put_vol": 201468,
+      "expiry_next_week": "2026-07-20",
+      "dte_next_week": 7,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 57,
+        "median": 38.2
+      }
+    },
     {
       "ticker": "MSTR",
       "price": 94.64,
@@ -730,35 +777,6 @@
         "high": 40,
         "samples": 56,
         "median": 37.1
-      }
-    },
-    {
-      "ticker": "META",
-      "price": 669.21,
-      "change": 5.97,
-      "volume": 40563100,
-      "expiry": "2026-07-13",
-      "dte": 0,
-      "pcr_vol": 0.49,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 58.53,
-      "put_premium": 8.15,
-      "unusual": false,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 81384,
-      "put_vol": 40248,
-      "expiry_next_week": "2026-07-20",
-      "dte_next_week": 7,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 50,
-        "median": 36.3
       }
     }
   ]
