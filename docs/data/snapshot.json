@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-14T21:41:55.052397+00:00",
+  "timestamp": "2026-07-14T22:39:43.035731+00:00",
   "date": "Tuesday, July 14 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -35,35 +35,6 @@
     }
   },
   "tickers": [
-    {
-      "ticker": "NVDA",
-      "price": 211.8,
-      "change": 4.06,
-      "volume": 118014431,
-      "expiry": "2026-07-15",
-      "dte": 1,
-      "pcr_vol": 0.45,
-      "pcr_oi": 0.62,
-      "gex": 98.01,
-      "gex_regime": "POSITIVE",
-      "call_premium": 294.36,
-      "put_premium": 31.62,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 1084744,
-      "put_vol": 485278,
-      "expiry_next_week": "2026-07-22",
-      "dte_next_week": 8,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 56,
-        "median": 37.3
-      }
-    },
     {
       "ticker": "AMZN",
       "price": 247.49,
@@ -529,6 +500,30 @@
       }
     },
     {
+      "ticker": "RKLB",
+      "price": 78.81,
+      "change": 2.71,
+      "volume": 15572267,
+      "expiry": "2026-07-17",
+      "dte": 3,
+      "pcr_vol": 0.61,
+      "pcr_oi": 0.58,
+      "gex": -5.36,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 3.81,
+      "put_premium": 6.5,
+      "unusual": false,
+      "score": 2,
+      "direction": "BULLISH",
+      "call_vol": 32910,
+      "put_vol": 20092,
+      "expiry_next_week": "2026-07-24",
+      "dte_next_week": 10,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "ARM",
       "price": 281.17,
       "change": -5.96,
@@ -625,7 +620,7 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "RKLB",
+      "ticker": "NVDA",
       "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
@@ -705,35 +700,6 @@
   ],
   "top_picks": [
     {
-      "ticker": "NVDA",
-      "price": 211.8,
-      "change": 4.06,
-      "volume": 118014431,
-      "expiry": "2026-07-15",
-      "dte": 1,
-      "pcr_vol": 0.45,
-      "pcr_oi": 0.62,
-      "gex": 98.01,
-      "gex_regime": "POSITIVE",
-      "call_premium": 294.36,
-      "put_premium": 31.62,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 1084744,
-      "put_vol": 485278,
-      "expiry_next_week": "2026-07-22",
-      "dte_next_week": 8,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 56,
-        "median": 37.3
-      }
-    },
-    {
       "ticker": "AMZN",
       "price": 247.49,
       "change": 0.07,
@@ -788,6 +754,35 @@
         "low": 35,
         "high": 40,
         "samples": 66,
+        "median": 36.7
+      }
+    },
+    {
+      "ticker": "META",
+      "price": 661.04,
+      "change": 0.66,
+      "volume": 13244016,
+      "expiry": "2026-07-15",
+      "dte": 1,
+      "pcr_vol": 0.54,
+      "pcr_oi": 0.87,
+      "gex": 4.23,
+      "gex_regime": "POSITIVE",
+      "call_premium": 57.96,
+      "put_premium": 14.66,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 90479,
+      "put_vol": 48798,
+      "expiry_next_week": "2026-07-22",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 59,
         "median": 36.7
       }
     }
