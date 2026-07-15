@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-15T08:34:13.113283+00:00",
+  "timestamp": "2026-07-15T10:25:46.915856+00:00",
   "date": "Wednesday, July 15 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "RANGE",
   "bias_desc": "Positive GEX + low drift \u2014 fade moves, trade the range",
   "bias_color": "yellow",
