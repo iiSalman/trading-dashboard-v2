@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-19T19:22:35.149652+00:00",
+  "timestamp": "2026-07-19T20:13:53.695357+00:00",
   "date": "Sunday, July 19 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -91,35 +91,6 @@
         "high": 35,
         "samples": 61,
         "median": 34.1
-      }
-    },
-    {
-      "ticker": "ARM",
-      "price": 267.19,
-      "change": 1.98,
-      "volume": 8227100,
-      "expiry": "2026-07-24",
-      "dte": 5,
-      "pcr_vol": 0.51,
-      "pcr_oi": 0.63,
-      "gex": 0.02,
-      "gex_regime": "POSITIVE",
-      "call_premium": 8.25,
-      "put_premium": 6.31,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 10848,
-      "put_vol": 5500,
-      "expiry_next_week": "2026-07-31",
-      "dte_next_week": 12,
-      "score_next_week": 2,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 61,
-        "median": 36.7
       }
     },
     {
@@ -381,6 +352,35 @@
         "high": 35,
         "samples": 48,
         "median": 33.6
+      }
+    },
+    {
+      "ticker": "RKLB",
+      "price": 67.62,
+      "change": 0.4,
+      "volume": 22258900,
+      "expiry": "2026-07-24",
+      "dte": 5,
+      "pcr_vol": 0.6,
+      "pcr_oi": 1.02,
+      "gex": -1.81,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 2.99,
+      "put_premium": 4.56,
+      "unusual": true,
+      "score": 3,
+      "direction": "BULLISH",
+      "call_vol": 20070,
+      "put_vol": 12127,
+      "expiry_next_week": "2026-07-31",
+      "dte_next_week": 12,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 58,
+        "median": 35.8
       }
     },
     {
@@ -692,8 +692,8 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "RKLB",
-      "error": "database is locked",
+      "ticker": "ARM",
+      "error": "Failed to perform, curl: (28) Operation timed out after 30002 milliseconds with 0 bytes received. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
       "score": 0,
       "direction": "NEUTRAL"
     }
@@ -758,32 +758,32 @@
       }
     },
     {
-      "ticker": "ARM",
-      "price": 267.19,
-      "change": 1.98,
-      "volume": 8227100,
-      "expiry": "2026-07-24",
-      "dte": 5,
-      "pcr_vol": 0.51,
-      "pcr_oi": 0.63,
-      "gex": 0.02,
+      "ticker": "MSFT",
+      "price": 393.82,
+      "change": -1.82,
+      "volume": 33010300,
+      "expiry": "2026-07-20",
+      "dte": 1,
+      "pcr_vol": 0.39,
+      "pcr_oi": 0.43,
+      "gex": 4.91,
       "gex_regime": "POSITIVE",
-      "call_premium": 8.25,
-      "put_premium": 6.31,
+      "call_premium": 10.09,
+      "put_premium": 4.71,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 10848,
-      "put_vol": 5500,
-      "expiry_next_week": "2026-07-31",
-      "dte_next_week": 12,
-      "score_next_week": 2,
-      "direction_next_week": "BEARISH",
+      "call_vol": 49687,
+      "put_vol": 19377,
+      "expiry_next_week": "2026-07-27",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 61,
-        "median": 36.7
+        "samples": 52,
+        "median": 35.6
       }
     }
   ]
