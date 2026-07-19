@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-19T18:07:38.579315+00:00",
+  "timestamp": "2026-07-19T19:22:35.149652+00:00",
   "date": "Sunday, July 19 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -384,35 +384,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 67.62,
-      "change": 0.4,
-      "volume": 22258900,
-      "expiry": "2026-07-24",
-      "dte": 5,
-      "pcr_vol": 0.6,
-      "pcr_oi": 1.02,
-      "gex": -1.81,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 2.99,
-      "put_premium": 4.56,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 20070,
-      "put_vol": 12127,
-      "expiry_next_week": "2026-07-31",
-      "dte_next_week": 12,
-      "score_next_week": 2,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 58,
-        "median": 35.8
-      }
-    },
-    {
       "ticker": "CRWV",
       "price": 73.21,
       "change": 0.41,
@@ -719,6 +690,12 @@
       "score_next_week": 1,
       "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
