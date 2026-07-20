@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-20T00:08:23.933139+00:00",
+  "timestamp": "2026-07-20T04:00:20.920573+00:00",
   "date": "Monday, July 20 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -178,6 +178,35 @@
         "high": 40,
         "samples": 60,
         "median": 36.3
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "price": 247.23,
+      "change": -1.06,
+      "volume": 43511500,
+      "expiry": "2026-07-20",
+      "dte": 0,
+      "pcr_vol": 0.48,
+      "pcr_oi": 0.67,
+      "gex": 4.68,
+      "gex_regime": "POSITIVE",
+      "call_premium": 92.87,
+      "put_premium": 49.29,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 68736,
+      "put_vol": 33054,
+      "expiry_next_week": "2026-07-27",
+      "dte_next_week": 7,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 60,
+        "median": 35.8
       }
     },
     {
@@ -690,28 +719,6 @@
       "score_next_week": 1,
       "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "AMZN",
-      "price": 247.23,
-      "change": -1.06,
-      "volume": 43511500,
-      "score": 0,
-      "direction": "NEUTRAL",
-      "expiry": null,
-      "dte": null,
-      "gex": 0,
-      "gex_regime": "N/A",
-      "pcr_vol": 1.0,
-      "pcr_oi": 1.0,
-      "call_premium": 0,
-      "put_premium": 0,
-      "unusual": false,
-      "score_next_week": null,
-      "direction_next_week": null,
-      "expiry_next_week": null,
-      "dte_next_week": null,
-      "error": "No options listed"
     }
   ],
   "top_picks": [
