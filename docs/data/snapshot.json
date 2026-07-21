@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-21T11:16:55.048389+00:00",
+  "timestamp": "2026-07-21T12:46:25.344891+00:00",
   "date": "Tuesday, July 21 2026",
   "market_status": "OPEN",
   "market_bias": "RANGE",
@@ -50,7 +50,7 @@
       "put_vol": 25779,
       "expiry_next_week": "2026-07-31",
       "dte_next_week": 10,
-      "score_next_week": 5,
+      "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 35,
@@ -379,35 +379,6 @@
       }
     },
     {
-      "ticker": "NVDA",
-      "price": 203.28,
-      "change": 0.23,
-      "volume": 88489800,
-      "expiry": "2026-07-22",
-      "dte": 1,
-      "pcr_vol": 0.71,
-      "pcr_oi": 0.03,
-      "gex": 0.0,
-      "gex_regime": "POSITIVE",
-      "call_premium": 44.98,
-      "put_premium": 63.91,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 250545,
-      "put_vol": 178927,
-      "expiry_next_week": "2026-07-29",
-      "dte_next_week": 8,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 52,
-        "median": 36.7
-      }
-    },
-    {
       "ticker": "TSLA",
       "price": 369.57,
       "change": -2.96,
@@ -543,7 +514,7 @@
       "put_vol": 18173,
       "expiry_next_week": "2026-07-31",
       "dte_next_week": 10,
-      "score_next_week": 4,
+      "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 30,
@@ -611,6 +582,30 @@
       }
     },
     {
+      "ticker": "NVDA",
+      "price": 203.28,
+      "change": 0.23,
+      "volume": 88489800,
+      "expiry": "2026-07-22",
+      "dte": 1,
+      "pcr_vol": 0.71,
+      "pcr_oi": 1.07,
+      "gex": -0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 44.98,
+      "put_premium": 63.91,
+      "unusual": true,
+      "score": 2,
+      "direction": "BULLISH",
+      "call_vol": 250545,
+      "put_vol": 178927,
+      "expiry_next_week": "2026-07-29",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "AAPL",
       "price": 326.59,
       "change": -2.14,
@@ -654,7 +649,7 @@
       "put_vol": 4201,
       "expiry_next_week": "2026-07-31",
       "dte_next_week": 10,
-      "score_next_week": 3,
+      "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
     },
@@ -714,7 +709,7 @@
       "expiry": "2026-07-22",
       "dte": 1,
       "pcr_vol": 1.17,
-      "pcr_oi": 1.35,
+      "pcr_oi": 1.4,
       "gex": 0.0,
       "gex_regime": "POSITIVE",
       "call_premium": 58.82,
@@ -752,7 +747,7 @@
       "put_vol": 25779,
       "expiry_next_week": "2026-07-31",
       "dte_next_week": 10,
-      "score_next_week": 5,
+      "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 35,
