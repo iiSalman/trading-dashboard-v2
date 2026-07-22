@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-22T07:07:52.162074+00:00",
+  "timestamp": "2026-07-22T09:36:27.723691+00:00",
   "date": "Wednesday, July 22 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "TREND_DOWN",
   "bias_desc": "Negative GEX + bearish flow \u2014 follow momentum shorts",
   "bias_color": "red",
