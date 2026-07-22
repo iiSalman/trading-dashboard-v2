@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-22T11:27:56.235910+00:00",
+  "timestamp": "2026-07-22T12:58:54.600498+00:00",
   "date": "Wednesday, July 22 2026",
   "market_status": "OPEN",
   "market_bias": "BEARISH",
@@ -202,35 +202,6 @@
         "high": 40,
         "samples": 61,
         "median": 36.4
-      }
-    },
-    {
-      "ticker": "RKLB",
-      "price": 69.12,
-      "change": 5.14,
-      "volume": 19400500,
-      "expiry": "2026-07-24",
-      "dte": 2,
-      "pcr_vol": 0.34,
-      "pcr_oi": 0.74,
-      "gex": -0.12,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 5.01,
-      "put_premium": 3.59,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 29228,
-      "put_vol": 9979,
-      "expiry_next_week": "2026-07-31",
-      "dte_next_week": 9,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 58,
-        "median": 35.7
       }
     },
     {
@@ -710,6 +681,12 @@
       "score_next_week": 2,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     },
     {
       "ticker": "IREN",
