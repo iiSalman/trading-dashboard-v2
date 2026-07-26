@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-26T09:27:49.748746+00:00",
+  "timestamp": "2026-07-26T11:01:29.620823+00:00",
   "date": "Sunday, July 26 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -558,6 +558,30 @@
       }
     },
     {
+      "ticker": "NVDA",
+      "price": 206.84,
+      "change": -0.92,
+      "volume": 114672100,
+      "expiry": "2026-07-27",
+      "dte": 1,
+      "pcr_vol": 0.74,
+      "pcr_oi": 1.03,
+      "gex": -17.43,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 57.08,
+      "put_premium": 50.83,
+      "unusual": true,
+      "score": 2,
+      "direction": "BULLISH",
+      "call_vol": 327603,
+      "put_vol": 241316,
+      "expiry_next_week": "2026-08-03",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "TSLA",
       "price": 313.03,
       "change": -2.08,
@@ -676,12 +700,6 @@
       "score_next_week": 4,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     },
     {
       "ticker": "PANW",
