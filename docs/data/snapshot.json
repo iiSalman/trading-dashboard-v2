@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-26T18:12:18.717570+00:00",
+  "timestamp": "2026-07-26T19:34:40.136934+00:00",
   "date": "Sunday, July 26 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -384,35 +384,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 63.91,
-      "change": -8.69,
-      "volume": 18735500,
-      "expiry": "2026-07-31",
-      "dte": 5,
-      "pcr_vol": 0.35,
-      "pcr_oi": 0.71,
-      "gex": -0.55,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 1.96,
-      "put_premium": 2.56,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 24134,
-      "put_vol": 8367,
-      "expiry_next_week": "2026-08-07",
-      "dte_next_week": 12,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 60,
-        "median": 34.6
-      }
-    },
-    {
       "ticker": "AMZN",
       "price": 232.11,
       "change": -0.66,
@@ -700,6 +671,12 @@
       "score_next_week": 4,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     },
     {
       "ticker": "PANW",
