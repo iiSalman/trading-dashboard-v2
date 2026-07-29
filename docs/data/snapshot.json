@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-29T11:35:27.354433+00:00",
+  "timestamp": "2026-07-29T13:20:08.027908+00:00",
   "date": "Wednesday, July 29 2026",
   "market_status": "OPEN",
   "market_bias": "RANGE",
@@ -30,35 +30,6 @@
     "recovery_rsi": null
   },
   "tickers": [
-    {
-      "ticker": "NVDA",
-      "price": 197.01,
-      "change": 0.25,
-      "volume": 133207800,
-      "expiry": "2026-07-29",
-      "dte": 0,
-      "pcr_vol": 0.6,
-      "pcr_oi": 0.64,
-      "gex": 16.22,
-      "gex_regime": "POSITIVE",
-      "call_premium": 131.72,
-      "put_premium": 64.64,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 710693,
-      "put_vol": 425428,
-      "expiry_next_week": "2026-08-05",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 60,
-        "median": 36.2
-      }
-    },
     {
       "ticker": "ARM",
       "price": 244.74,
@@ -328,7 +299,7 @@
       "expiry": "2026-07-31",
       "dte": 2,
       "pcr_vol": 1.09,
-      "pcr_oi": 0.9,
+      "pcr_oi": 1.3,
       "gex": -0.0,
       "gex_regime": "NEGATIVE",
       "call_premium": 146.99,
@@ -514,7 +485,7 @@
       "put_vol": 116392,
       "expiry_next_week": "2026-08-05",
       "dte_next_week": 7,
-      "score_next_week": 3,
+      "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 35,
@@ -668,6 +639,12 @@
       "recovery_rsi": null
     },
     {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
+    },
+    {
       "ticker": "MSTR",
       "price": 96.16,
       "change": -2.52,
@@ -717,35 +694,6 @@
     }
   ],
   "top_picks": [
-    {
-      "ticker": "NVDA",
-      "price": 197.01,
-      "change": 0.25,
-      "volume": 133207800,
-      "expiry": "2026-07-29",
-      "dte": 0,
-      "pcr_vol": 0.6,
-      "pcr_oi": 0.64,
-      "gex": 16.22,
-      "gex_regime": "POSITIVE",
-      "call_premium": 131.72,
-      "put_premium": 64.64,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 710693,
-      "put_vol": 425428,
-      "expiry_next_week": "2026-08-05",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 60,
-        "median": 36.2
-      }
-    },
     {
       "ticker": "ARM",
       "price": 244.74,
@@ -802,6 +750,35 @@
         "high": 45,
         "samples": 49,
         "median": 34.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "price": 333.71,
+      "change": 2.19,
+      "volume": 29398100,
+      "expiry": "2026-07-29",
+      "dte": 0,
+      "pcr_vol": 0.33,
+      "pcr_oi": 0.52,
+      "gex": -0.06,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 27.83,
+      "put_premium": 3.9,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 104178,
+      "put_vol": 34377,
+      "expiry_next_week": "2026-08-05",
+      "dte_next_week": 7,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 55,
+        "median": 35.2
       }
     }
   ]
