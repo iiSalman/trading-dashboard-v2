@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-29T06:18:18.152785+00:00",
+  "timestamp": "2026-07-29T09:16:04.646219+00:00",
   "date": "Wednesday, July 29 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -89,35 +89,6 @@
       }
     },
     {
-      "ticker": "GOOGL",
-      "price": 333.71,
-      "change": 2.19,
-      "volume": 29398100,
-      "expiry": "2026-07-29",
-      "dte": 0,
-      "pcr_vol": 0.33,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 27.83,
-      "put_premium": 3.9,
-      "unusual": false,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 104178,
-      "put_vol": 34377,
-      "expiry_next_week": "2026-08-05",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 55,
-        "median": 35.2
-      }
-    },
-    {
       "ticker": "NVDA",
       "price": 197.01,
       "change": 0.25,
@@ -144,35 +115,6 @@
         "high": 40,
         "samples": 60,
         "median": 36.2
-      }
-    },
-    {
-      "ticker": "OKLO",
-      "price": 39.58,
-      "change": -5.33,
-      "volume": 8652800,
-      "expiry": "2026-07-31",
-      "dte": 2,
-      "pcr_vol": 0.36,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 0.67,
-      "put_premium": 1.76,
-      "unusual": false,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 10116,
-      "put_vol": 3687,
-      "expiry_next_week": "2026-08-07",
-      "dte_next_week": 9,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 61,
-        "median": 35.9
       }
     },
     {
@@ -292,6 +234,30 @@
       }
     },
     {
+      "ticker": "RKLB",
+      "price": 63.89,
+      "change": -4.56,
+      "volume": 18246300,
+      "expiry": "2026-07-31",
+      "dte": 2,
+      "pcr_vol": 0.38,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 3.78,
+      "put_premium": 2.83,
+      "unusual": false,
+      "score": 2,
+      "direction": "BULLISH",
+      "call_vol": 28755,
+      "put_vol": 10808,
+      "expiry_next_week": "2026-08-07",
+      "dte_next_week": 9,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "AAPL",
       "price": 340.08,
       "change": 0.94,
@@ -361,30 +327,6 @@
       "dte_next_week": 7,
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
-      "recovery_rsi": null
-    },
-    {
-      "ticker": "CRWV",
-      "price": 67.3,
-      "change": -4.93,
-      "volume": 29661200,
-      "expiry": "2026-07-31",
-      "dte": 2,
-      "pcr_vol": 0.5,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 7.03,
-      "put_premium": 9.5,
-      "unusual": false,
-      "score": 2,
-      "direction": "BULLISH",
-      "call_vol": 39657,
-      "put_vol": 20025,
-      "expiry_next_week": "2026-08-07",
-      "dte_next_week": 9,
-      "score_next_week": 0,
-      "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
     },
     {
@@ -556,12 +498,6 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
       "ticker": "MSTR",
       "price": 96.16,
       "change": -2.52,
@@ -610,6 +546,12 @@
       "recovery_rsi": null
     },
     {
+      "ticker": "OKLO",
+      "error": "No price",
+      "score": 0,
+      "direction": "NEUTRAL"
+    },
+    {
       "ticker": "QQQ",
       "price": 675.49,
       "change": -0.97,
@@ -656,6 +598,18 @@
       "score_next_week": 3,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "CRWV",
+      "error": "No price",
+      "score": 0,
+      "direction": "NEUTRAL"
+    },
+    {
+      "ticker": "GOOGL",
+      "error": "No price",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -718,32 +672,32 @@
       }
     },
     {
-      "ticker": "GOOGL",
-      "price": 333.71,
-      "change": 2.19,
-      "volume": 29398100,
+      "ticker": "NVDA",
+      "price": 197.01,
+      "change": 0.25,
+      "volume": 133207800,
       "expiry": "2026-07-29",
       "dte": 0,
-      "pcr_vol": 0.33,
+      "pcr_vol": 0.6,
       "pcr_oi": 1.0,
       "gex": 0.0,
       "gex_regime": "NEGATIVE",
-      "call_premium": 27.83,
-      "put_premium": 3.9,
+      "call_premium": 131.72,
+      "put_premium": 64.64,
       "unusual": false,
-      "score": 4,
+      "score": 3,
       "direction": "BULLISH",
-      "call_vol": 104178,
-      "put_vol": 34377,
+      "call_vol": 710693,
+      "put_vol": 425428,
       "expiry_next_week": "2026-08-05",
       "dte_next_week": 7,
-      "score_next_week": 4,
+      "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 35,
         "high": 40,
-        "samples": 55,
-        "median": 35.2
+        "samples": 60,
+        "median": 36.2
       }
     }
   ]
