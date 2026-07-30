@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-30T06:39:15.933432+00:00",
+  "timestamp": "2026-07-30T09:16:55.877032+00:00",
   "date": "Thursday, July 30 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -114,7 +114,7 @@
         "low": 35,
         "high": 40,
         "samples": 57,
-        "median": 34.8
+        "median": 34.7
       }
     },
     {
@@ -186,12 +186,12 @@
       "pcr_oi": 1.0,
       "gex": 0.0,
       "gex_regime": "NEGATIVE",
-      "call_premium": 6.1,
+      "call_premium": 6.08,
       "put_premium": 1.45,
       "unusual": false,
       "score": 3,
       "direction": "BULLISH",
-      "call_vol": 13027,
+      "call_vol": 13017,
       "put_vol": 9214,
       "expiry_next_week": "2026-08-07",
       "dte_next_week": 8,
@@ -269,17 +269,17 @@
       "volume": 6336700,
       "expiry": "2026-07-31",
       "dte": 1,
-      "pcr_vol": 2.18,
+      "pcr_vol": 2.19,
       "pcr_oi": 1.0,
       "gex": 0.0,
       "gex_regime": "NEGATIVE",
       "call_premium": 1.45,
-      "put_premium": 2.17,
+      "put_premium": 2.22,
       "unusual": false,
       "score": 3,
       "direction": "BEARISH",
       "call_vol": 1530,
-      "put_vol": 3342,
+      "put_vol": 3346,
       "expiry_next_week": "2026-08-07",
       "dte_next_week": 8,
       "score_next_week": 3,
@@ -317,7 +317,7 @@
         "low": 35,
         "high": 40,
         "samples": 62,
-        "median": 35.3
+        "median": 35.4
       }
     },
     {
@@ -514,13 +514,13 @@
       "pcr_oi": 1.0,
       "gex": 0.0,
       "gex_regime": "NEGATIVE",
-      "call_premium": 52.46,
-      "put_premium": 291.41,
+      "call_premium": 52.47,
+      "put_premium": 291.44,
       "unusual": false,
       "score": 2,
       "direction": "BEARISH",
-      "call_vol": 445058,
-      "put_vol": 479138,
+      "call_vol": 445071,
+      "put_vol": 479147,
       "expiry_next_week": "2026-08-06",
       "dte_next_week": 7,
       "score_next_week": 2,
@@ -781,7 +781,7 @@
         "low": 35,
         "high": 40,
         "samples": 57,
-        "median": 34.8
+        "median": 34.7
       }
     }
   ]
