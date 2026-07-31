@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-31T22:26:59.235528+00:00",
+  "timestamp": "2026-07-31T23:30:19.674011+00:00",
   "date": "Friday, July 31 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -148,7 +148,7 @@
         "low": 40,
         "high": 45,
         "samples": 57,
-        "median": 37.0
+        "median": 36.9
       }
     },
     {
@@ -279,12 +279,12 @@
       "gex": 42.43,
       "gex_regime": "POSITIVE",
       "call_premium": 149.61,
-      "put_premium": 1.11,
+      "put_premium": 1.08,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
       "call_vol": 322864,
-      "put_vol": 124923,
+      "put_vol": 124920,
       "expiry_next_week": "2026-08-07",
       "dte_next_week": 7,
       "score_next_week": 5,
@@ -312,7 +312,7 @@
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 54349,
+      "call_vol": 54347,
       "put_vol": 15206,
       "expiry_next_week": "2026-08-07",
       "dte_next_week": 7,
@@ -366,12 +366,12 @@
       "gex": 7.55,
       "gex_regime": "POSITIVE",
       "call_premium": 19.86,
-      "put_premium": 114.3,
+      "put_premium": 114.28,
       "unusual": true,
       "score": 4,
       "direction": "BULLISH",
       "call_vol": 186393,
-      "put_vol": 137856,
+      "put_vol": 137854,
       "expiry_next_week": "2026-08-07",
       "dte_next_week": 7,
       "score_next_week": 3,
@@ -453,12 +453,12 @@
       "gex": 1.11,
       "gex_regime": "POSITIVE",
       "call_premium": 1.81,
-      "put_premium": 0.85,
+      "put_premium": 0.8,
       "unusual": false,
       "score": 4,
       "direction": "BULLISH",
       "call_vol": 3851,
-      "put_vol": 2481,
+      "put_vol": 2477,
       "expiry_next_week": "2026-08-07",
       "dte_next_week": 7,
       "score_next_week": 2,
@@ -554,7 +554,7 @@
         "low": 35,
         "high": 40,
         "samples": 56,
-        "median": 36.0
+        "median": 35.9
       }
     },
     {
@@ -701,7 +701,7 @@
       "dte": 0,
       "pcr_vol": 0.7,
       "pcr_oi": 0.73,
-      "gex": -3.16,
+      "gex": -3.17,
       "gex_regime": "NEGATIVE",
       "call_premium": 0.22,
       "put_premium": 2.02,
