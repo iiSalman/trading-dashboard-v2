@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-08-06T06:43:18.863689+00:00",
+  "timestamp": "2026-08-06T09:30:53.755112+00:00",
   "date": "Thursday, August 06 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "TREND_UP",
   "bias_desc": "Negative GEX + bullish flow \u2014 follow momentum longs",
   "bias_color": "green",
@@ -143,7 +143,7 @@
         "low": 40,
         "high": 45,
         "samples": 60,
-        "median": 36.3
+        "median": 36.2
       }
     },
     {
@@ -215,13 +215,13 @@
       "pcr_oi": 1.0,
       "gex": 0.0,
       "gex_regime": "NEGATIVE",
-      "call_premium": 39.29,
-      "put_premium": 15.98,
+      "call_premium": 39.07,
+      "put_premium": 15.96,
       "unusual": false,
       "score": 3,
       "direction": "BULLISH",
-      "call_vol": 80351,
-      "put_vol": 28730,
+      "call_vol": 80339,
+      "put_vol": 28728,
       "expiry_next_week": "2026-08-14",
       "dte_next_week": 8,
       "score_next_week": 3,
