@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-07T21:24:00.349564+00:00",
+  "timestamp": "2026-08-07T22:03:25.714265+00:00",
   "date": "Friday, August 07 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -35,35 +35,6 @@
     }
   },
   "tickers": [
-    {
-      "ticker": "NVDA",
-      "price": 223.96,
-      "change": 2.27,
-      "volume": 104730601,
-      "expiry": "2026-08-07",
-      "dte": 0,
-      "pcr_vol": 0.41,
-      "pcr_oi": 0.57,
-      "gex": 576.99,
-      "gex_regime": "POSITIVE",
-      "call_premium": 485.28,
-      "put_premium": 6.39,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 1605934,
-      "put_vol": 664276,
-      "expiry_next_week": "2026-08-14",
-      "dte_next_week": 7,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 57,
-        "median": 37.3
-      }
-    },
     {
       "ticker": "RKLB",
       "price": 82.83,
@@ -661,7 +632,7 @@
       "score": 3,
       "direction": "BULLISH",
       "call_vol": 2797186,
-      "put_vol": 2626722,
+      "put_vol": 2626703,
       "expiry_next_week": "2026-08-14",
       "dte_next_week": 7,
       "score_next_week": 3,
@@ -754,38 +725,15 @@
       "score_next_week": 3,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
-    {
-      "ticker": "NVDA",
-      "price": 223.96,
-      "change": 2.27,
-      "volume": 104730601,
-      "expiry": "2026-08-07",
-      "dte": 0,
-      "pcr_vol": 0.41,
-      "pcr_oi": 0.57,
-      "gex": 576.99,
-      "gex_regime": "POSITIVE",
-      "call_premium": 485.28,
-      "put_premium": 6.39,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 1605934,
-      "put_vol": 664276,
-      "expiry_next_week": "2026-08-14",
-      "dte_next_week": 7,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 57,
-        "median": 37.3
-      }
-    },
     {
       "ticker": "RKLB",
       "price": 82.83,
@@ -841,6 +789,35 @@
         "low": 40,
         "high": 45,
         "samples": 61,
+        "median": 36.1
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "price": 328.58,
+      "change": 2.83,
+      "volume": 38841743,
+      "expiry": "2026-08-07",
+      "dte": 0,
+      "pcr_vol": 0.56,
+      "pcr_oi": 0.87,
+      "gex": 166.26,
+      "gex_regime": "POSITIVE",
+      "call_premium": 186.46,
+      "put_premium": 66.61,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 1466562,
+      "put_vol": 821692,
+      "expiry_next_week": "2026-08-14",
+      "dte_next_week": 7,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 56,
         "median": 36.1
       }
     }
