@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-09T15:14:56.444926+00:00",
+  "timestamp": "2026-08-09T15:49:01.235171+00:00",
   "date": "Sunday, August 09 2026",
   "market_status": "CLOSED",
   "market_bias": "BULLISH",
@@ -91,35 +91,6 @@
         "high": 45,
         "samples": 58,
         "median": 37.8
-      }
-    },
-    {
-      "ticker": "MSTR",
-      "price": 100.01,
-      "change": 3.26,
-      "volume": 28946100,
-      "expiry": "2026-08-14",
-      "dte": 5,
-      "pcr_vol": 0.15,
-      "pcr_oi": 1.68,
-      "gex": 9.78,
-      "gex_regime": "POSITIVE",
-      "call_premium": 91.32,
-      "put_premium": 7.6,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 326285,
-      "put_vol": 50303,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 12,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 61,
-        "median": 36.1
       }
     },
     {
@@ -744,6 +715,12 @@
       "score_next_week": 3,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "MSTR",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -806,31 +783,31 @@
       }
     },
     {
-      "ticker": "MSTR",
-      "price": 100.01,
-      "change": 3.26,
-      "volume": 28946100,
-      "expiry": "2026-08-14",
-      "dte": 5,
-      "pcr_vol": 0.15,
-      "pcr_oi": 1.68,
-      "gex": 9.78,
+      "ticker": "TSLA",
+      "price": 328.58,
+      "change": 2.83,
+      "volume": 39370100,
+      "expiry": "2026-08-10",
+      "dte": 1,
+      "pcr_vol": 0.52,
+      "pcr_oi": 0.61,
+      "gex": 15.97,
       "gex_regime": "POSITIVE",
-      "call_premium": 91.32,
-      "put_premium": 7.6,
+      "call_premium": 107.31,
+      "put_premium": 54.05,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 326285,
-      "put_vol": 50303,
+      "call_vol": 300633,
+      "put_vol": 156812,
       "expiry_next_week": "2026-08-21",
       "dte_next_week": 12,
-      "score_next_week": 5,
+      "score_next_week": 3,
       "direction_next_week": "BULLISH",
       "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 61,
+        "low": 35,
+        "high": 40,
+        "samples": 56,
         "median": 36.1
       }
     }
