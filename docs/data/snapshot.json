@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-09T13:22:48.981057+00:00",
+  "timestamp": "2026-08-09T14:03:39.094084+00:00",
   "date": "Sunday, August 09 2026",
   "market_status": "CLOSED",
   "market_bias": "BULLISH",
@@ -62,6 +62,35 @@
         "high": 40,
         "samples": 57,
         "median": 37.3
+      }
+    },
+    {
+      "ticker": "RKLB",
+      "price": 82.83,
+      "change": 9.46,
+      "volume": 23988300,
+      "expiry": "2026-08-14",
+      "dte": 5,
+      "pcr_vol": 0.5,
+      "pcr_oi": 0.6,
+      "gex": 4.82,
+      "gex_regime": "POSITIVE",
+      "call_premium": 15.7,
+      "put_premium": 2.75,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 41424,
+      "put_vol": 20697,
+      "expiry_next_week": "2026-08-21",
+      "dte_next_week": 12,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 58,
+        "median": 37.8
       }
     },
     {
@@ -651,17 +680,17 @@
       "volume": 4808400,
       "expiry": "2026-08-14",
       "dte": 5,
-      "pcr_vol": 2.07,
+      "pcr_vol": 2.13,
       "pcr_oi": 2.78,
       "gex": 1.24,
       "gex_regime": "POSITIVE",
       "call_premium": 1.99,
-      "put_premium": 1.76,
+      "put_premium": 1.8,
       "unusual": false,
       "score": 2,
       "direction": "BEARISH",
       "call_vol": 3128,
-      "put_vol": 6482,
+      "put_vol": 6662,
       "expiry_next_week": "2026-08-21",
       "dte_next_week": 12,
       "score_next_week": 3,
@@ -715,12 +744,6 @@
       "score_next_week": 3,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -754,6 +777,35 @@
       }
     },
     {
+      "ticker": "RKLB",
+      "price": 82.83,
+      "change": 9.46,
+      "volume": 23988300,
+      "expiry": "2026-08-14",
+      "dte": 5,
+      "pcr_vol": 0.5,
+      "pcr_oi": 0.6,
+      "gex": 4.82,
+      "gex_regime": "POSITIVE",
+      "call_premium": 15.7,
+      "put_premium": 2.75,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 41424,
+      "put_vol": 20697,
+      "expiry_next_week": "2026-08-21",
+      "dte_next_week": 12,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 58,
+        "median": 37.8
+      }
+    },
+    {
       "ticker": "MSTR",
       "price": 100.01,
       "change": 3.26,
@@ -779,35 +831,6 @@
         "low": 40,
         "high": 45,
         "samples": 61,
-        "median": 36.1
-      }
-    },
-    {
-      "ticker": "TSLA",
-      "price": 328.58,
-      "change": 2.83,
-      "volume": 39370100,
-      "expiry": "2026-08-10",
-      "dte": 1,
-      "pcr_vol": 0.52,
-      "pcr_oi": 0.61,
-      "gex": 15.97,
-      "gex_regime": "POSITIVE",
-      "call_premium": 107.31,
-      "put_premium": 54.05,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 300633,
-      "put_vol": 156812,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 12,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 56,
         "median": 36.1
       }
     }
