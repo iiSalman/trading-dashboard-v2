@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-10T07:57:19.604050+00:00",
+  "timestamp": "2026-08-10T09:22:50.957145+00:00",
   "date": "Monday, August 10 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -57,35 +57,6 @@
         "high": 40,
         "samples": 57,
         "median": 37.3
-      }
-    },
-    {
-      "ticker": "RKLB",
-      "price": 82.83,
-      "change": 9.46,
-      "volume": 23988300,
-      "expiry": "2026-08-14",
-      "dte": 4,
-      "pcr_vol": 0.5,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 15.71,
-      "put_premium": 2.75,
-      "unusual": false,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 41425,
-      "put_vol": 20702,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 11,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 58,
-        "median": 37.8
       }
     },
     {
@@ -692,6 +663,12 @@
       "recovery_rsi": null
     },
     {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
+    },
+    {
       "ticker": "AMD",
       "price": 483.36,
       "change": -1.21,
@@ -747,35 +724,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 82.83,
-      "change": 9.46,
-      "volume": 23988300,
-      "expiry": "2026-08-14",
-      "dte": 4,
-      "pcr_vol": 0.5,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 15.71,
-      "put_premium": 2.75,
-      "unusual": false,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 41425,
-      "put_vol": 20702,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 11,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 58,
-        "median": 37.8
-      }
-    },
-    {
       "ticker": "MSTR",
       "price": 100.01,
       "change": 3.26,
@@ -802,6 +750,35 @@
         "high": 45,
         "samples": 61,
         "median": 36.1
+      }
+    },
+    {
+      "ticker": "HIMS",
+      "price": 31.59,
+      "change": 6.51,
+      "volume": 8365900,
+      "expiry": "2026-08-14",
+      "dte": 4,
+      "pcr_vol": 0.43,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 2.78,
+      "put_premium": 1.17,
+      "unusual": false,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 20588,
+      "put_vol": 8929,
+      "expiry_next_week": "2026-08-21",
+      "dte_next_week": 11,
+      "score_next_week": 4,
+      "direction_next_week": "BEARISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 71,
+        "median": 37.9
       }
     }
   ]
