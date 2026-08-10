@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-10T21:05:16.483992+00:00",
+  "timestamp": "2026-08-10T21:53:55.792334+00:00",
   "date": "Monday, August 10 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -419,17 +419,17 @@
       "volume": 5480576,
       "expiry": "2026-08-14",
       "dte": 4,
-      "pcr_vol": 1.19,
+      "pcr_vol": 1.18,
       "pcr_oi": 2.46,
       "gex": 2.28,
       "gex_regime": "POSITIVE",
       "call_premium": 9.64,
-      "put_premium": 2.28,
+      "put_premium": 2.24,
       "unusual": true,
       "score": 4,
       "direction": "BULLISH",
       "call_vol": 8528,
-      "put_vol": 10156,
+      "put_vol": 10068,
       "expiry_next_week": "2026-08-21",
       "dte_next_week": 11,
       "score_next_week": 3,
@@ -497,6 +497,35 @@
         "high": 40,
         "samples": 63,
         "median": 37.3
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "price": 217.55,
+      "change": -2.86,
+      "volume": 108135773,
+      "expiry": "2026-08-10",
+      "dte": 0,
+      "pcr_vol": 0.78,
+      "pcr_oi": 0.66,
+      "gex": -65.08,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 19.22,
+      "put_premium": 107.25,
+      "unusual": true,
+      "score": 3,
+      "direction": "BULLISH",
+      "call_vol": 1128120,
+      "put_vol": 876195,
+      "expiry_next_week": "2026-08-17",
+      "dte_next_week": 7,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 60,
+        "median": 37.2
       }
     },
     {
@@ -715,12 +744,6 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
