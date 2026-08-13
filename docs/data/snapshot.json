@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13T22:35:19.695273+00:00",
+  "timestamp": "2026-08-13T23:21:14.392253+00:00",
   "date": "Thursday, August 13 2026",
   "market_status": "CLOSED",
   "market_bias": "BULLISH",
@@ -62,35 +62,6 @@
         "high": 40,
         "samples": 59,
         "median": 36.8
-      }
-    },
-    {
-      "ticker": "MSTR",
-      "price": 97.1,
-      "change": 2.39,
-      "volume": 17616169,
-      "expiry": "2026-08-14",
-      "dte": 1,
-      "pcr_vol": 0.19,
-      "pcr_oi": 0.62,
-      "gex": 30.65,
-      "gex_regime": "POSITIVE",
-      "call_premium": 12.81,
-      "put_premium": 4.07,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 208461,
-      "put_vol": 40351,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 8,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 25,
-        "high": 30,
-        "samples": 59,
-        "median": 35.0
       }
     },
     {
@@ -677,7 +648,7 @@
       "ticker": "AMD",
       "price": 483.01,
       "change": 0.02,
-      "volume": 18190245,
+      "volume": 18194677,
       "expiry": "2026-08-14",
       "dte": 1,
       "pcr_vol": 0.75,
@@ -759,6 +730,12 @@
         "samples": 65,
         "median": 36.9
       }
+    },
+    {
+      "ticker": "MSTR",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -792,35 +769,6 @@
       }
     },
     {
-      "ticker": "MSTR",
-      "price": 97.1,
-      "change": 2.39,
-      "volume": 17616169,
-      "expiry": "2026-08-14",
-      "dte": 1,
-      "pcr_vol": 0.19,
-      "pcr_oi": 0.62,
-      "gex": 30.65,
-      "gex_regime": "POSITIVE",
-      "call_premium": 12.81,
-      "put_premium": 4.07,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 208461,
-      "put_vol": 40351,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 8,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 25,
-        "high": 30,
-        "samples": 59,
-        "median": 35.0
-      }
-    },
-    {
       "ticker": "TSLA",
       "price": 339.96,
       "change": 3.8,
@@ -847,6 +795,35 @@
         "high": 45,
         "samples": 63,
         "median": 38.0
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "price": 305.26,
+      "change": 1.0,
+      "volume": 38492546,
+      "expiry": "2026-08-14",
+      "dte": 1,
+      "pcr_vol": 0.4,
+      "pcr_oi": 0.52,
+      "gex": 69.44,
+      "gex_regime": "POSITIVE",
+      "call_premium": 60.7,
+      "put_premium": 25.18,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 358421,
+      "put_vol": 141739,
+      "expiry_next_week": "2026-08-21",
+      "dte_next_week": 8,
+      "score_next_week": 1,
+      "direction_next_week": "BEARISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 61,
+        "median": 36.2
       }
     }
   ]
