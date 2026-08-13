@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-13T21:00:17.558520+00:00",
+  "timestamp": "2026-08-13T21:54:57.057809+00:00",
   "date": "Thursday, August 13 2026",
   "market_status": "CLOSED",
   "market_bias": "BULLISH",
@@ -138,7 +138,7 @@
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 358422,
+      "call_vol": 358421,
       "put_vol": 141739,
       "expiry_next_week": "2026-08-21",
       "dte_next_week": 8,
@@ -379,8 +379,8 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 65,
-        "median": 35.9
+        "samples": 64,
+        "median": 35.8
       }
     },
     {
@@ -677,7 +677,7 @@
       "ticker": "AMD",
       "price": 483.01,
       "change": 0.02,
-      "volume": 18190245,
+      "volume": 18194677,
       "expiry": "2026-08-14",
       "dte": 1,
       "pcr_vol": 0.75,
