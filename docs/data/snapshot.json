@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-14T22:08:22.593956+00:00",
+  "timestamp": "2026-08-14T22:37:36.055586+00:00",
   "date": "Friday, August 14 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -30,6 +30,35 @@
     "recovery_rsi": null
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 225.16,
+      "change": -0.06,
+      "volume": 75161211,
+      "expiry": "2026-08-14",
+      "dte": 0,
+      "pcr_vol": 0.45,
+      "pcr_oi": 0.65,
+      "gex": 606.76,
+      "gex_regime": "POSITIVE",
+      "call_premium": 78.16,
+      "put_premium": 12.68,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 1221384,
+      "put_vol": 551497,
+      "expiry_next_week": "2026-08-21",
+      "dte_next_week": 7,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 60,
+        "median": 36.3
+      }
+    },
     {
       "ticker": "AAPL",
       "price": 305.93,
@@ -466,35 +495,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 80.25,
-      "change": 0.19,
-      "volume": 13815360,
-      "expiry": "2026-08-14",
-      "dte": 0,
-      "pcr_vol": 0.36,
-      "pcr_oi": 0.63,
-      "gex": 24.08,
-      "gex_regime": "POSITIVE",
-      "call_premium": 2.76,
-      "put_premium": 1.58,
-      "unusual": false,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 39871,
-      "put_vol": 14408,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 7,
-      "score_next_week": 1,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 66,
-        "median": 36.4
-      }
-    },
-    {
       "ticker": "TSLA",
       "price": 342.27,
       "change": 0.68,
@@ -707,13 +707,42 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "NVDA",
+      "ticker": "RKLB",
       "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 225.16,
+      "change": -0.06,
+      "volume": 75161211,
+      "expiry": "2026-08-14",
+      "dte": 0,
+      "pcr_vol": 0.45,
+      "pcr_oi": 0.65,
+      "gex": 606.76,
+      "gex_regime": "POSITIVE",
+      "call_premium": 78.16,
+      "put_premium": 12.68,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 1221384,
+      "put_vol": 551497,
+      "expiry_next_week": "2026-08-21",
+      "dte_next_week": 7,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 60,
+        "median": 36.3
+      }
+    },
     {
       "ticker": "AAPL",
       "price": 305.93,
@@ -770,35 +799,6 @@
         "high": 40,
         "samples": 55,
         "median": 37.3
-      }
-    },
-    {
-      "ticker": "CRWV",
-      "price": 105.26,
-      "change": -0.97,
-      "volume": 32929827,
-      "expiry": "2026-08-14",
-      "dte": 0,
-      "pcr_vol": 0.26,
-      "pcr_oi": 1.08,
-      "gex": 23.4,
-      "gex_regime": "POSITIVE",
-      "call_premium": 11.15,
-      "put_premium": 2.29,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 107682,
-      "put_vol": 27497,
-      "expiry_next_week": "2026-08-21",
-      "dte_next_week": 7,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 30,
-        "high": 35,
-        "samples": 61,
-        "median": 34.9
       }
     }
   ]
