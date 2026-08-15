@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-15T16:54:26.153768+00:00",
+  "timestamp": "2026-08-15T17:14:25.339768+00:00",
   "date": "Saturday, August 15 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -200,7 +200,7 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 65,
+        "samples": 64,
         "median": 36.4
       }
     },
