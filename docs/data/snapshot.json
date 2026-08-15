@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-15T04:59:46.509668+00:00",
+  "timestamp": "2026-08-15T05:32:01.908889+00:00",
   "date": "Saturday, August 15 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -30,6 +30,35 @@
     "recovery_rsi": null
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 225.16,
+      "change": -0.06,
+      "volume": 75504000,
+      "expiry": "2026-08-17",
+      "dte": 2,
+      "pcr_vol": 0.55,
+      "pcr_oi": 1.28,
+      "gex": 29.38,
+      "gex_regime": "POSITIVE",
+      "call_premium": 63.31,
+      "put_premium": 22.67,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 212009,
+      "put_vol": 116274,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 13,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 60,
+        "median": 36.3
+      }
+    },
     {
       "ticker": "TSLA",
       "price": 342.27,
@@ -679,36 +708,41 @@
     },
     {
       "ticker": "RKLB",
-      "price": 80.25,
-      "change": 0.19,
-      "volume": 13855300,
-      "expiry": "2026-08-21",
-      "dte": 6,
-      "pcr_vol": 1.52,
-      "pcr_oi": 0.47,
-      "gex": 2.08,
-      "gex_regime": "POSITIVE",
-      "call_premium": 2.22,
-      "put_premium": 1.96,
-      "unusual": false,
-      "score": 1,
-      "direction": "BEARISH",
-      "call_vol": 11044,
-      "put_vol": 16745,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 13,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
       "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 225.16,
+      "change": -0.06,
+      "volume": 75504000,
+      "expiry": "2026-08-17",
+      "dte": 2,
+      "pcr_vol": 0.55,
+      "pcr_oi": 1.28,
+      "gex": 29.38,
+      "gex_regime": "POSITIVE",
+      "call_premium": 63.31,
+      "put_premium": 22.67,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 212009,
+      "put_vol": 116274,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 13,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 60,
+        "median": 36.3
+      }
+    },
     {
       "ticker": "TSLA",
       "price": 342.27,
@@ -765,35 +799,6 @@
         "high": 40,
         "samples": 63,
         "median": 36.6
-      }
-    },
-    {
-      "ticker": "AMD",
-      "price": 514.39,
-      "change": 6.5,
-      "volume": 25481000,
-      "expiry": "2026-08-17",
-      "dte": 2,
-      "pcr_vol": 0.55,
-      "pcr_oi": 1.46,
-      "gex": 4.96,
-      "gex_regime": "POSITIVE",
-      "call_premium": 47.76,
-      "put_premium": 4.65,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 55603,
-      "put_vol": 30685,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 13,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 55,
-        "median": 37.3
       }
     }
   ]
