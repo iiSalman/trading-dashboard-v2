@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-14T23:42:18.783662+00:00",
+  "timestamp": "2026-08-14T23:59:57.126159+00:00",
   "date": "Friday, August 14 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -63,7 +63,7 @@
       "ticker": "AAPL",
       "price": 305.93,
       "change": 0.22,
-      "volume": 26072932,
+      "volume": 26054077,
       "expiry": "2026-08-14",
       "dte": 0,
       "pcr_vol": 0.39,
@@ -121,7 +121,7 @@
       "ticker": "CRWV",
       "price": 105.26,
       "change": -0.97,
-      "volume": 32929827,
+      "volume": 32913050,
       "expiry": "2026-08-14",
       "dte": 0,
       "pcr_vol": 0.26,
@@ -171,7 +171,7 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 64,
+        "samples": 65,
         "median": 36.4
       }
     },
@@ -324,7 +324,7 @@
       "ticker": "META",
       "price": 589.85,
       "change": -0.86,
-      "volume": 8412405,
+      "volume": 8401479,
       "expiry": "2026-08-14",
       "dte": 0,
       "pcr_vol": 0.54,
@@ -770,7 +770,7 @@
       "ticker": "AAPL",
       "price": 305.93,
       "change": 0.22,
-      "volume": 26072932,
+      "volume": 26054077,
       "expiry": "2026-08-14",
       "dte": 0,
       "pcr_vol": 0.39,
