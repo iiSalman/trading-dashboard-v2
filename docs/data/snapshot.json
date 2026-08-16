@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-16T09:59:25.270980+00:00",
+  "timestamp": "2026-08-16T10:29:43.224364+00:00",
   "date": "Sunday, August 16 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -35,6 +35,35 @@
     }
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 225.16,
+      "change": -0.06,
+      "volume": 75504000,
+      "expiry": "2026-08-17",
+      "dte": 1,
+      "pcr_vol": 0.55,
+      "pcr_oi": 1.28,
+      "gex": 31.25,
+      "gex_regime": "POSITIVE",
+      "call_premium": 63.31,
+      "put_premium": 22.67,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 212009,
+      "put_vol": 116274,
+      "expiry_next_week": "2026-08-24",
+      "dte_next_week": 8,
+      "score_next_week": 0,
+      "direction_next_week": "NEUTRAL",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 60,
+        "median": 36.3
+      }
+    },
     {
       "ticker": "TSLA",
       "price": 342.27,
@@ -321,7 +350,7 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 65,
+        "samples": 64,
         "median": 36.4
       }
     },
@@ -546,10 +575,10 @@
       "direction": "BULLISH",
       "call_vol": 43527,
       "put_vol": 22986,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 12,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
+      "expiry_next_week": "2026-08-24",
+      "dte_next_week": 8,
+      "score_next_week": 0,
+      "direction_next_week": "NEUTRAL",
       "recovery_rsi": {
         "low": 35,
         "high": 40,
@@ -622,12 +651,12 @@
       "gex": 37.48,
       "gex_regime": "POSITIVE",
       "call_premium": 22.97,
-      "put_premium": 15.52,
+      "put_premium": 17.12,
       "unusual": false,
       "score": 2,
       "direction": "BEARISH",
       "call_vol": 67912,
-      "put_vol": 90498,
+      "put_vol": 90585,
       "expiry_next_week": "2026-08-28",
       "dte_next_week": 12,
       "score_next_week": 2,
@@ -641,17 +670,17 @@
       "volume": 8659300,
       "expiry": "2026-08-21",
       "dte": 5,
-      "pcr_vol": 0.82,
+      "pcr_vol": 0.83,
       "pcr_oi": 0.51,
       "gex": 22.68,
       "gex_regime": "POSITIVE",
       "call_premium": 4.3,
-      "put_premium": 5.6,
+      "put_premium": 5.68,
       "unusual": false,
       "score": 2,
       "direction": "BULLISH",
       "call_vol": 8631,
-      "put_vol": 7120,
+      "put_vol": 7127,
       "expiry_next_week": "2026-08-28",
       "dte_next_week": 12,
       "score_next_week": 3,
@@ -705,15 +734,38 @@
       "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 225.16,
+      "change": -0.06,
+      "volume": 75504000,
+      "expiry": "2026-08-17",
+      "dte": 1,
+      "pcr_vol": 0.55,
+      "pcr_oi": 1.28,
+      "gex": 31.25,
+      "gex_regime": "POSITIVE",
+      "call_premium": 63.31,
+      "put_premium": 22.67,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 212009,
+      "put_vol": 116274,
+      "expiry_next_week": "2026-08-24",
+      "dte_next_week": 8,
+      "score_next_week": 0,
+      "direction_next_week": "NEUTRAL",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 60,
+        "median": 36.3
+      }
+    },
     {
       "ticker": "TSLA",
       "price": 342.27,
@@ -770,35 +822,6 @@
         "high": 40,
         "samples": 63,
         "median": 36.6
-      }
-    },
-    {
-      "ticker": "AMD",
-      "price": 514.39,
-      "change": 6.5,
-      "volume": 25481000,
-      "expiry": "2026-08-17",
-      "dte": 1,
-      "pcr_vol": 0.55,
-      "pcr_oi": 1.46,
-      "gex": 5.42,
-      "gex_regime": "POSITIVE",
-      "call_premium": 47.76,
-      "put_premium": 4.65,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 55603,
-      "put_vol": 30685,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 12,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 55,
-        "median": 37.3
       }
     }
   ]
