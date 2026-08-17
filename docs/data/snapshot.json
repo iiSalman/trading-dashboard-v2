@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-17T22:43:48.336890+00:00",
+  "timestamp": "2026-08-17T23:00:58.440468+00:00",
   "date": "Monday, August 17 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -35,6 +35,35 @@
     }
   },
   "tickers": [
+    {
+      "ticker": "MSTR",
+      "price": 97.68,
+      "change": 4.99,
+      "volume": 20258777,
+      "expiry": "2026-08-21",
+      "dte": 4,
+      "pcr_vol": 0.56,
+      "pcr_oi": 0.75,
+      "gex": 90.54,
+      "gex_regime": "POSITIVE",
+      "call_premium": 16.62,
+      "put_premium": 54.8,
+      "unusual": false,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 108335,
+      "put_vol": 60258,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 11,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 59,
+        "median": 35.3
+      }
+    },
     {
       "ticker": "AAPL",
       "price": 305.59,
@@ -715,15 +744,38 @@
       "score_next_week": 4,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "MSTR",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "MSTR",
+      "price": 97.68,
+      "change": 4.99,
+      "volume": 20258777,
+      "expiry": "2026-08-21",
+      "dte": 4,
+      "pcr_vol": 0.56,
+      "pcr_oi": 0.75,
+      "gex": 90.54,
+      "gex_regime": "POSITIVE",
+      "call_premium": 16.62,
+      "put_premium": 54.8,
+      "unusual": false,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 108335,
+      "put_vol": 60258,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 11,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 59,
+        "median": 35.3
+      }
+    },
     {
       "ticker": "AAPL",
       "price": 305.59,
@@ -780,35 +832,6 @@
         "high": 35,
         "samples": 54,
         "median": 37.4
-      }
-    },
-    {
-      "ticker": "INTC",
-      "price": 103.49,
-      "change": 0.97,
-      "volume": 86440747,
-      "expiry": "2026-08-17",
-      "dte": 0,
-      "pcr_vol": 0.49,
-      "pcr_oi": 0.88,
-      "gex": 16.8,
-      "gex_regime": "POSITIVE",
-      "call_premium": 18.73,
-      "put_premium": 3.09,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 155790,
-      "put_vol": 76229,
-      "expiry_next_week": "2026-08-24",
-      "dte_next_week": 7,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 55,
-        "median": 36.1
       }
     }
   ]
