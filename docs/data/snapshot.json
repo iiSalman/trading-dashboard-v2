@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-18T00:23:27.729259+00:00",
+  "timestamp": "2026-08-18T01:56:03.557932+00:00",
   "date": "Tuesday, August 18 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -207,35 +207,6 @@
         "high": 40,
         "samples": 56,
         "median": 36.5
-      }
-    },
-    {
-      "ticker": "NVDA",
-      "price": 225.01,
-      "change": -0.07,
-      "volume": 81442206,
-      "expiry": "2026-08-19",
-      "dte": 1,
-      "pcr_vol": 0.59,
-      "pcr_oi": 0.83,
-      "gex": 30.17,
-      "gex_regime": "POSITIVE",
-      "call_premium": 54.47,
-      "put_premium": 46.08,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 232130,
-      "put_vol": 137448,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 10,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 60,
-        "median": 36.4
       }
     },
     {
@@ -511,12 +482,12 @@
       "gex": 30.08,
       "gex_regime": "POSITIVE",
       "call_premium": 27.99,
-      "put_premium": 15.08,
+      "put_premium": 16.68,
       "unusual": true,
       "score": 3,
       "direction": "BULLISH",
       "call_vol": 137719,
-      "put_vol": 91934,
+      "put_vol": 92021,
       "expiry_next_week": "2026-08-28",
       "dte_next_week": 10,
       "score_next_week": 1,
@@ -540,12 +511,12 @@
       "gex": 19.06,
       "gex_regime": "POSITIVE",
       "call_premium": 4.39,
-      "put_premium": 5.1,
+      "put_premium": 5.21,
       "unusual": false,
       "score": 3,
       "direction": "BEARISH",
       "call_vol": 9216,
-      "put_vol": 17990,
+      "put_vol": 17999,
       "expiry_next_week": "2026-08-28",
       "dte_next_week": 10,
       "score_next_week": 2,
@@ -624,7 +595,7 @@
       "dte": 3,
       "pcr_vol": 0.96,
       "pcr_oi": 1.1,
-      "gex": 1.86,
+      "gex": 1.87,
       "gex_regime": "POSITIVE",
       "call_premium": 4.63,
       "put_premium": 85.86,
@@ -734,6 +705,12 @@
       "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
