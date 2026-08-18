@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-18T22:58:14.530553+00:00",
+  "timestamp": "2026-08-18T23:25:06.517242+00:00",
   "date": "Tuesday, August 18 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -442,6 +442,30 @@
       }
     },
     {
+      "ticker": "NVDA",
+      "price": 219.74,
+      "change": -2.34,
+      "volume": 102376166,
+      "expiry": "2026-08-19",
+      "dte": 1,
+      "pcr_vol": 0.84,
+      "pcr_oi": 0.84,
+      "gex": -43.83,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 48.68,
+      "put_premium": 64.96,
+      "unusual": true,
+      "score": 2,
+      "direction": "BULLISH",
+      "call_vol": 375357,
+      "put_vol": 316211,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 10,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "PLTR",
       "price": 171.54,
       "change": -0.59,
@@ -680,12 +704,6 @@
       "score_next_week": 1,
       "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
