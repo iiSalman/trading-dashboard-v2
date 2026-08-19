@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-19T12:34:31.297223+00:00",
+  "timestamp": "2026-08-19T13:27:36.841833+00:00",
   "date": "Wednesday, August 19 2026",
   "market_status": "OPEN",
   "market_bias": "BEARISH",
@@ -234,7 +234,7 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 61,
+        "samples": 62,
         "median": 36.8
       }
     },
