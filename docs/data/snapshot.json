@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-19T00:00:17.823845+00:00",
+  "timestamp": "2026-08-19T01:45:30.233808+00:00",
   "date": "Wednesday, August 19 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -250,12 +250,12 @@
       "gex": 22.49,
       "gex_regime": "POSITIVE",
       "call_premium": 7.34,
-      "put_premium": 4.95,
+      "put_premium": 4.96,
       "unusual": false,
       "score": 4,
       "direction": "BULLISH",
       "call_vol": 19565,
-      "put_vol": 7749,
+      "put_vol": 7751,
       "expiry_next_week": "2026-08-28",
       "dte_next_week": 9,
       "score_next_week": 4,
@@ -292,7 +292,7 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 61,
+        "samples": 62,
         "median": 36.8
       }
     },
