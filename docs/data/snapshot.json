@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-08-19T09:02:47.683945+00:00",
+  "timestamp": "2026-08-19T09:43:19.737586+00:00",
   "date": "Wednesday, August 19 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "TREND_DOWN",
   "bias_desc": "Negative GEX + bearish flow \u2014 follow momentum shorts",
   "bias_color": "red",
@@ -57,35 +57,6 @@
         "high": 35,
         "samples": 63,
         "median": 36.2
-      }
-    },
-    {
-      "ticker": "MSTR",
-      "price": 92.52,
-      "change": -5.28,
-      "volume": 16809100,
-      "expiry": "2026-08-21",
-      "dte": 2,
-      "pcr_vol": 0.41,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 6.23,
-      "put_premium": 51.58,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 97690,
-      "put_vol": 39791,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 9,
-      "score_next_week": 0,
-      "direction_next_week": "NEUTRAL",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 60,
-        "median": 34.9
       }
     },
     {
@@ -498,6 +469,30 @@
       "recovery_rsi": null
     },
     {
+      "ticker": "NVDA",
+      "price": 219.74,
+      "change": -2.34,
+      "volume": 102769900,
+      "expiry": "2026-08-19",
+      "dte": 0,
+      "pcr_vol": 0.84,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 48.68,
+      "put_premium": 64.96,
+      "unusual": false,
+      "score": 1,
+      "direction": "BULLISH",
+      "call_vol": 375357,
+      "put_vol": 316211,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 9,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "PANW",
       "price": 374.14,
       "change": -0.43,
@@ -570,7 +565,7 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "NVDA",
+      "ticker": "MSTR",
       "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
@@ -679,35 +674,6 @@
       }
     },
     {
-      "ticker": "MSTR",
-      "price": 92.52,
-      "change": -5.28,
-      "volume": 16809100,
-      "expiry": "2026-08-21",
-      "dte": 2,
-      "pcr_vol": 0.41,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 6.23,
-      "put_premium": 51.58,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 97690,
-      "put_vol": 39791,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 9,
-      "score_next_week": 0,
-      "direction_next_week": "NEUTRAL",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 60,
-        "median": 34.9
-      }
-    },
-    {
       "ticker": "ARM",
       "price": 253.32,
       "change": -6.67,
@@ -734,6 +700,35 @@
         "high": 45,
         "samples": 63,
         "median": 36.2
+      }
+    },
+    {
+      "ticker": "CRM",
+      "price": 196.14,
+      "change": 2.71,
+      "volume": 14144100,
+      "expiry": "2026-08-21",
+      "dte": 2,
+      "pcr_vol": 0.4,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 7.34,
+      "put_premium": 5.05,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 19565,
+      "put_vol": 7758,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 9,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 63,
+        "median": 37.9
       }
     }
   ]
