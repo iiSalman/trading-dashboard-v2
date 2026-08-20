@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-20T23:25:32.515693+00:00",
+  "timestamp": "2026-08-20T23:49:11.782852+00:00",
   "date": "Thursday, August 20 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -207,35 +207,6 @@
         "high": 35,
         "samples": 61,
         "median": 37.0
-      }
-    },
-    {
-      "ticker": "NVDA",
-      "price": 216.85,
-      "change": -0.33,
-      "volume": 92250395,
-      "expiry": "2026-08-21",
-      "dte": 1,
-      "pcr_vol": 0.6,
-      "pcr_oi": 0.75,
-      "gex": 48.45,
-      "gex_regime": "POSITIVE",
-      "call_premium": 141.16,
-      "put_premium": 154.18,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 813786,
-      "put_vol": 484716,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 8,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 61,
-        "median": 36.5
       }
     },
     {
@@ -695,6 +666,12 @@
       "score_next_week": 5,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     },
     {
       "ticker": "CRM",
