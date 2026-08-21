@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21T22:58:45.876780+00:00",
+  "timestamp": "2026-08-21T23:28:03.364532+00:00",
   "date": "Friday, August 21 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -524,30 +524,6 @@
       }
     },
     {
-      "ticker": "NVDA",
-      "price": 214.72,
-      "change": -0.98,
-      "volume": 91591112,
-      "expiry": "2026-08-21",
-      "dte": 0,
-      "pcr_vol": 0.66,
-      "pcr_oi": 0.77,
-      "gex": -274.64,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 55.37,
-      "put_premium": 45.07,
-      "unusual": true,
-      "score": 2,
-      "direction": "BULLISH",
-      "call_vol": 988195,
-      "put_vol": 649611,
-      "expiry_next_week": "2026-08-28",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": null
-    },
-    {
       "ticker": "OKLO",
       "price": 42.09,
       "change": 1.03,
@@ -714,6 +690,12 @@
       "score_next_week": 3,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
