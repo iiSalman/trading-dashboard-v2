@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21T08:49:54.282050+00:00",
+  "timestamp": "2026-08-21T09:21:39.473530+00:00",
   "date": "Friday, August 21 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -529,6 +529,30 @@
       }
     },
     {
+      "ticker": "RKLB",
+      "price": 72.95,
+      "change": -3.81,
+      "volume": 16613500,
+      "expiry": "2026-08-21",
+      "dte": 0,
+      "pcr_vol": 1.14,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 2.68,
+      "put_premium": 32.8,
+      "unusual": false,
+      "score": 2,
+      "direction": "BEARISH",
+      "call_vol": 22792,
+      "put_vol": 26089,
+      "expiry_next_week": "2026-08-28",
+      "dte_next_week": 7,
+      "score_next_week": 1,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "AMD",
       "price": 469.46,
       "change": 0.65,
@@ -695,12 +719,6 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
