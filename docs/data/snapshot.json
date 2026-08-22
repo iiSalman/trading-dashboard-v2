@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-22T00:23:58.686970+00:00",
+  "timestamp": "2026-08-22T01:55:58.697423+00:00",
   "date": "Saturday, August 22 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -144,35 +144,6 @@
         "high": 35,
         "samples": 57,
         "median": 36.0
-      }
-    },
-    {
-      "ticker": "MSTR",
-      "price": 119.25,
-      "change": 6.1,
-      "volume": 45053427,
-      "expiry": "2026-08-28",
-      "dte": 6,
-      "pcr_vol": 0.98,
-      "pcr_oi": 1.02,
-      "gex": 31.46,
-      "gex_regime": "POSITIVE",
-      "call_premium": 50.91,
-      "put_premium": 11.52,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 118200,
-      "put_vol": 116255,
-      "expiry_next_week": "2026-09-04",
-      "dte_next_week": 13,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 57,
-        "median": 36.4
       }
     },
     {
@@ -734,6 +705,12 @@
       "score_next_week": 0,
       "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "MSTR",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
