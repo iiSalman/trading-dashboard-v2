@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-23T04:18:50.295519+00:00",
+  "timestamp": "2026-08-23T04:55:45.501626+00:00",
   "date": "Sunday, August 23 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -99,12 +99,12 @@
       "pcr_oi": 0.91,
       "gex": 14.04,
       "gex_regime": "POSITIVE",
-      "call_premium": 58.56,
+      "call_premium": 58.08,
       "put_premium": 13.19,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 168401,
+      "call_vol": 168317,
       "put_vol": 85563,
       "expiry_next_week": "2026-09-04",
       "dte_next_week": 12,
@@ -144,35 +144,6 @@
         "high": 35,
         "samples": 57,
         "median": 36.0
-      }
-    },
-    {
-      "ticker": "MSTR",
-      "price": 119.25,
-      "change": 6.1,
-      "volume": 45839500,
-      "expiry": "2026-08-28",
-      "dte": 5,
-      "pcr_vol": 0.98,
-      "pcr_oi": 1.02,
-      "gex": 31.9,
-      "gex_regime": "POSITIVE",
-      "call_premium": 50.91,
-      "put_premium": 11.52,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 118200,
-      "put_vol": 116255,
-      "expiry_next_week": "2026-09-04",
-      "dte_next_week": 12,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 57,
-        "median": 36.4
       }
     },
     {
@@ -221,7 +192,7 @@
       "score": 4,
       "direction": "BULLISH",
       "call_vol": 5337,
-      "put_vol": 3667,
+      "put_vol": 3666,
       "expiry_next_week": "2026-09-04",
       "dte_next_week": 12,
       "score_next_week": 4,
@@ -734,6 +705,12 @@
       "score_next_week": 0,
       "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "MSTR",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -806,12 +783,12 @@
       "pcr_oi": 0.91,
       "gex": 14.04,
       "gex_regime": "POSITIVE",
-      "call_premium": 58.56,
+      "call_premium": 58.08,
       "put_premium": 13.19,
       "unusual": true,
       "score": 5,
       "direction": "BULLISH",
-      "call_vol": 168401,
+      "call_vol": 168317,
       "put_vol": 85563,
       "expiry_next_week": "2026-09-04",
       "dte_next_week": 12,
