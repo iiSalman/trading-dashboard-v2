@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-26T08:01:06.971440+00:00",
+  "timestamp": "2026-08-26T08:54:41.202867+00:00",
   "date": "Wednesday, August 26 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -30,35 +30,6 @@
     "recovery_rsi": null
   },
   "tickers": [
-    {
-      "ticker": "NVDA",
-      "price": 213.05,
-      "change": 2.19,
-      "volume": 121722500,
-      "expiry": "2026-08-28",
-      "dte": 2,
-      "pcr_vol": 0.32,
-      "pcr_oi": 1.0,
-      "gex": -0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 245.31,
-      "put_premium": 108.32,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 887118,
-      "put_vol": 280336,
-      "expiry_next_week": "2026-09-02",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 57,
-        "median": 34.7
-      }
-    },
     {
       "ticker": "IREN",
       "price": 42.21,
@@ -692,6 +663,12 @@
       "recovery_rsi": null
     },
     {
+      "ticker": "NVDA",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
+    },
+    {
       "ticker": "QQQ",
       "price": 710.72,
       "change": 0.62,
@@ -717,35 +694,6 @@
     }
   ],
   "top_picks": [
-    {
-      "ticker": "NVDA",
-      "price": 213.05,
-      "change": 2.19,
-      "volume": 121722500,
-      "expiry": "2026-08-28",
-      "dte": 2,
-      "pcr_vol": 0.32,
-      "pcr_oi": 1.0,
-      "gex": -0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 245.31,
-      "put_premium": 108.32,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 887118,
-      "put_vol": 280336,
-      "expiry_next_week": "2026-09-02",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 57,
-        "median": 34.7
-      }
-    },
     {
       "ticker": "IREN",
       "price": 42.21,
@@ -802,6 +750,35 @@
         "high": 40,
         "samples": 57,
         "median": 37.8
+      }
+    },
+    {
+      "ticker": "HIMS",
+      "price": 31.75,
+      "change": 2.16,
+      "volume": 9624100,
+      "expiry": "2026-08-28",
+      "dte": 2,
+      "pcr_vol": 0.46,
+      "pcr_oi": 1.0,
+      "gex": 0.0,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 1.29,
+      "put_premium": 0.52,
+      "unusual": false,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 19770,
+      "put_vol": 9062,
+      "expiry_next_week": "2026-09-04",
+      "dte_next_week": 9,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 59,
+        "median": 37.4
       }
     }
   ]
