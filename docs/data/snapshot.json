@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-30T06:49:11.455272+00:00",
+  "timestamp": "2026-08-30T12:18:45.419469+00:00",
   "date": "Sunday, August 30 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -553,35 +553,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 64.39,
-      "change": -4.65,
-      "volume": 18496000,
-      "expiry": "2026-09-04",
-      "dte": 5,
-      "pcr_vol": 0.57,
-      "pcr_oi": 0.65,
-      "gex": -2.17,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 1.23,
-      "put_premium": 1.94,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 16514,
-      "put_vol": 9331,
-      "expiry_next_week": "2026-09-11",
-      "dte_next_week": 12,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 64,
-        "median": 36.9
-      }
-    },
-    {
       "ticker": "HIMS",
       "price": 28.84,
       "change": -8.91,
@@ -744,6 +715,12 @@
       "score_next_week": 2,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
