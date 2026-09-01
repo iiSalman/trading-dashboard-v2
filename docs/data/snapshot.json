@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-01T21:57:44.102592+00:00",
+  "timestamp": "2026-09-01T23:52:00.796510+00:00",
   "date": "Tuesday, September 01 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -500,6 +500,30 @@
       }
     },
     {
+      "ticker": "NVDA",
+      "price": 217.44,
+      "change": -1.51,
+      "volume": 106942626,
+      "expiry": "2026-09-02",
+      "dte": 1,
+      "pcr_vol": 0.83,
+      "pcr_oi": 0.77,
+      "gex": -6.42,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 71.72,
+      "put_premium": 53.92,
+      "unusual": true,
+      "score": 2,
+      "direction": "BULLISH",
+      "call_vol": 548259,
+      "put_vol": 455464,
+      "expiry_next_week": "2026-09-09",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
       "ticker": "RKLB",
       "price": 62.54,
       "change": -2.16,
@@ -690,12 +714,6 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
