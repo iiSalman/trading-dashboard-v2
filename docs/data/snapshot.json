@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-04T21:45:12.702303+00:00",
+  "timestamp": "2026-09-04T23:23:10.382346+00:00",
   "date": "Friday, September 04 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -384,35 +384,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 64.26,
-      "change": 0.71,
-      "volume": 14797841,
-      "expiry": "2026-09-04",
-      "dte": 0,
-      "pcr_vol": 0.28,
-      "pcr_oi": 0.35,
-      "gex": 19.64,
-      "gex_regime": "POSITIVE",
-      "call_premium": 0.92,
-      "put_premium": 0.98,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 27183,
-      "put_vol": 7696,
-      "expiry_next_week": "2026-09-11",
-      "dte_next_week": 7,
-      "score_next_week": 4,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 64,
-        "median": 38.0
-      }
-    },
-    {
       "ticker": "AAPL",
       "price": 319.97,
       "change": -2.51,
@@ -734,6 +705,12 @@
       "score_next_week": 2,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
