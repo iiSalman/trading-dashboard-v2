@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-05T05:43:59.673980+00:00",
+  "timestamp": "2026-09-05T09:25:34.652357+00:00",
   "date": "Saturday, September 05 2026",
   "market_status": "CLOSED",
   "market_bias": "RANGE",
@@ -379,35 +379,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 64.26,
-      "change": 0.71,
-      "volume": 14867600,
-      "expiry": "2026-09-11",
-      "dte": 6,
-      "pcr_vol": 0.38,
-      "pcr_oi": 0.59,
-      "gex": 0.65,
-      "gex_regime": "POSITIVE",
-      "call_premium": 1.68,
-      "put_premium": 1.13,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 18724,
-      "put_vol": 7069,
-      "expiry_next_week": "2026-09-18",
-      "dte_next_week": 13,
-      "score_next_week": 2,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 64,
-        "median": 38.0
-      }
-    },
-    {
       "ticker": "MSTR",
       "price": 142.8,
       "change": -1.39,
@@ -739,6 +710,12 @@
       "score_next_week": 1,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
