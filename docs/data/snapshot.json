@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-10T04:54:38.765642+00:00",
+  "timestamp": "2026-09-10T09:19:30.113151+00:00",
   "date": "Thursday, September 10 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -56,7 +56,7 @@
         "low": 40,
         "high": 45,
         "samples": 63,
-        "median": 36.7
+        "median": 36.8
       }
     },
     {
@@ -171,8 +171,8 @@
       "recovery_rsi": {
         "low": 30,
         "high": 35,
-        "samples": 57,
-        "median": 36.4
+        "samples": 56,
+        "median": 36.3
       }
     },
     {
@@ -287,8 +287,8 @@
       "recovery_rsi": {
         "low": 40,
         "high": 45,
-        "samples": 59,
-        "median": 36.1
+        "samples": 60,
+        "median": 36.3
       }
     },
     {
@@ -317,7 +317,7 @@
         "low": 35,
         "high": 40,
         "samples": 54,
-        "median": 36.2
+        "median": 36.3
       }
     },
     {
@@ -718,7 +718,7 @@
         "low": 40,
         "high": 45,
         "samples": 63,
-        "median": 36.7
+        "median": 36.8
       }
     },
     {
