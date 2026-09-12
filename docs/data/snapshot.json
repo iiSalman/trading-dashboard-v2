@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-12T05:49:43.070037+00:00",
+  "timestamp": "2026-09-12T09:38:09.545610+00:00",
   "date": "Saturday, September 12 2026",
   "market_status": "CLOSED",
   "market_bias": "BEARISH",
@@ -294,6 +294,35 @@
         "high": 40,
         "samples": 60,
         "median": 36.9
+      }
+    },
+    {
+      "ticker": "RKLB",
+      "price": 62.95,
+      "change": 1.6,
+      "volume": 15335700,
+      "expiry": "2026-09-18",
+      "dte": 6,
+      "pcr_vol": 0.45,
+      "pcr_oi": 0.69,
+      "gex": -0.9,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 2.21,
+      "put_premium": 3.76,
+      "unusual": false,
+      "score": 3,
+      "direction": "BULLISH",
+      "call_vol": 23904,
+      "put_vol": 10649,
+      "expiry_next_week": "2026-09-25",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 70,
+        "median": 35.9
       }
     },
     {
@@ -700,12 +729,6 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
