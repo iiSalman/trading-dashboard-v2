@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-19T01:35:49.530713+00:00",
+  "timestamp": "2026-09-19T06:34:30.638628+00:00",
   "date": "Saturday, September 19 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -56,7 +56,7 @@
         "low": 40,
         "high": 45,
         "samples": 63,
-        "median": 38.0
+        "median": 37.9
       }
     },
     {
@@ -70,7 +70,7 @@
       "pcr_oi": 1.22,
       "gex": 12.03,
       "gex_regime": "POSITIVE",
-      "call_premium": 199.67,
+      "call_premium": 199.68,
       "put_premium": 18.52,
       "unusual": true,
       "score": 5,
@@ -115,6 +115,35 @@
         "high": 40,
         "samples": 60,
         "median": 38.1
+      }
+    },
+    {
+      "ticker": "IREN",
+      "price": 46.68,
+      "change": 7.36,
+      "volume": 45373800,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.58,
+      "pcr_oi": 0.93,
+      "gex": 7.89,
+      "gex_regime": "POSITIVE",
+      "call_premium": 8.4,
+      "put_premium": 1.65,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 45716,
+      "put_vol": 26334,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BEARISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 65,
+        "median": 37.6
       }
     },
     {
@@ -176,6 +205,122 @@
       }
     },
     {
+      "ticker": "HIMS",
+      "price": 27.99,
+      "change": 0.36,
+      "volume": 9374100,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.2,
+      "pcr_oi": 0.53,
+      "gex": 2.63,
+      "gex_regime": "POSITIVE",
+      "call_premium": 1.6,
+      "put_premium": 0.31,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 24482,
+      "put_vol": 4851,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 64,
+        "median": 36.8
+      }
+    },
+    {
+      "ticker": "ARM",
+      "price": 275.61,
+      "change": 4.04,
+      "volume": 6943100,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.2,
+      "pcr_oi": 0.42,
+      "gex": 4.42,
+      "gex_regime": "POSITIVE",
+      "call_premium": 15.32,
+      "put_premium": 2.49,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 27083,
+      "put_vol": 5342,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BEARISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 63,
+        "median": 36.8
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "price": 177.64,
+      "change": 0.79,
+      "volume": 39228600,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.43,
+      "pcr_oi": 1.25,
+      "gex": 4.86,
+      "gex_regime": "POSITIVE",
+      "call_premium": 36.74,
+      "put_premium": 7.16,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 117289,
+      "put_vol": 50134,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 58,
+        "median": 36.8
+      }
+    },
+    {
+      "ticker": "BABA",
+      "price": 113.24,
+      "change": 4.33,
+      "volume": 13202700,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.43,
+      "pcr_oi": 0.51,
+      "gex": 8.66,
+      "gex_regime": "POSITIVE",
+      "call_premium": 6.96,
+      "put_premium": 2.39,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 34500,
+      "put_vol": 14862,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 54,
+        "median": 36.4
+      }
+    },
+    {
       "ticker": "AVGO",
       "price": 357.61,
       "change": 2.97,
@@ -231,6 +376,93 @@
         "high": 45,
         "samples": 61,
         "median": 39.0
+      }
+    },
+    {
+      "ticker": "RKLB",
+      "price": 64.57,
+      "change": -4.79,
+      "volume": 32168300,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.48,
+      "pcr_oi": 0.67,
+      "gex": 1.31,
+      "gex_regime": "POSITIVE",
+      "call_premium": 2.52,
+      "put_premium": 2.63,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 22323,
+      "put_vol": 10783,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 55,
+        "median": 35.4
+      }
+    },
+    {
+      "ticker": "META",
+      "price": 665.75,
+      "change": -2.43,
+      "volume": 27548000,
+      "expiry": "2026-09-21",
+      "dte": 2,
+      "pcr_vol": 0.28,
+      "pcr_oi": 0.7,
+      "gex": 1.54,
+      "gex_regime": "POSITIVE",
+      "call_premium": 25.66,
+      "put_premium": 12.93,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 99090,
+      "put_vol": 27882,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 62,
+        "median": 37.5
+      }
+    },
+    {
+      "ticker": "CRWV",
+      "price": 81.36,
+      "change": 1.85,
+      "volume": 66213900,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.36,
+      "pcr_oi": 0.89,
+      "gex": -0.11,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 10.45,
+      "put_premium": 5.37,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 55283,
+      "put_vol": 20163,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 64,
+        "median": 36.3
       }
     },
     {
@@ -292,6 +524,35 @@
       }
     },
     {
+      "ticker": "PANW",
+      "price": 363.58,
+      "change": -3.06,
+      "volume": 13790700,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.74,
+      "pcr_oi": 1.16,
+      "gex": 1.25,
+      "gex_regime": "POSITIVE",
+      "call_premium": 3.39,
+      "put_premium": 1.35,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 5974,
+      "put_vol": 4398,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 60,
+        "median": 36.6
+      }
+    },
+    {
       "ticker": "INTC",
       "price": 108.6,
       "change": -0.18,
@@ -321,6 +582,35 @@
       }
     },
     {
+      "ticker": "SNDK",
+      "price": 1791.82,
+      "change": 10.99,
+      "volume": 17693500,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.86,
+      "pcr_oi": 1.3,
+      "gex": 2.91,
+      "gex_regime": "POSITIVE",
+      "call_premium": 352.54,
+      "put_premium": 60.6,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 47738,
+      "put_vol": 40846,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 56,
+        "median": 38.6
+      }
+    },
+    {
       "ticker": "TSLA",
       "price": 364.27,
       "change": -0.53,
@@ -347,6 +637,35 @@
         "high": 40,
         "samples": 58,
         "median": 34.9
+      }
+    },
+    {
+      "ticker": "OKLO",
+      "price": 38.0,
+      "change": -4.16,
+      "volume": 13806300,
+      "expiry": "2026-09-25",
+      "dte": 6,
+      "pcr_vol": 0.62,
+      "pcr_oi": 0.92,
+      "gex": 0.9,
+      "gex_regime": "POSITIVE",
+      "call_premium": 0.57,
+      "put_premium": 0.7,
+      "unusual": true,
+      "score": 3,
+      "direction": "BULLISH",
+      "call_vol": 7165,
+      "put_vol": 4453,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 13,
+      "score_next_week": 3,
+      "direction_next_week": "BEARISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 67,
+        "median": 36.5
       }
     },
     {
@@ -430,72 +749,6 @@
       "score_next_week": 5,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "RKLB",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "IREN",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "HIMS",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "ARM",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "OKLO",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "META",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "PLTR",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "CRWV",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "BABA",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "PANW",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
-      "ticker": "SNDK",
-      "error": "No price",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -525,7 +778,7 @@
         "low": 40,
         "high": 45,
         "samples": 63,
-        "median": 38.0
+        "median": 37.9
       }
     },
     {
@@ -539,7 +792,7 @@
       "pcr_oi": 1.22,
       "gex": 12.03,
       "gex_regime": "POSITIVE",
-      "call_premium": 199.67,
+      "call_premium": 199.68,
       "put_premium": 18.52,
       "unusual": true,
       "score": 5,
