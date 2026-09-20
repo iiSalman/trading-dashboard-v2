@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-20T11:56:47.606984+00:00",
+  "timestamp": "2026-09-20T15:32:03.081011+00:00",
   "date": "Sunday, September 20 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -30,6 +30,35 @@
     "recovery_rsi": null
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 222.27,
+      "change": 1.34,
+      "volume": 189683500,
+      "expiry": "2026-09-21",
+      "dte": 1,
+      "pcr_vol": 0.55,
+      "pcr_oi": 0.89,
+      "gex": 43.21,
+      "gex_regime": "POSITIVE",
+      "call_premium": 47.66,
+      "put_premium": 7.92,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 188864,
+      "put_vol": 103421,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 12,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 63,
+        "median": 38.0
+      }
+    },
     {
       "ticker": "MSTR",
       "price": 153.92,
@@ -720,15 +749,38 @@
       "score_next_week": 5,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 222.27,
+      "change": 1.34,
+      "volume": 189683500,
+      "expiry": "2026-09-21",
+      "dte": 1,
+      "pcr_vol": 0.55,
+      "pcr_oi": 0.89,
+      "gex": 43.21,
+      "gex_regime": "POSITIVE",
+      "call_premium": 47.66,
+      "put_premium": 7.92,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 188864,
+      "put_vol": 103421,
+      "expiry_next_week": "2026-10-02",
+      "dte_next_week": 12,
+      "score_next_week": 2,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 63,
+        "median": 38.0
+      }
+    },
     {
       "ticker": "MSTR",
       "price": 153.92,
@@ -785,35 +837,6 @@
         "high": 40,
         "samples": 60,
         "median": 38.1
-      }
-    },
-    {
-      "ticker": "IREN",
-      "price": 46.68,
-      "change": 7.36,
-      "volume": 45373800,
-      "expiry": "2026-09-25",
-      "dte": 5,
-      "pcr_vol": 0.58,
-      "pcr_oi": 0.93,
-      "gex": 7.99,
-      "gex_regime": "POSITIVE",
-      "call_premium": 8.4,
-      "put_premium": 1.65,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 45716,
-      "put_vol": 26334,
-      "expiry_next_week": "2026-10-02",
-      "dte_next_week": 12,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 65,
-        "median": 37.6
       }
     }
   ]
