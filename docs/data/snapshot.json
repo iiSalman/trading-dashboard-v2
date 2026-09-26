@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-26T17:57:22.437632+00:00",
+  "timestamp": "2026-09-26T20:44:37.071067+00:00",
   "date": "Saturday, September 26 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -462,7 +462,7 @@
         "low": 35,
         "high": 40,
         "samples": 64,
-        "median": 36.9
+        "median": 37.0
       }
     },
     {
@@ -578,7 +578,7 @@
         "low": 40,
         "high": 45,
         "samples": 59,
-        "median": 35.9
+        "median": 35.8
       }
     },
     {
