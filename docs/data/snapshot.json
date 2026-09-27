@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-27T01:26:22.422458+00:00",
+  "timestamp": "2026-09-27T06:52:36.508195+00:00",
   "date": "Sunday, September 27 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -30,6 +30,35 @@
     "recovery_rsi": null
   },
   "tickers": [
+    {
+      "ticker": "NVDA",
+      "price": 225.07,
+      "change": 0.22,
+      "volume": 89808400,
+      "expiry": "2026-09-28",
+      "dte": 1,
+      "pcr_vol": 0.52,
+      "pcr_oi": 0.77,
+      "gex": 38.21,
+      "gex_regime": "POSITIVE",
+      "call_premium": 25.22,
+      "put_premium": 11.44,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 227950,
+      "put_vol": 117740,
+      "expiry_next_week": "2026-10-05",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 54,
+        "median": 36.5
+      }
+    },
     {
       "ticker": "RKLB",
       "price": 73.95,
@@ -695,15 +724,38 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "NVDA",
+      "price": 225.07,
+      "change": 0.22,
+      "volume": 89808400,
+      "expiry": "2026-09-28",
+      "dte": 1,
+      "pcr_vol": 0.52,
+      "pcr_oi": 0.77,
+      "gex": 38.21,
+      "gex_regime": "POSITIVE",
+      "call_premium": 25.22,
+      "put_premium": 11.44,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 227950,
+      "put_vol": 117740,
+      "expiry_next_week": "2026-10-05",
+      "dte_next_week": 8,
+      "score_next_week": 5,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 54,
+        "median": 36.5
+      }
+    },
     {
       "ticker": "RKLB",
       "price": 73.95,
@@ -760,35 +812,6 @@
         "high": 35,
         "samples": 60,
         "median": 35.9
-      }
-    },
-    {
-      "ticker": "AAPL",
-      "price": 341.07,
-      "change": 1.53,
-      "volume": 29950100,
-      "expiry": "2026-09-28",
-      "dte": 1,
-      "pcr_vol": 0.55,
-      "pcr_oi": 0.37,
-      "gex": 31.09,
-      "gex_regime": "POSITIVE",
-      "call_premium": 21.24,
-      "put_premium": 3.78,
-      "unusual": true,
-      "score": 5,
-      "direction": "BULLISH",
-      "call_vol": 118465,
-      "put_vol": 65221,
-      "expiry_next_week": "2026-10-05",
-      "dte_next_week": 8,
-      "score_next_week": 5,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 62,
-        "median": 37.0
       }
     }
   ]
