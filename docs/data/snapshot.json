@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-10T18:53:38.567994+00:00",
+  "timestamp": "2026-10-10T22:06:53.502199+00:00",
   "date": "Saturday, October 10 2026",
   "market_status": "CLOSED",
   "market_bias": "BEARISH",
@@ -90,7 +90,7 @@
         "low": 40,
         "high": 45,
         "samples": 66,
-        "median": 38.0
+        "median": 38.1
       }
     },
     {
@@ -227,10 +227,10 @@
       "direction": "BULLISH",
       "call_vol": 51515,
       "put_vol": 11765,
-      "expiry_next_week": "2026-10-19",
-      "dte_next_week": 9,
-      "score_next_week": 0,
-      "direction_next_week": "NEUTRAL",
+      "expiry_next_week": "2026-10-23",
+      "dte_next_week": 13,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
       "recovery_rsi": {
         "low": 35,
         "high": 40,
@@ -430,10 +430,10 @@
       "direction": "BULLISH",
       "call_vol": 42367,
       "put_vol": 25588,
-      "expiry_next_week": "2026-10-23",
-      "dte_next_week": 13,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
+      "expiry_next_week": "2026-10-19",
+      "dte_next_week": 9,
+      "score_next_week": 0,
+      "direction_next_week": "NEUTRAL",
       "recovery_rsi": {
         "low": 30,
         "high": 35,
@@ -453,12 +453,12 @@
       "gex": 7.7,
       "gex_regime": "POSITIVE",
       "call_premium": 10.06,
-      "put_premium": 2.06,
+      "put_premium": 2.12,
       "unusual": false,
       "score": 3,
       "direction": "BULLISH",
       "call_vol": 5203,
-      "put_vol": 5879,
+      "put_vol": 5882,
       "expiry_next_week": "2026-10-23",
       "dte_next_week": 13,
       "score_next_week": 3,
@@ -517,10 +517,10 @@
       "direction": "BULLISH",
       "call_vol": 19724,
       "put_vol": 8779,
-      "expiry_next_week": "2026-10-23",
-      "dte_next_week": 13,
-      "score_next_week": 2,
-      "direction_next_week": "BULLISH",
+      "expiry_next_week": "2026-10-19",
+      "dte_next_week": 9,
+      "score_next_week": 0,
+      "direction_next_week": "NEUTRAL",
       "recovery_rsi": {
         "low": 40,
         "high": 45,
@@ -623,8 +623,8 @@
       "direction": "BEARISH",
       "call_vol": 308917,
       "put_vol": 396605,
-      "expiry_next_week": "2026-10-21",
-      "dte_next_week": 11,
+      "expiry_next_week": "2026-10-19",
+      "dte_next_week": 9,
       "score_next_week": 0,
       "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
@@ -695,10 +695,10 @@
       "direction": "NEUTRAL",
       "call_vol": 204799,
       "put_vol": 194549,
-      "expiry_next_week": "2026-10-19",
-      "dte_next_week": 9,
-      "score_next_week": 0,
-      "direction_next_week": "NEUTRAL",
+      "expiry_next_week": "2026-10-23",
+      "dte_next_week": 13,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
       "recovery_rsi": null
     },
     {
@@ -782,7 +782,7 @@
         "low": 40,
         "high": 45,
         "samples": 66,
-        "median": 38.0
+        "median": 38.1
       }
     },
     {
