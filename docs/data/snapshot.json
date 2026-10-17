@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-17T16:49:40.866978+00:00",
+  "timestamp": "2026-10-17T18:53:14.881862+00:00",
   "date": "Saturday, October 17 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -176,8 +176,8 @@
       "recovery_rsi": {
         "low": 40,
         "high": 45,
-        "samples": 66,
-        "median": 34.6
+        "samples": 67,
+        "median": 34.8
       }
     },
     {
