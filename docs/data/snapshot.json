@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-18T00:57:19.089502+00:00",
+  "timestamp": "2026-10-18T05:29:40.984962+00:00",
   "date": "Sunday, October 18 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -62,6 +62,35 @@
         "high": 45,
         "samples": 59,
         "median": 36.8
+      }
+    },
+    {
+      "ticker": "RKLB",
+      "price": 50.84,
+      "change": -7.98,
+      "volume": 23869500,
+      "expiry": "2026-10-23",
+      "dte": 5,
+      "pcr_vol": 0.39,
+      "pcr_oi": 0.82,
+      "gex": -2.24,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 1.42,
+      "put_premium": 4.22,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 22961,
+      "put_vol": 9048,
+      "expiry_next_week": "2026-10-30",
+      "dte_next_week": 12,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 68,
+        "median": 34.7
       }
     },
     {
@@ -700,12 +729,6 @@
       "score_next_week": 4,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
@@ -739,6 +762,35 @@
       }
     },
     {
+      "ticker": "RKLB",
+      "price": 50.84,
+      "change": -7.98,
+      "volume": 23869500,
+      "expiry": "2026-10-23",
+      "dte": 5,
+      "pcr_vol": 0.39,
+      "pcr_oi": 0.82,
+      "gex": -2.24,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 1.42,
+      "put_premium": 4.22,
+      "unusual": true,
+      "score": 4,
+      "direction": "BULLISH",
+      "call_vol": 22961,
+      "put_vol": 9048,
+      "expiry_next_week": "2026-10-30",
+      "dte_next_week": 12,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 30,
+        "high": 35,
+        "samples": 68,
+        "median": 34.7
+      }
+    },
+    {
       "ticker": "HIMS",
       "price": 28.07,
       "change": -4.46,
@@ -765,35 +817,6 @@
         "high": 40,
         "samples": 66,
         "median": 35.4
-      }
-    },
-    {
-      "ticker": "ARM",
-      "price": 227.8,
-      "change": -6.94,
-      "volume": 4754000,
-      "expiry": "2026-10-23",
-      "dte": 5,
-      "pcr_vol": 0.55,
-      "pcr_oi": 0.77,
-      "gex": -0.81,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 2.1,
-      "put_premium": 4.54,
-      "unusual": true,
-      "score": 4,
-      "direction": "BULLISH",
-      "call_vol": 8441,
-      "put_vol": 4678,
-      "expiry_next_week": "2026-10-30",
-      "dte_next_week": 12,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 54,
-        "median": 34.1
       }
     }
   ]
