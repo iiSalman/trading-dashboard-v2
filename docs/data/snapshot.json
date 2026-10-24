@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-24T06:32:13.239481+00:00",
+  "timestamp": "2026-10-24T11:30:21.162554+00:00",
   "date": "Saturday, October 24 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -30,8 +30,8 @@
     "recovery_rsi": {
       "low": 35,
       "high": 40,
-      "samples": 52,
-      "median": 32.9
+      "samples": 51,
+      "median": 32.7
     }
   },
   "tickers": [
