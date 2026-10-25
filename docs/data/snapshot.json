@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-25T13:46:56.203493+00:00",
+  "timestamp": "2026-10-25T17:14:41.586841+00:00",
   "date": "Sunday, October 25 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -268,6 +268,35 @@
       }
     },
     {
+      "ticker": "RKLB",
+      "price": 52.6,
+      "change": 2.69,
+      "volume": 13391100,
+      "expiry": "2026-10-30",
+      "dte": 5,
+      "pcr_vol": 0.59,
+      "pcr_oi": 0.72,
+      "gex": -1.79,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 1.81,
+      "put_premium": 3.28,
+      "unusual": false,
+      "score": 3,
+      "direction": "BULLISH",
+      "call_vol": 13653,
+      "put_vol": 8103,
+      "expiry_next_week": "2026-11-06",
+      "dte_next_week": 12,
+      "score_next_week": 3,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 40,
+        "high": 45,
+        "samples": 65,
+        "median": 35.5
+      }
+    },
+    {
       "ticker": "AMD",
       "price": 516.79,
       "change": 1.74,
@@ -500,30 +529,6 @@
       }
     },
     {
-      "ticker": "NVDA",
-      "price": 210.96,
-      "change": -0.59,
-      "volume": 79987200,
-      "expiry": "2026-10-26",
-      "dte": 1,
-      "pcr_vol": 0.7,
-      "pcr_oi": 0.74,
-      "gex": -11.24,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 34.93,
-      "put_premium": 43.9,
-      "unusual": true,
-      "score": 2,
-      "direction": "BULLISH",
-      "call_vol": 205819,
-      "put_vol": 144754,
-      "expiry_next_week": "2026-11-02",
-      "dte_next_week": 8,
-      "score_next_week": 1,
-      "direction_next_week": "NEUTRAL",
-      "recovery_rsi": null
-    },
-    {
       "ticker": "OKLO",
       "price": 26.35,
       "change": -2.44,
@@ -692,7 +697,7 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "RKLB",
+      "ticker": "NVDA",
       "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
