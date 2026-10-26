@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-26T04:46:12.476977+00:00",
+  "timestamp": "2026-10-26T10:33:47.210129+00:00",
   "date": "Monday, October 26 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "NEUTRAL",
   "bias_desc": "Mixed signals \u2014 wait for clarity, reduce size",
   "bias_color": "gray",
@@ -144,35 +144,6 @@
         "high": 45,
         "samples": 59,
         "median": 37.6
-      }
-    },
-    {
-      "ticker": "RKLB",
-      "price": 52.6,
-      "change": 2.69,
-      "volume": 13391100,
-      "expiry": "2026-10-30",
-      "dte": 4,
-      "pcr_vol": 0.59,
-      "pcr_oi": 1.0,
-      "gex": 0.0,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 1.81,
-      "put_premium": 3.28,
-      "unusual": false,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 13653,
-      "put_vol": 8103,
-      "expiry_next_week": "2026-11-06",
-      "dte_next_week": 11,
-      "score_next_week": 3,
-      "direction_next_week": "BULLISH",
-      "recovery_rsi": {
-        "low": 40,
-        "high": 45,
-        "samples": 65,
-        "median": 35.5
       }
     },
     {
@@ -578,6 +549,12 @@
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
       "recovery_rsi": null
+    },
+    {
+      "ticker": "RKLB",
+      "error": "database is locked",
+      "score": 0,
+      "direction": "NEUTRAL"
     },
     {
       "ticker": "TSLA",
