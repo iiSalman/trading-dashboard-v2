@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-31T11:02:58.746219+00:00",
+  "timestamp": "2026-10-31T16:01:22.512541+00:00",
   "date": "Saturday, October 31 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -239,35 +239,6 @@
       }
     },
     {
-      "ticker": "RKLB",
-      "price": 54.73,
-      "change": -7.39,
-      "volume": 16492600,
-      "expiry": "2026-11-06",
-      "dte": 6,
-      "pcr_vol": 0.42,
-      "pcr_oi": 0.9,
-      "gex": -0.06,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 1.76,
-      "put_premium": 1.81,
-      "unusual": true,
-      "score": 3,
-      "direction": "BULLISH",
-      "call_vol": 18480,
-      "put_vol": 7813,
-      "expiry_next_week": "2026-11-13",
-      "dte_next_week": 13,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 64,
-        "median": 35.3
-      }
-    },
-    {
       "ticker": "AMZN",
       "price": 240.35,
       "change": -1.41,
@@ -350,8 +321,8 @@
       "recovery_rsi": {
         "low": 25,
         "high": 30,
-        "samples": 62,
-        "median": 34.9
+        "samples": 61,
+        "median": 35.1
       }
     },
     {
@@ -482,7 +453,7 @@
       "score": 2,
       "direction": "BULLISH",
       "call_vol": 55747,
-      "put_vol": 43366,
+      "put_vol": 43367,
       "expiry_next_week": "2026-11-13",
       "dte_next_week": 13,
       "score_next_week": 4,
@@ -602,11 +573,35 @@
       "score": 2,
       "direction": "BULLISH",
       "call_vol": 19931,
-      "put_vol": 14643,
+      "put_vol": 14646,
       "expiry_next_week": "2026-11-13",
       "dte_next_week": 13,
       "score_next_week": 2,
       "direction_next_week": "BULLISH",
+      "recovery_rsi": null
+    },
+    {
+      "ticker": "NVDA",
+      "price": 204.64,
+      "change": -4.22,
+      "volume": 168039400,
+      "expiry": "2026-11-02",
+      "dte": 2,
+      "pcr_vol": 1.0,
+      "pcr_oi": 1.78,
+      "gex": -17.91,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 42.74,
+      "put_premium": 49.38,
+      "unusual": true,
+      "score": 1,
+      "direction": "NEUTRAL",
+      "call_vol": 220545,
+      "put_vol": 220178,
+      "expiry_next_week": "2026-11-13",
+      "dte_next_week": 13,
+      "score_next_week": 1,
+      "direction_next_week": "NEUTRAL",
       "recovery_rsi": null
     },
     {
@@ -682,7 +677,7 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "NVDA",
+      "ticker": "RKLB",
       "error": "database is locked",
       "score": 0,
       "direction": "NEUTRAL"
