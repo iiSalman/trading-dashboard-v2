@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-01T01:47:35.039662+00:00",
+  "timestamp": "2026-11-01T08:12:02.228316+00:00",
   "date": "Sunday, November 01 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -350,8 +350,8 @@
       "recovery_rsi": {
         "low": 25,
         "high": 30,
-        "samples": 62,
-        "median": 34.9
+        "samples": 61,
+        "median": 35.1
       }
     },
     {
@@ -482,7 +482,7 @@
       "score": 2,
       "direction": "BULLISH",
       "call_vol": 55747,
-      "put_vol": 43366,
+      "put_vol": 43367,
       "expiry_next_week": "2026-11-13",
       "dte_next_week": 12,
       "score_next_week": 4,
@@ -602,7 +602,7 @@
       "score": 2,
       "direction": "BULLISH",
       "call_vol": 19931,
-      "put_vol": 14643,
+      "put_vol": 14646,
       "expiry_next_week": "2026-11-13",
       "dte_next_week": 12,
       "score_next_week": 2,
