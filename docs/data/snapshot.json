@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-01T19:37:54.080091+00:00",
+  "timestamp": "2026-11-01T23:03:32.565549+00:00",
   "date": "Sunday, November 01 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -292,8 +292,8 @@
       "recovery_rsi": {
         "low": 25,
         "high": 30,
-        "samples": 61,
-        "median": 35.1
+        "samples": 62,
+        "median": 34.9
       }
     },
     {
