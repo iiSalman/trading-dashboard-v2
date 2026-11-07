@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-07T15:07:10.639597+00:00",
+  "timestamp": "2026-11-07T19:23:15.627491+00:00",
   "date": "Saturday, November 07 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -35,6 +35,35 @@
     }
   },
   "tickers": [
+    {
+      "ticker": "RKLB",
+      "price": 53.07,
+      "change": 15.39,
+      "volume": 20675700,
+      "expiry": "2026-11-13",
+      "dte": 6,
+      "pcr_vol": 0.52,
+      "pcr_oi": 0.73,
+      "gex": 0.89,
+      "gex_regime": "POSITIVE",
+      "call_premium": 5.62,
+      "put_premium": 3.43,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 22715,
+      "put_vol": 11887,
+      "expiry_next_week": "2026-11-20",
+      "dte_next_week": 13,
+      "score_next_week": 0,
+      "direction_next_week": "NEUTRAL",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 61,
+        "median": 35.3
+      }
+    },
     {
       "ticker": "HIMS",
       "price": 26.0,
@@ -710,15 +739,38 @@
       "score_next_week": 3,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     }
   ],
   "top_picks": [
+    {
+      "ticker": "RKLB",
+      "price": 53.07,
+      "change": 15.39,
+      "volume": 20675700,
+      "expiry": "2026-11-13",
+      "dte": 6,
+      "pcr_vol": 0.52,
+      "pcr_oi": 0.73,
+      "gex": 0.89,
+      "gex_regime": "POSITIVE",
+      "call_premium": 5.62,
+      "put_premium": 3.43,
+      "unusual": true,
+      "score": 5,
+      "direction": "BULLISH",
+      "call_vol": 22715,
+      "put_vol": 11887,
+      "expiry_next_week": "2026-11-20",
+      "dte_next_week": 13,
+      "score_next_week": 0,
+      "direction_next_week": "NEUTRAL",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 61,
+        "median": 35.3
+      }
+    },
     {
       "ticker": "HIMS",
       "price": 26.0,
@@ -775,35 +827,6 @@
         "high": 40,
         "samples": 60,
         "median": 34.0
-      }
-    },
-    {
-      "ticker": "CRM",
-      "price": 213.65,
-      "change": -3.94,
-      "volume": 6710100,
-      "expiry": "2026-11-13",
-      "dte": 6,
-      "pcr_vol": 1.63,
-      "pcr_oi": 1.11,
-      "gex": -1.66,
-      "gex_regime": "NEGATIVE",
-      "call_premium": 0.58,
-      "put_premium": 2.08,
-      "unusual": true,
-      "score": 5,
-      "direction": "BEARISH",
-      "call_vol": 2931,
-      "put_vol": 4768,
-      "expiry_next_week": "2026-11-20",
-      "dte_next_week": 13,
-      "score_next_week": 3,
-      "direction_next_week": "BEARISH",
-      "recovery_rsi": {
-        "low": 35,
-        "high": 40,
-        "samples": 48,
-        "median": 33.5
       }
     }
   ]
