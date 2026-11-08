@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-08T08:27:35.790649+00:00",
+  "timestamp": "2026-11-08T15:29:39.716966+00:00",
   "date": "Sunday, November 08 2026",
   "market_status": "CLOSED",
   "market_bias": "TREND_DOWN",
@@ -467,7 +467,7 @@
         "low": 40,
         "high": 45,
         "samples": 63,
-        "median": 33.6
+        "median": 33.7
       }
     },
     {
