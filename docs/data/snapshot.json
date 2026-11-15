@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-15T19:46:09.313587+00:00",
+  "timestamp": "2026-11-15T23:32:20.393676+00:00",
   "date": "Sunday, November 15 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -234,6 +234,35 @@
       }
     },
     {
+      "ticker": "RKLB",
+      "price": 61.53,
+      "change": -3.96,
+      "volume": 13178500,
+      "expiry": "2026-11-20",
+      "dte": 5,
+      "pcr_vol": 0.55,
+      "pcr_oi": 0.93,
+      "gex": 3.49,
+      "gex_regime": "POSITIVE",
+      "call_premium": 2.17,
+      "put_premium": 1.41,
+      "unusual": false,
+      "score": 3,
+      "direction": "BULLISH",
+      "call_vol": 16528,
+      "put_vol": 9150,
+      "expiry_next_week": "2026-11-27",
+      "dte_next_week": 12,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 54,
+        "median": 36.7
+      }
+    },
+    {
       "ticker": "MSTR",
       "price": 111.62,
       "change": -2.44,
@@ -404,7 +433,7 @@
         "low": 35,
         "high": 40,
         "samples": 65,
-        "median": 35.3
+        "median": 35.2
       }
     },
     {
@@ -419,12 +448,12 @@
       "gex": -1.88,
       "gex_regime": "NEGATIVE",
       "call_premium": 119.96,
-      "put_premium": 375.16,
+      "put_premium": 375.85,
       "unusual": true,
       "score": 3,
       "direction": "BULLISH",
       "call_vol": 38568,
-      "put_vol": 23954,
+      "put_vol": 23961,
       "expiry_next_week": "2026-11-27",
       "dte_next_week": 12,
       "score_next_week": 2,
@@ -653,12 +682,6 @@
       "recovery_rsi": null
     },
     {
-      "ticker": "RKLB",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
-    },
-    {
       "ticker": "PANW",
       "price": 322.24,
       "change": -0.13,
@@ -670,12 +693,12 @@
       "gex": -0.84,
       "gex_regime": "NEGATIVE",
       "call_premium": 5.42,
-      "put_premium": 5.96,
+      "put_premium": 6.03,
       "unusual": false,
       "score": 0,
       "direction": "NEUTRAL",
       "call_vol": 5626,
-      "put_vol": 5069,
+      "put_vol": 5072,
       "expiry_next_week": "2026-11-27",
       "dte_next_week": 12,
       "score_next_week": 1,
