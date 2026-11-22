@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-22T17:33:33.792195+00:00",
+  "timestamp": "2026-11-22T22:44:49.678814+00:00",
   "date": "Sunday, November 22 2026",
   "market_status": "CLOSED",
   "market_bias": "NEUTRAL",
@@ -149,6 +149,35 @@
         "high": 40,
         "samples": 58,
         "median": 34.2
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "price": 125.53,
+      "change": -14.01,
+      "volume": 626373200,
+      "expiry": "2026-11-23",
+      "dte": 1,
+      "pcr_vol": 0.92,
+      "pcr_oi": 0.46,
+      "gex": -7.78,
+      "gex_regime": "NEGATIVE",
+      "call_premium": 63.15,
+      "put_premium": 361.22,
+      "unusual": true,
+      "score": 4,
+      "direction": "BEARISH",
+      "call_vol": 477587,
+      "put_vol": 437480,
+      "expiry_next_week": "2026-11-30",
+      "dte_next_week": 8,
+      "score_next_week": 4,
+      "direction_next_week": "BULLISH",
+      "recovery_rsi": {
+        "low": 35,
+        "high": 40,
+        "samples": 62,
+        "median": 34.7
       }
     },
     {
@@ -696,12 +725,6 @@
       "score_next_week": 5,
       "direction_next_week": "BEARISH",
       "recovery_rsi": null
-    },
-    {
-      "ticker": "NVDA",
-      "error": "database is locked",
-      "score": 0,
-      "direction": "NEUTRAL"
     },
     {
       "ticker": "SNDK",
