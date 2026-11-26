@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-11-26T04:24:27.788204+00:00",
+  "timestamp": "2026-11-26T14:08:06.900466+00:00",
   "date": "Thursday, November 26 2026",
-  "market_status": "CLOSED",
+  "market_status": "OPEN",
   "market_bias": "NEUTRAL",
   "bias_desc": "Mixed signals \u2014 wait for clarity, reduce size",
   "bias_color": "gray",
@@ -578,7 +578,7 @@
       "gex": -8.38,
       "gex_regime": "NEGATIVE",
       "call_premium": 233.93,
-      "put_premium": 121.98,
+      "put_premium": 122.05,
       "unusual": true,
       "score": 2,
       "direction": "BULLISH",
